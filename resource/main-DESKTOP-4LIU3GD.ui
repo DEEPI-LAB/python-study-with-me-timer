@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>984</width>
-    <height>510</height>
+    <height>519</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -71,7 +71,7 @@ QTabBar::tab:hover
       </property>
       <widget class="QWidget" name="tab2">
        <property name="styleSheet">
-        <string notr="true">기본 설정</string>
+        <string notr="true"/>
        </property>
        <attribute name="title">
         <string>Today 설정</string>
@@ -269,7 +269,9 @@ QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
     padding: 5px 8000px 5px 8000px;
-}</string>
+}
+
+</string>
                </property>
                <property name="title">
                 <string>현재 날짜</string>
@@ -345,9 +347,19 @@ color :   #353F40;</string>
                       <height>40</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Gong Gothic</family>
+                      <pointsize>-1</pointsize>
+                      <weight>9</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -428,7 +440,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -503,7 +515,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -533,7 +545,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="alignment">
@@ -560,7 +572,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="frame">
@@ -742,7 +754,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -823,7 +835,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -898,7 +910,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -928,7 +940,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -952,7 +964,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -1275,13 +1287,13 @@ QGroupBox::title  {
                    <widget class="QLabel" name="label_11">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1302,13 +1314,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="label_9">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1976,13 +1988,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="label_10">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2024,13 +2036,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="label_12">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2850,13 +2862,13 @@ QGroupBox::title  {
                    <widget class="QLineEdit" name="break_end_sound_path">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2874,13 +2886,13 @@ color :   #353F40;</string>
                    <widget class="QLineEdit" name="break_sound_path">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2908,13 +2920,13 @@ color :   #353F40;</string>
                    <widget class="QLineEdit" name="break_start_sound_path">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>170</width>
+                      <width>210</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2932,7 +2944,7 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_address_6">
                     <property name="minimumSize">
                      <size>
-                      <width>150</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2948,7 +2960,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>휴식 시간 종료</string>
+                     <string>종료 종소리</string>
                     </property>
                    </widget>
                   </item>
@@ -2974,13 +2986,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="label_25">
                     <property name="minimumSize">
                      <size>
-                      <width>150</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2990,7 +3002,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>휴식 시간 시작</string>
+                     <string>시작 종소리</string>
                     </property>
                    </widget>
                   </item>
@@ -2998,7 +3010,7 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_name_6">
                     <property name="minimumSize">
                      <size>
-                      <width>150</width>
+                      <width>130</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3110,6 +3122,18 @@ color :   #353F40;</string>
                   </item>
                   <item row="3" column="1">
                    <widget class="QSlider" name="sound_slider">
+                    <property name="minimumSize">
+                     <size>
+                      <width>210</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>210</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>
@@ -3267,7 +3291,30 @@ QPushButton::hover
 }</string>
                </property>
                <property name="text">
-                <string>준비중</string>
+                <string>일지 저장</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_4">
+               <property name="minimumSize">
+                <size>
+                 <width>230</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>230</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 13px &quot;Gong Gothic&quot;;
+color :  rgb(255, 66, 28)</string>
+               </property>
+               <property name="text">
+                <string/>
                </property>
               </widget>
              </item>
@@ -3315,7 +3362,6 @@ background-color: #353F40;</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
 }
 
 QGroupBox::title  {
@@ -3379,7 +3425,7 @@ color :   #353F40;</string>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="date_output_format_2">
+                   <widget class="QLineEdit" name="current_date">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                       <horstretch>0</horstretch>
@@ -3400,11 +3446,11 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>준비중</string>
+                     <string>0000년 00월 00초</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3460,7 +3506,7 @@ color :   #353F40;</string>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="date_output_string_2">
+                   <widget class="QLineEdit" name="current_time">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                       <horstretch>0</horstretch>
@@ -3481,11 +3527,11 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>준비중</string>
+                     <string>00시 00분 00초</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3541,7 +3587,7 @@ color :   #353F40;</string>
                    </widget>
                   </item>
                   <item row="4" column="1" colspan="2">
-                   <widget class="QLineEdit" name="date_output_path_2">
+                   <widget class="QLineEdit" name="current_meal">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -3556,11 +3602,11 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>준비중</string>
+                     <string>00시간 00분 00초</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3571,7 +3617,7 @@ color :   #353F40;</string>
                    </widget>
                   </item>
                   <item row="3" column="1" colspan="2">
-                   <widget class="QLineEdit" name="date_output_live_2">
+                   <widget class="QLineEdit" name="current_break">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -3586,11 +3632,11 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>준비중</string>
+                     <string>00시간 00분 00초</string>
                     </property>
                     <property name="frame">
                      <bool>true</bool>
@@ -3604,7 +3650,7 @@ color :   #353F40;</string>
                    </widget>
                   </item>
                   <item row="2" column="1">
-                   <widget class="QLineEdit" name="date_pc_2">
+                   <widget class="QLineEdit" name="current_study">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -3619,11 +3665,11 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>준비중</string>
+                     <string>00시간 00분 00초</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3692,7 +3738,7 @@ QGroupBox::title  {
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3738,7 +3784,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3872,7 +3918,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3964,7 +4010,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3991,7 +4037,7 @@ color :   #353F40;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px;
-font: 15px&quot;Gong Gothic Light&quot;;
+font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4124,7 +4170,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :    #F2F1EF;</string>
                </property>
                <property name="text">
-                <string>With DI ver 0.2.0 </string>
+                <string>With DI ver 0.2.1 </string>
                </property>
               </widget>
              </item>
@@ -4179,40 +4225,49 @@ color :    #F2F1EF;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 추후 위젯 연동 기능으로 직관적인 ui 구성까지 더할 예정에 있습니다. 티스토리를 통해 배포되고 있으며, 최신 버전은 홈페이지를 확인해주세요.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;https://deep-eye.tistory.com/category/Program&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#dcdcdc;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#dcdcdc;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 추후 위젯 연동 기능으로 직관적인 ui 구성까지 더할 예정에 있습니다. 티스토리를 통해 배포되고 있으며, 최신 버전은 홈페이지를 확인해주세요.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;https://deep-eye.tistory.com/category/Program&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;아이콘 저작권&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;Icon made by Prosymbols from www.flaticon.com&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -4227,7 +4282,6 @@ p, li { white-space: pre-wrap; }
   </widget>
  </widget>
  <resources>
-  <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
  </resources>
  <connections/>

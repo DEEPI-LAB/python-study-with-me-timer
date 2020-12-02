@@ -12,7 +12,7 @@ import time
 import pyglet
 import random
 import glob
-from icon import icon
+from resource.icon import icon
 from matplotlib import font_manager
  
 from PyQt5 import QtWidgets
@@ -23,7 +23,7 @@ from PyQt5.QtCore import *
 from PyQt5 import QtGui
 from PyQt5 import QtCore
 
-path = glob.glob('*.ui')
+path = glob.glob('./resource/*.ui')
 for ui_path in path:
     ui_ = open(ui_path, 'r', encoding='utf-8')
     lines_ = ui_.readlines()
@@ -36,17 +36,25 @@ for ui_path in path:
     ui_.close()
     print('{} update'.format(ui_path))    
 
-FROM_CLASS = uic.loadUiType("main.ui")[0]
+FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
+
 
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         
         super().__init__() 
         global TEST
+        _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Bold.ttf")
+        _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Light.ttf")
+        _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Medium.ttf")
+        QtGui.QFontDatabase.applicationFontFamilies(_id1)
+        QtGui.QFontDatabase.applicationFontFamilies(_id2)
+        QtGui.QFontDatabase.applicationFontFamilies(_id3)
+
         self.setupUi(self) 
         self.show()
 
-        self.setWindowIcon(QtGui.QIcon('./icon/logo.png')) 
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png')) 
         self.setWindowTitle('ver.0.2.0 | With DI' )
         self.FLAG = [False,False,False]
         self.iter = 0       # 교시
@@ -70,8 +78,12 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
         
+        self.default_date_format = "%Y년 %m월 %d일"
+        self.default_time_format = "%H : %M : %S"
+        self.default_count_format =  "hh : mm : ss"
+        
         #%% 날짜 INIT
-        self.init_date_format = "%Y년 %m월 %d일"
+        self.init_date_format = self.default_date_format
         self.init_date_string_1 = "오늘은 "
         self.init_date_string_2 = " 입니다."
 
@@ -79,9 +91,9 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.date_output_path.setText(os.path.join(abs_path, 'log/현재날짜.txt'))
         
 
-        self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
+        self.date_pc.setText(time.strftime(self.default_date_format))
         self.date_output_live.setText(self.init_date_string_1 + 
-                                      time.strftime("%Y년 %m월 %d일") + 
+                                      time.strftime(self.default_date_format) + 
                                       self.init_date_string_2)
         
         self.date_output_string.textChanged.connect(self.dateStringChage)
@@ -90,7 +102,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.date_output_string_reset.clicked.connect(self.date_string_re)
         
         #%% 시간 INIT
-        self.init_time_format = "%H : %M : %S"
+        self.init_time_format = self.default_time_format
         self.init_time_string_1 = "지금은 "
         self.init_time_string_2 = " 입니다."
 
@@ -104,7 +116,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.time_output_string_reset.clicked.connect(self.time_string_re) 
         
         #%% 공부시간 INIT
-        self.init_study_format = "hh : mm : ss"
+        self.init_study_format = self.default_count_format
         self.init_study_string_1 = "공부시간 : "
         self.init_study_string_2 = ""
         self.stuy_count = True
@@ -124,7 +136,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         #%% 휴식 시간 INIT
         
-        self.init_break_format = "hh : mm : ss"
+        self.init_break_format = self.default_count_format
         self.init_break_string_1 = "쉬는시간 : "
         self.init_break_string_2 = ""
         self.break_count = True
@@ -142,7 +154,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.break_output_string_reset.clicked.connect(self.break_string_re) 
         
         #%% 식사 시간 INIT
-        self.init_meal_format = "hh : mm : ss"
+        self.init_meal_format = self.default_count_format
         self.init_meal_string_1 = "식사시간 : "
         self.init_meal_string_2 = ""        
         
@@ -156,9 +168,9 @@ class WithDI(QMainWindow,FROM_CLASS):
 
         #%% 휴게 시간
         abs_path = os.getcwd()
-        self.break_start_sound_path.setText(os.path.join(abs_path, 'sound/breaktime.mp3'))    
-        self.break_sound_path.setText(os.path.join(abs_path, 'music/music_1.wav'))   
-        self.break_end_sound_path.setText(os.path.join(abs_path, 'sound/breaktime.mp3'))   
+        self.break_start_sound_path.setText(os.path.join(abs_path, '.resource/sound/breaktime.mp3'))    
+        self.break_sound_path.setText(os.path.join(abs_path, './resource/music/music_1.wav'))   
+        self.break_end_sound_path.setText(os.path.join(abs_path, './resource/sound/breaktime.mp3'))   
         
         self.play_1.clicked.connect(lambda: self.playMusic(0))
         self.play_2.clicked.connect(lambda: self.playMusic(1))
@@ -204,7 +216,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.meal_hour = self.mealtime_edit.time().hour()
         self.meal_sec = self.mealtime_edit.time().second()
         self.meal_time = self.meal_hour * 3600 + 60 * self.meal_min 
-        self.meal_time_count_down =  QTime(self.meal_hour, self.meal_min, self.meal_sec)          
+        self.meal_time_count_down =  QTime(self.meal_hour, self.meal_min, self.meal_sec)  
+        self.meal_time_count_up =  QTime(0,0,0)        
         self.checkMealCount()
         
     def run(self):
@@ -254,11 +267,12 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         elif  self.breakFlag == False and self.FLAG[1] == True and self.mealFlag == True:    
             self.meal_time_count_down  =  self.meal_time_count_down .addSecs(-1)
+            self.meal_time_count_up = self.meal_time_count_up.addSecs(1)
             self.checkMealCount()  
             
             if self.meal_time_count_down.hour() == 0 \
                 and self.meal_time_count_down.minute() == 0 \
-                    and self.meal_time_count_down.second() == 5:
+                    and self.meal_time_count_down.second() == 0:
                         
                 self.mealFlag = False
                 song = pyglet.media.Player()
@@ -303,17 +317,21 @@ class WithDI(QMainWindow,FROM_CLASS):
                 song.queue(x)
                 song.volume = self.sound_slider.value()/100.0              
 
+    # 업데이트 
     def checkDate(self):
+        self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
         c_date = open('./log/현재날짜.txt', mode='wt', encoding='utf-8')
         txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
         c_date.write(txt)
         c_date.close()
     def checkTime(self):
+        self.current_time.setText(time.strftime('%H시 %M분 %S초'))
         c_time = open('./log/현재시간.txt', mode='wt', encoding='utf-8')
         c_time.write(self.init_time_string_1+time.strftime(self.time_output_format.text())+self.init_time_string_2)
         c_time.close() 
         
     def checkStudyTime(self):
+        self.current_study.setText(self.study_time_count_up.toString("hh시간 mm분 ss초"))
         t = self.study_time_count_up.toString(self.study_output_format.text())
         xx = self.study_output_string.text().split('%')
         
@@ -331,6 +349,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         except:pass
     def checkBreakTime(self):
         try:
+            self.current_break.setText(self.break_time_count_up.toString("hh시간 mm분 ss초"))
             t = self.break_time_count_up.toString(self.break_output_format.text())
             xx = self.break_output_string.text().split('%')
             c_date = open('./log/쉬는시간카운트_up.txt', mode='wt', encoding='utf-8')
@@ -348,6 +367,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         except:pass
     def checkMealCount(self):
         try:
+            self.current_meal.setText(self.meal_time_count_up.toString("hh시간 mm분 ss초"))
             t = seconds=self.meal_time_count_down.toString(self.meal_output_format.text())
             xx = self.meal_output_string.text().split('%')
             c_date = open('./log/식사시간카운트_down.txt', mode='wt', encoding='utf-8')
