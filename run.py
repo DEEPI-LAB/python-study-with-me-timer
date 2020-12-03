@@ -13,11 +13,10 @@ import pyglet
 import random
 import glob
 from resource.icon import icon
-from matplotlib import font_manager
  
 from PyQt5 import QtWidgets
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QApplication,QAction, QFileDialog
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtGui
@@ -168,9 +167,9 @@ class WithDI(QMainWindow,FROM_CLASS):
 
         #%% 휴게 시간
         abs_path = os.getcwd()
-        self.break_start_sound_path.setText(os.path.join(abs_path, '.resource/sound/breaktime.mp3'))    
-        self.break_sound_path.setText(os.path.join(abs_path, './resource/music/music_1.wav'))   
-        self.break_end_sound_path.setText(os.path.join(abs_path, './resource/sound/breaktime.mp3'))   
+        self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))    
+        self.break_sound_path.setText(os.path.join(abs_path, 'resource/music/music_1.wav'))   
+        self.break_end_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))   
         
         self.play_1.clicked.connect(lambda: self.playMusic(0))
         self.play_2.clicked.connect(lambda: self.playMusic(1))

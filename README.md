@@ -31,7 +31,7 @@
 ## **다운로드**
 
 소스코드 (python) : https://github.com/DEEPI-LAB/python-study-with-me-timer.git<br/>
-배포판 (windows10) : https://drive.google.com/file/d/1NXzH6GPCuCIrmDm2rzUaQgHi7KuWdMpA/view?usp=sharing
+배포판 (windows10) : https://drive.google.com/file/d/1vwnDMK6npY7KFfVP2DdBLGtUwwRI2ffT/view?usp=sharing
 
 
 ## **패치노트**
