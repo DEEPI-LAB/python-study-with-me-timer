@@ -226,7 +226,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             
             if self.FLAG[0] == True and self.FLAG[1] == True and self.FLAG[2]==False:
 
-                self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+                self.widget_timetable.setText('{}교시 진행중'.format(self.iter+1))
                 self.study_time_count = self.study_time_count.addSecs(1)
                 self.study_time_count_m = self.study_time_count_m.addSecs(-1)
                 self.checkStudyTime()   
@@ -271,7 +271,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                         self.break_time_count = self.breaktime_edit.time() 
                         self.break_time_count =  self.break_time_count.addSecs(1)
                         print('쉬는시간 종료')
-                        self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+                        self.widget_timetable.setText('{}교시 진행중'.format(self.iter+1))
                     self.break_time_count =  self.break_time_count.addSecs(-1)
                     self.break_time_count_m =  self.break_time_count_m.addSecs(1)
                     # 쉬는시간 업 업데이트
