@@ -166,7 +166,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         
     def refresh(self):
         
-        self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+        self.widget_timetable.setText('{}교시 진행중'.format(self.iter+1))
         
         # study / break / lunch time init
         self.study_time_count = QTime(0, 0, 0)             

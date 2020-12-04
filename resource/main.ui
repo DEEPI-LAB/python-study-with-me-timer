@@ -4269,7 +4269,7 @@ p, li { white-space: pre-wrap; }
  <resources>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
-  <include location="icon/icon.qrc"/>
+  <include location="icon/icon.py"/>
  </resources>
  <connections/>
 </ui>
