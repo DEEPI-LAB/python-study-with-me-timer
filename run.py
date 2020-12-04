@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Nov 30 11:58:42 2020
-
-@author: pod LAB. Kim Jongwon
+With DI ver. 0.3.0
+@author: Deep.I Inc. @Jongwon Kim
+Revision date: 2020-12-04
+See here for more information :
+    https://deep-eye.tistory.com
+    https://deep-i.net
 """
 import sys
 import os
@@ -43,57 +46,56 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         super().__init__() 
         global TEST
+        
+        # System Font Init
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Bold.ttf")
         _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Light.ttf")
         _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Medium.ttf")
         QtGui.QFontDatabase.applicationFontFamilies(_id1)
         QtGui.QFontDatabase.applicationFontFamilies(_id2)
         QtGui.QFontDatabase.applicationFontFamilies(_id3)
-
+        # UI load
         self.setupUi(self) 
         self.show()
-
+        # Lolo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png')) 
-        self.setWindowTitle('ver.0.2.0 | With DI' )
+        self.setWindowTitle('ver.0.3.0 | With DI' )
+        
+        # break time  lunch time
         self.FLAG = [False,False,False]
         self.iter = 0       # 교시
         self.mealTime = 99  # 디폴트 점심시간
-        open('./log/현재시간.txt', mode='wt', encoding='utf-8')
-        open('./log/현재날짜.txt', mode='wt', encoding='utf-8')
-        open('./log/공부시간카운트_up.txt', mode='wt', encoding='utf-8')
-        open('./log/공부시간카운트_down.txt', mode='wt', encoding='utf-8')
-        open('./log/쉬는시간카운트_up.txt', mode='wt', encoding='utf-8')
-        open('./log/쉬는시간카운트_down.txt', mode='wt', encoding='utf-8')        
-        open('./log/식사시간카운트_down.txt', mode='wt', encoding='utf-8')          
+        
+        # Log file init
+        open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
+        open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
+        open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
+        open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')        
+        open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')          
        
-
-        self.breakFlag = True
-        
-        
-        self.start_basic.clicked.connect(self.flagPush_1)
-        self.start_adv.clicked.connect(self.flagPush_2)
-        self.save_config.clicked.connect(self.flagPush_3)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
         
-        self.default_date_format = "%Y년 %m월 %d일"
-        self.default_time_format = "%H : %M : %S"
-        self.default_count_format =  "hh : mm : ss"
+        # log pah linking
+        abs_path = os.getcwd()
+        self.date_output_path.setText(os.path.join(abs_path, 'log/[현재날짜]_카운트.txt'))
+        self.time_output_path.setText(os.path.join(abs_path, 'log/[현재시간]_카운트.txt'))
+        self.study_output_path.setText(os.path.join(abs_path, 'log/[공부시간]_카운트.txt'))
+        self.break_output_path.setText(os.path.join(abs_path, 'log/[쉬는시간]_카운트.txt'))
+        self.meal_output_path.setText(os.path.join(abs_path, 'log/[식사시간]_카운트.txt'))  
+        
+        self.default_date_format = "%Y년%m월%d일"
+        self.default_time_format = "%H:%M:%S"
+        self.default_count_format =  "hh:mm:ss"
+        
+        self.withdistart.clicked.connect(self.startTimer)
         
         #%% 날짜 INIT
         self.init_date_format = self.default_date_format
         self.init_date_string_1 = "오늘은 "
         self.init_date_string_2 = " 입니다."
 
-        abs_path = os.getcwd()
-        self.date_output_path.setText(os.path.join(abs_path, 'log/현재날짜.txt'))
-        
-
-        self.date_pc.setText(time.strftime(self.default_date_format))
-        self.date_output_live.setText(self.init_date_string_1 + 
-                                      time.strftime(self.default_date_format) + 
-                                      self.init_date_string_2)
         
         self.date_output_string.textChanged.connect(self.dateStringChage)
         self.date_output_format.textChanged.connect(self.dateOuputChage)
@@ -104,11 +106,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_time_format = self.default_time_format
         self.init_time_string_1 = "지금은 "
         self.init_time_string_2 = " 입니다."
-
-        abs_path = os.getcwd()
-        self.time_output_path.setText(os.path.join(abs_path, 'log/현재시간.txt'))
         
-
         self.time_output_string.textChanged.connect(self.timeStringChage)
         self.time_output_format.textChanged.connect(self.timeOuputChage)
         self.time_output_format_reset.clicked.connect(self.time_format_re)
@@ -118,36 +116,22 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_study_format = self.default_count_format
         self.init_study_string_1 = "공부시간 : "
         self.init_study_string_2 = ""
-        self.stuy_count = True
         
-        self.study_slider.setValue(0)
-        self.studytime_edit.setTime(QTime(1,15))  
-        self.study_min = self.studytime_edit.time().minute()
-        self.study_hour = self.studytime_edit.time().hour()
-        
-
-        abs_path = os.getcwd()
-        self.study_output_path.setText(os.path.join(abs_path, 'log/공부시간카운트_up.txt'))
-        self.study_slider.valueChanged.connect(self.studyMode)
-        
+        self.studytime_edit.setTime(QTime(1,15,0))  
+        self.starttime_edit.setTime(QTime.currentTime())
+        self.study_end_time()
+        self.studytime_edit.timeChanged.connect(self.study_end_time)
+        self.study_ep.timeChanged.connect(self.study_end_time)
+        self.starttime_edit.timeChanged.connect(self.study_end_time)
         self.study_output_format_reset.clicked.connect(self.study_format_re)
         self.study_output_string_reset.clicked.connect(self.study_string_re) 
         
         #%% 휴식 시간 INIT
-        
         self.init_break_format = self.default_count_format
         self.init_break_string_1 = "쉬는시간 : "
         self.init_break_string_2 = ""
-        self.break_count = True
         
-        self.break_slider.setValue(0)
-        self.breaktime_edit.setTime(QTime(0,15))  
-        self.break_min = self.studytime_edit.time().minute()
-        self.break_hour = self.studytime_edit.time().hour()
-        
-        abs_path = os.getcwd()
-        self.break_output_path.setText(os.path.join(abs_path, 'log/쉬는시간카운트_up.txt'))
-        self.break_slider.valueChanged.connect(self.breakMode)  
+        self.breaktime_edit.setTime(QTime(0,15,0))  
         
         self.break_output_format_reset.clicked.connect(self.break_format_re)
         self.break_output_string_reset.clicked.connect(self.break_string_re) 
@@ -155,224 +139,220 @@ class WithDI(QMainWindow,FROM_CLASS):
         #%% 식사 시간 INIT
         self.init_meal_format = self.default_count_format
         self.init_meal_string_1 = "식사시간 : "
-        self.init_meal_string_2 = ""        
+        self.init_meal_string_2 = ""       
         
-        abs_path = os.getcwd()
-        self.meal_output_path.setText(os.path.join(abs_path, 'log/식사시간카운트_up.txt'))        
+        self.mealtime_edit.setTime(QTime(0,30,0))  
         self.meal_slider.valueChanged.connect(self.mealMode)  
-        
         self.meal_output_format_reset.clicked.connect(self.meal_format_re)
         self.meal_output_string_reset.clicked.connect(self.meal_string_re) 
-        self.mealFlag = False
 
         #%% 휴게 시간
         abs_path = os.getcwd()
         self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))    
         self.break_sound_path.setText(os.path.join(abs_path, 'resource/music/music_1.wav'))   
         self.break_end_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))   
-        
+        # Sound button
         self.play_1.clicked.connect(lambda: self.playMusic(0))
         self.play_2.clicked.connect(lambda: self.playMusic(1))
         self.play_3.clicked.connect(lambda: self.playMusic(2))
         self.sound_slider.valueChanged.connect(self.soundMode)
-        
+        # Sound path button
         self.path = [self.path_1,self.path_2,self.path_3]
         self.path[0].clicked.connect(lambda: self.searchFile(0))
         self.path[1].clicked.connect(lambda: self.searchFile(1))
         self.path[2].clicked.connect(lambda: self.searchFile(2))
-        
-        self.sound_path = [self.break_start_sound_path,self.break_sound_path,self.break_end_sound_path]
+        self.sound_path = [self.break_start_sound_path,self.break_sound_path,
+                           self.break_end_sound_path]
         
     def refresh(self):
-        self.study_sec = self.studytime_edit.time().second()
-        self.study_min = self.studytime_edit.time().minute()
-        self.study_hour = self.studytime_edit.time().hour()
         
-        self.break_min = self.breaktime_edit.time().minute()
-        self.break_hour = self.breaktime_edit.time().hour()
-        self.break_sec = self.breaktime_edit.time().second()
+        self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
         
-        self.count_down =  self.study_hour * 3600 + 60 * self.study_min + self.study_sec
-        self.breaking_time = self.break_hour * 3600 + 60 * self.break_min+ self.break_sec
-
-        self.breakFlag = True
-        self.widget_timetable.setText('{}교시 진행중'.format(self.iter))
-        self.study_time_count_up   = QTime(0, 0, 0)                   
-        self.study_time_count_down = QTime(self.study_hour, self.study_min, self.study_sec)           
-        self.break_time_count_down = QTime(self.break_hour, self.break_min, self.break_sec)           
-        self.break_time_count_up   = QTime(0, 0, 0)                        
+        # study / break / lunch time init
+        self.study_time_count = QTime(0, 0, 0)             
+        self.study_time_count_m = self.studytime_edit.time()   
         
-        self.checkStudyCount()
-        self.checkBreakCount()
-        self.checkBreakTime()
-        self.checkStudyTime()
-        self.checkDate()
+        self.break_time_count = self.breaktime_edit.time()  
+        self.break_time_count_m = QTime(0, 0, 0)
         
-    def Mealrefresh(self):
         self.mealTime = self.meal_slider.value()
-        self.mealFlag = True
-        self.meal_min = self.mealtime_edit.time().minute()
-        self.meal_hour = self.mealtime_edit.time().hour()
-        self.meal_sec = self.mealtime_edit.time().second()
-        self.meal_time = self.meal_hour * 3600 + 60 * self.meal_min 
-        self.meal_time_count_down =  QTime(self.meal_hour, self.meal_min, self.meal_sec)  
-        self.meal_time_count_up =  QTime(0,0,0)        
+        self.meal_time_count = self.mealtime_edit.time()
+        self.meal_time_count_m = QTime(0,0,0)
+        
+        self.ep = self.study_ep.time().hour()
+        self.starttime = self.starttime_edit.time()
+        self.FLAG[0] = True
+        self.classes = 0
+        
+        self.checkStudyTime()
+        self.checkBreakCount()
         self.checkMealCount()
+
         
     def run(self):
         
-        # settings
+        # Today 시스템 시간 활성화
         self.time_pc.setText(time.strftime(self.init_time_format))
+        self.date_pc.setText(time.strftime(self.init_date_format))
+        # Today 업데이트 활성화
         self.time_output_live.setText(self.init_time_string_1 + 
                                       time.strftime(self.init_time_format) + 
                                       self.init_time_string_2)
-
-        # Default 
-        # 시간 업데이트
+        
+        self.date_pc.setText(time.strftime(self.default_date_format))
+        self.date_output_live.setText(self.init_date_string_1 + 
+                                      time.strftime(self.default_date_format) + 
+                                      self.init_date_string_2)
+        
+        # Study 업데이트 활성화
+        
+        
         if self.FLAG[0] ==True:
             self.checkTime()
+            self.checkDate()
             
-        
-        if self.breakFlag == True and self.FLAG[1] == True: 
-            self.study_time_count_up = self.study_time_count_up.addSecs(1)
-            self.study_time_count_down =  self.study_time_count_down.addSecs(-1)
-            
-            # 공부시간 업 업데이트
-            self.checkStudyTime()
-            # 공부시간 다운 업데이트
-            self.checkStudyCount()
-           
+            # 시작 시점 
 
-            if self.study_time_count_down.hour() == 0 \
-                and self.study_time_count_down.minute() == 0 \
-                    and self.study_time_count_down.second() == 0:
-                
-                if self.iter == self.mealTime:
-                    self.mealFlag =True
-                else:
-                    self.breakFlag = False
-                self.study_time_count_down = self.count_down
+            if self.starttime.toString() == QTime.currentTime().toString():
+                print('스터디윗미 시작')
+                self.FLAG[1] = True
                 
                 
-                song = pyglet.media.Player()
-                x= pyglet.media.load(self.break_start_sound_path.text())
-                song.queue(x)
-                song.volume = self.sound_slider.value()/100.0
-                song.play()
-                
-                
-                self.widget_timetable.setText('{}교시 종료'.format(self.iter))
-                self.iter += 1
-        
-        elif  self.breakFlag == False and self.FLAG[1] == True and self.mealFlag == True:    
-            self.meal_time_count_down  =  self.meal_time_count_down .addSecs(-1)
-            self.meal_time_count_up = self.meal_time_count_up.addSecs(1)
-            self.checkMealCount()  
+            if  self.ep <= self.classes : 
+                print('수고하셨습니다.')
+                self.FLAG[0] = False
+                self.FLAG[1] = False 
+                self.FLAG[2] = False
             
-            if self.meal_time_count_down.hour() == 0 \
-                and self.meal_time_count_down.minute() == 0 \
-                    and self.meal_time_count_down.second() == 0:
+            if self.FLAG[0] == True and self.FLAG[1] == True and self.FLAG[2]==False:
+
+                self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+                self.study_time_count = self.study_time_count.addSecs(1)
+                self.study_time_count_m = self.study_time_count_m.addSecs(-1)
+                self.checkStudyTime()   
+                
+                # 현재 교시 종료
+                if self.study_time_count_m.toString() == '00:00:00':
+                    # 교시 업
+                    self.FLAG[2] = True
+                    self.classes += 1
+                    self.study_time_count_m = self.studytime_edit.time() 
+
+                    
+  
+
+            
+            elif self.FLAG[0] == True and self.FLAG[1] == True and self.FLAG[2]== True and  self.ep>= self.classes :
+                
+                # 휴식 시간
+                if self.mealTime != self.classes and self.ep >= self.classes: 
+                    self.widget_timetable.setText('{}교시 종료'.format(self.iter))
+                
+                    # 종소리
+                    if self.break_time_count.toString() == self.breaktime_edit.time().toString():
                         
-                self.mealFlag = False
-                song = pyglet.media.Player()
-                x= pyglet.media.load(self.break_end_sound_path.text())
-                song.queue(x)
-                song.volume = self.sound_slider.value()/100.0
-                song.play()
-                self.widget_timetable.setText('{}교시 진행중'.format(self.iter))
-                self.meal_time_count_down =QTime(self.meal_hour, self.meal_min, self.meal_sec)  
+                        song = pyglet.media.Player()
+                        x= pyglet.media.load(self.break_start_sound_path.text())
+                        song.queue(x)
+                        song.volume = self.sound_slider.value()/100.0
+                        song.play()
+                        print('쉬는시간 시작')
+                            
+                        
+                    
+                    elif self.break_time_count.toString() == '00:00:00':
+                        
+                        song = pyglet.media.Player()
+                        x= pyglet.media.load(self.break_end_sound_path.text())
+                        song.queue(x)
+                        song.volume = self.sound_slider.value()/100.0
+                        song.play()
+                        self.FLAG[2] = False
+                        self.break_time_count = self.breaktime_edit.time() 
+                        self.break_time_count =  self.break_time_count.addSecs(1)
+                        print('쉬는시간 종료')
+                        self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+                    self.break_time_count =  self.break_time_count.addSecs(-1)
+                    self.break_time_count_m =  self.break_time_count_m.addSecs(1)
+                    # 쉬는시간 업 업데이트
+                    self.checkBreakCount()                         
 
-        elif  self.breakFlag == False and self.FLAG[1] == True:
-            
-            self.break_time_count_up  = self.break_time_count_up.addSecs(1)
-            self.break_time_count_down =  self.break_time_count_down.addSecs(-1)
-            
-            # 쉬는시간 업 업데이트
-            self.checkBreakTime()
-            # 쉬는시간 다운 업데이트
-            self.checkBreakCount()     
-            
-            if self.break_time_count_down.hour() == 0 \
-                and self.break_time_count_down.minute() == 0 \
-                    and self.break_time_count_down.second() == 0:
-                self.breakFlag = True
                 
-                self.study_time_count_down = QTime(self.study_hour, self.study_min, self.study_sec)  
-                self.break_time_count_down  =QTime(self.break_hour, self.break_min, self.break_sec)  
-                song = pyglet.media.Player()
-                x= pyglet.media.load(self.break_end_sound_path.text())
-                song.queue(x)
-                song.volume = self.sound_slider.value()/100.0
-                song.play()
-                self.widget_timetable.setText('{}교시 진행중'.format(self.iter))
-                self.checkBreakCount()
-                self.checkBreakTime()
-                
-            if self.break_time_count_down.hour() == 0 \
-                and self.break_time_count_down.minute() == 0 \
-                    and self.break_time_count_down.second() == 5:
-                song = pyglet.media.Player()
-                x= pyglet.media.load(self.break_sound_path.text())
-                song.queue(x)
-                song.volume = self.sound_slider.value()/100.0              
+                elif self.mealTime == self.classes and self.ep >= self.classes:
+
+
+                    # 종소리
+                    if self.meal_time_count.toString() == self.mealtime_edit.time().toString():
+            
+                        song = pyglet.media.Player()
+                        x= pyglet.media.load(self.break_start_sound_path.text())
+                        song.queue(x)
+                        song.volume = self.sound_slider.value()/100.0
+                        song.play()
+                        print('점심시간 시작')
+                        self.widget_timetable.setText('점심시간')
+                    if self.meal_time_count.toString() == '00:00:00':
+                        song = pyglet.media.Player()
+                        x= pyglet.media.load(self.break_end_sound_path.text())
+                        song.queue(x)
+                        song.volume = self.sound_slider.value()/100.0
+                        song.play()
+                        self.meal_time_count = self.mealtime_edit.time()
+                        self.FLAG[2]==False
+                        self.mealTime =0
+                        print('점심시간 종료')
+                        self.widget_timetable.setText('{}교시 진행중'.format(self.iter)+1)
+                    self.meal_time_count =  self.meal_time_count.addSecs(-1)
+                    self.meal_time_count_m =  self.meal_time_count_m.addSecs(1)
+                    # 쉬는시간 업 업데이트
+                    self.checkMealCount()   
+                     
 
     # 업데이트 
     def checkDate(self):
-        self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
-        c_date = open('./log/현재날짜.txt', mode='wt', encoding='utf-8')
-        txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
-        c_date.write(txt)
-        c_date.close()
+        try:
+            self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
+            c_date = open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
+            txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
+            c_date.write(txt)
+            c_date.close()
+        except:pass         
     def checkTime(self):
-        self.current_time.setText(time.strftime('%H시 %M분 %S초'))
-        c_time = open('./log/현재시간.txt', mode='wt', encoding='utf-8')
-        c_time.write(self.init_time_string_1+time.strftime(self.time_output_format.text())+self.init_time_string_2)
-        c_time.close() 
-        
+        try:
+            self.current_time.setText(time.strftime('%H시 %M분 %S초'))
+            c_time = open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_time.write(self.init_time_string_1+time.strftime(self.time_output_format.text())+self.init_time_string_2)
+            c_time.close() 
+        except:pass
     def checkStudyTime(self):
-        self.current_study.setText(self.study_time_count_up.toString("hh시간 mm분 ss초"))
-        t = self.study_time_count_up.toString(self.study_output_format.text())
+        self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
+        t = self.study_time_count.toString(self.study_output_format.text())
         xx = self.study_output_string.text().split('%')
         
-        c_date = open('./log/공부시간카운트_up.txt', mode='wt', encoding='utf-8')
+        c_date = open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
         c_date.write(xx[0]+t+xx[2])
         c_date.close() 
-        
-    def checkStudyCount(self):
-        try:
-            t = self.study_time_count_down.toString(self.study_output_format.text())
-            xx = self.study_output_string.text().split('%')
-            c_date = open('./log/공부시간카운트_down.txt', mode='wt', encoding='utf-8')
-            c_date.write(xx[0]+t+xx[2])
-            c_date.close() 
-        except:pass
-    def checkBreakTime(self):
-        try:
-            self.current_break.setText(self.break_time_count_up.toString("hh시간 mm분 ss초"))
-            t = self.break_time_count_up.toString(self.break_output_format.text())
-            xx = self.break_output_string.text().split('%')
-            c_date = open('./log/쉬는시간카운트_up.txt', mode='wt', encoding='utf-8')
-            c_date.write(xx[0]+t+xx[2])
-            c_date.close() 
-        except:pass
+
     def checkBreakCount(self):
     
         try:
-            t = self.break_time_count_down.toString(self.break_output_format.text())
+            t = self.break_time_count.toString(self.break_output_format.text())
             xx = self.break_output_string.text().split('%')
-            c_date = open('./log/쉬는시간카운트_down.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()       
         except:pass
+    
     def checkMealCount(self):
         try:
-            self.current_meal.setText(self.meal_time_count_up.toString("hh시간 mm분 ss초"))
-            t = seconds=self.meal_time_count_down.toString(self.meal_output_format.text())
+            self.current_meal.setText(self.meal_time_count_m.toString("hh시간 mm분 ss초"))
+            t = seconds=self.meal_time_count.toString(self.meal_output_format.text())
             xx = self.meal_output_string.text().split('%')
-            c_date = open('./log/식사시간카운트_down.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()
         except:pass           
+    
     def dateOuputChage(self):
         try:
             x = time.strftime(self.date_output_format.text())
@@ -405,31 +385,36 @@ class WithDI(QMainWindow,FROM_CLASS):
             txt = self.init_time_string_1 + x + self.init_time_string_2
         
             self.time_output_live.setText(txt)
-        except:pass     
-
-
-
-
-
-    def studyMode(self):
-        if self.study_slider.value() == 0:
-            abs_path = os.getcwd()
-            self.study_output_path.setText(os.path.join(abs_path, 'log/공부시간카운트_up.txt'))
-            self.stuy_count = True
-        else: 
-            abs_path = os.getcwd()
-            self.study_output_path.setText(os.path.join(abs_path, 'log/공부시간카운트_down.txt'))    
-            self.stuy_count = False
-    def breakMode(self):
-        if self.break_slider.value() == 0:
-            abs_path = os.getcwd()
-            self.break_output_path.setText(os.path.join(abs_path, 'log/쉬는시간카운트_up.txt'))
-            self.break_count = True
-        else: 
-            abs_path = os.getcwd()
-            self.break_output_path.setText(os.path.join(abs_path, 'log/쉬는시간카운트_down.txt'))    
-            self.break_count = False            
+        except:pass  
+        
+        
+    def study_end_time(self):
+        # 반복횟수
+        ep = self.study_ep.time().hour()
+        # 공부시간
+        sh = self.studytime_edit.time().hour() * ep
+        sm = self.studytime_edit.time().minute() * ep
+        ss = self.studytime_edit.time().second() * ep
+        
+        mins,secs = divmod(ss,60)
+        hours,mins = divmod(sm + mins,60)
+        hours = hours + sh
+        
+        sh = self.starttime_edit.time().hour() + hours
+        sm = self.starttime_edit.time().minute() + mins
+        ss = self.starttime_edit.time().second() + secs
+        
+        mins,secs = divmod(ss,60)
+        hours,mins = divmod(sm + mins,60)
+        hours = hours + sh
+        
+        days,hours = divmod(hours,24)
+        if days > 0:
+            self.endtime_edit.setText('+ {}일 '.format(days)+QTime(hours,mins,secs).toString("hh시 : mm분 : ss초"))
+        else:
+            self.endtime_edit.setText(QTime(hours,mins,secs).toString("hh시 : mm분 : ss초"))
     
+
     def mealMode(self):
             self.meal_times.setText('{}교시 종료 후'.format(self.meal_slider.value()+1))
             
@@ -441,20 +426,9 @@ class WithDI(QMainWindow,FROM_CLASS):
             self.song.volume = self.sound_slider.value() / 100.0
         except:pass
         
-    def flagPush_1(self):
-        self.FLAG[0] = True
-        self.start_basic_status.setText('Today 타이머가 시작되었습니다')
-        self.refresh()
-    def flagPush_2(self):
-        self.FLAG[1] = True
-        self.start_adv_status.setText('Study 타이머가 시작되었습니다')
-        self.refresh()
-    def flagPush_3(self):
-        self.save_config_status.setText('Lunch 타이머가 시작되었습니다')
-        self.Mealrefresh()          
         
     def date_format_re(self):
-        self.date_output_format.setText("%Y년 %m월 %d일")
+        self.date_output_format.setText("%Y년%m월%d일")
         self.dateOuputChage()
 
     def date_string_re(self):
@@ -462,7 +436,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.dateStringChage()
         
     def time_format_re(self):
-        self.time_output_format.setText("%H : %M : %S")
+        self.time_output_format.setText("%H:%M:%S")
         self.timeOuputChage()
 
     def time_string_re(self):
@@ -470,7 +444,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.timeStringChage()        
 
     def study_format_re(self):
-        self.study_output_format.setText("%H : %M : %S")
+        self.study_output_format.setText("%H:%M:%S")
 
     def study_string_re(self):
         self.init_study_string_1 = "공부시간 : "
@@ -478,7 +452,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.study_output_string.setText("공부시간 : %TIME%")
   
     def break_format_re(self):
-        self.break_output_format.setText("%H : %M : %S")
+        self.break_output_format.setText("%H:%M:%S")
     
     def break_string_re(self):
         self.init_break_string_1 = "쉬는시간 : "
@@ -486,7 +460,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.break_output_string.setText("쉬는시간 : %TIME%")
         
     def meal_format_re(self):
-        self.meal_output_format.setText("%H : %M : %S")
+        self.meal_output_format.setText("%H:%M:%S")
     
     def meal_string_re(self):
         self.init_meal_string_1 = "식사시간 : "
@@ -517,6 +491,10 @@ class WithDI(QMainWindow,FROM_CLASS):
         fname = QFileDialog.getOpenFileName(self, '음악파일을 선택해주세요.', './',"Audio files (*.mp3 *.wav)")
         if fname[0] == True:
             self.sound_path[ids].setText(fname[0])
+            
+    def startTimer(self):
+        self.refresh()
+        
 
 
         

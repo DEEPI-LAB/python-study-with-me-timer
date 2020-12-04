@@ -4,5 +4,10 @@
     <file>play.png</file>
     <file>refresh.png</file>
     <file>logo.png</file>
+    <file>books.png</file>
+    <file>calendar.png</file>
+    <file>clock.png</file>
+    <file>music.png</file>
+    <file>streaming.png</file>
   </qresource>
 </RCC>

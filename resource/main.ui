@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>984</width>
-    <height>519</height>
+    <height>492</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>984</width>
-    <height>0</height>
+    <height>492</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>984</width>
-    <height>16777215</height>
+    <height>492</height>
    </size>
   </property>
   <property name="sizeIncrement">
@@ -64,7 +64,7 @@ QTabBar::tab:hover
 </string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -85,7 +85,7 @@ QTabBar::tab:hover
 	background-color: white;
 }</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,1,8">
+          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,1,0">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -112,24 +112,6 @@ QTabBar::tab:hover
              <property name="verticalSpacing">
               <number>10</number>
              </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_41">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">padding-top:10px;
-padding-left:10px;
-font: 75 30px&quot;Gong Gothic&quot;;</string>
-               </property>
-               <property name="text">
-                <string>기본 설정</string>
-               </property>
-              </widget>
-             </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_42">
                <property name="sizePolicy">
@@ -137,6 +119,18 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>35</height>
+                </size>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
@@ -147,71 +141,64 @@ font: 75 15px&quot;Gong Gothic&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="start_basic">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_41">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
-                 <height>30</height>
+                 <width>0</width>
+                 <height>55</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>200</width>
-                 <height>30</height>
+                 <width>16777215</width>
+                 <height>55</height>
                 </size>
                </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
+                <string notr="true">padding-top:10px;
+padding-left:10px;
+font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
-                <string>Today 타미어 시작</string>
+                <string>Today 설정</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="start_basic_status">
+             <item row="0" column="1" rowspan="2">
+              <widget class="QLabel" name="label_7">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="minimumSize">
                 <size>
-                 <width>230</width>
-                 <height>0</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>230</width>
-                 <height>16777215</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 13px &quot;Gong Gothic&quot;;
-color :  rgb(255, 66, 28)</string>
                </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/clock.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -256,6 +243,18 @@ background-color: #353F40;</string>
              </property>
              <item>
               <widget class="QGroupBox" name="groupBox">
+               <property name="minimumSize">
+                <size>
+                 <width>468</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>468</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">
 
@@ -268,13 +267,13 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
+    padding: 0px 7900px 5px 8000px;
 }
 
 </string>
                </property>
                <property name="title">
-                <string>현재 날짜</string>
+                <string>날짜 형식을 지정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_4">
                 <property name="topMargin">
@@ -301,13 +300,13 @@ QGroupBox::title  {
                    <widget class="QLabel" name="st_user_name">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -320,7 +319,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>출력 형식</string>
+                     <string>Date 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -337,13 +336,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -354,7 +353,6 @@ color :   #353F40;</string>
                       <weight>9</weight>
                       <italic>false</italic>
                       <bold>false</bold>
-                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -374,13 +372,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_open">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -390,7 +388,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>시스템 날짜</string>
+                     <string>Current Date</string>
                     </property>
                    </widget>
                   </item>
@@ -398,13 +396,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_address">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -414,7 +412,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>문자열 삽입</string>
+                     <string>Date 문자열</string>
                     </property>
                    </widget>
                   </item>
@@ -428,13 +426,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -455,13 +453,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_close">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -471,7 +469,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>출력 날짜</string>
+                     <string>Live Date</string>
                     </property>
                    </widget>
                   </item>
@@ -479,13 +477,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_week">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -495,7 +493,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>저장 위치</string>
+                     <string>Text 파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -678,11 +676,13 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-}</string>
+    padding: 0px 7900px 5px 8000px;
+}
+
+</string>
                </property>
                <property name="title">
-                <string>현재 시간</string>
+                <string>시간 형식을 지정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_5">
                 <item row="0" column="0">
@@ -706,13 +706,13 @@ QGroupBox::title  {
                    <widget class="QLabel" name="st_user_name_2">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -725,7 +725,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>출력 형식</string>
+                     <string>Time 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -742,13 +742,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -769,13 +769,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_open_2">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -785,7 +785,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>시스템 시간</string>
+                     <string>Current Time</string>
                     </property>
                    </widget>
                   </item>
@@ -793,13 +793,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_address_2">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -809,7 +809,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>문자열 삽입</string>
+                     <string>Time 문자열</string>
                     </property>
                    </widget>
                   </item>
@@ -823,13 +823,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -850,13 +850,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_close_2">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -866,7 +866,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>출력 시간</string>
+                     <string>Live Time</string>
                     </property>
                    </widget>
                   </item>
@@ -874,13 +874,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_week_2">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -890,7 +890,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>저장 위치</string>
+                     <string>Text 파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -1070,7 +1070,7 @@ color :   #353F40;</string>
 	background-color: white;
 }</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,1,8">
+          <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,1,0">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1100,10 +1100,28 @@ color :   #353F40;</string>
              <item row="1" column="0">
               <widget class="QLabel" name="label_44">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="sizeIncrement">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
@@ -1117,10 +1135,22 @@ font: 75 15px&quot;Gong Gothic&quot;;</string>
              <item row="0" column="0">
               <widget class="QLabel" name="label_43">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>55</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>55</height>
+                </size>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-top:10px;
@@ -1128,69 +1158,32 @@ padding-left:10px;
 font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
-                <string>타이머 설정</string>
+                <string>Study 설정</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="start_adv">
-               <property name="maximumSize">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="sizeIncrement">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-               </property>
-               <property name="text">
-                <string>Study 타이머 시작</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="start_adv_status">
+             <item row="0" column="1" rowspan="2">
+              <widget class="QLabel" name="label_8">
                <property name="minimumSize">
                 <size>
-                 <width>230</width>
-                 <height>0</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>230</width>
-                 <height>16777215</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 13px &quot;Gong Gothic&quot;;
-color :  rgb(255, 66, 28)</string>
                </property>
                <property name="text">
                 <string/>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/books.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1256,17 +1249,19 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-}</string>
+    padding: 0px 7850px 5px 8000px;
+}
+
+</string>
                </property>
                <property name="title">
-                <string>공부 시간</string>
+                <string>공부 시간과 횟수를 설정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_9">
                 <property name="topMargin">
                  <number>11</number>
                 </property>
-                <item row="0" column="0">
+                <item row="1" column="0">
                  <layout class="QGridLayout" name="gridLayout_10">
                   <property name="sizeConstraint">
                    <enum>QLayout::SetMaximumSize</enum>
@@ -1283,8 +1278,8 @@ QGroupBox::title  {
                   <property name="spacing">
                    <number>10</number>
                   </property>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_11">
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="st_user_name_3">
                     <property name="minimumSize">
                      <size>
                       <width>130</width>
@@ -1293,80 +1288,53 @@ QGroupBox::title  {
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>카운트 방식</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_9">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>공부 시간</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1" colspan="2">
-                   <widget class="QLineEdit" name="study_output_path">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>40</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
+                    <property name="sizeIncrement">
                      <size>
                       <width>0</width>
-                      <height>40</height>
+                      <height>0</height>
                      </size>
                     </property>
                     <property name="autoFillBackground">
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>./log/현재날짜.txt</string>
+                     <string>타이머 형식</string>
                     </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    <property name="margin">
+                     <number>0</number>
                     </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="st_user_week_3">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>Text 파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -1404,6 +1372,123 @@ color :   #353F40;</string>
                      </widget>
                     </item>
                    </layout>
+                  </item>
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QLineEdit" name="study_output_path">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>40</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>./log/현재날짜.txt</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>Study 시간</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="st_user_address_3">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>타이머 문자열</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="study_output_format">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>180</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>180</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>hh : mm : ss</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="2">
                    <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -1443,6 +1528,30 @@ color :   #353F40;</string>
                     </item>
                    </layout>
                   </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_5">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>시작 시간 설정</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="2" column="1">
                    <widget class="QLineEdit" name="study_output_string">
                     <property name="sizePolicy">
@@ -1453,13 +1562,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>230</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1476,128 +1585,17 @@ color :   #353F40;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="st_user_week_3">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>저장 위치</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="study_output_format">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>230</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>hh : mm : ss</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="st_user_name_3">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>출력 형식</string>
-                    </property>
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="st_user_address_3">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>문자열 삽입</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" colspan="2">
+                  <item row="0" column="1">
                    <widget class="QTimeEdit" name="studytime_edit">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1607,79 +1605,112 @@ font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
-                     <string>HH시간 : mm분 : ss초</string>
+                     <string>HH시 : mm분 : ss초</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1" colspan="2">
+                  <item row="0" column="2">
                    <layout class="QHBoxLayout" name="horizontalLayout_9">
                     <property name="spacing">
                      <number>0</number>
                     </property>
-                    <property name="sizeConstraint">
-                     <enum>QLayout::SetFixedSize</enum>
+                    <item>
+                     <widget class="QTimeEdit" name="study_ep">
+                      <property name="minimumSize">
+                       <size>
+                        <width>60</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>65</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="sizeIncrement">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">padding: 5px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                      <property name="maximumTime">
+                       <time>
+                        <hour>10</hour>
+                        <minute>0</minute>
+                        <second>0</second>
+                       </time>
+                      </property>
+                      <property name="minimumTime">
+                       <time>
+                        <hour>1</hour>
+                        <minute>0</minute>
+                        <second>0</second>
+                       </time>
+                      </property>
+                      <property name="displayFormat">
+                       <string>H번</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QTimeEdit" name="starttime_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>180</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>180</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="displayFormat">
+                     <string>hh시 : mm분 : ss초</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <layout class="QHBoxLayout" name="horizontalLayout_24">
+                    <property name="spacing">
+                     <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_13">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
+                     <widget class="QPushButton" name="pushButton">
                       <property name="minimumSize">
                        <size>
-                        <width>80</width>
-                        <height>0</height>
+                        <width>30</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>30</width>
+                        <height>30</height>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                       <string notr="true">border-image: url(:/icon/refresh.png);</string>
                       </property>
                       <property name="text">
-                       <string>카운팅 업</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QSlider" name="study_slider">
-                      <property name="maximum">
-                       <number>1</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_14">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>80</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                      </property>
-                      <property name="text">
-                       <string>카운팅 다운</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -1704,11 +1735,13 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-}</string>
+    padding: 0px 7900px 5px 8000px;
+}
+
+</string>
                </property>
                <property name="title">
-                <string>휴식 시간</string>
+                <string>휴식 시간을 설정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_11">
                 <property name="topMargin">
@@ -1731,53 +1764,17 @@ QGroupBox::title  {
                   <property name="spacing">
                    <number>10</number>
                   </property>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="st_user_name_4">
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QLineEdit" name="break_output_path">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>0</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>출력 형식</string>
-                    </property>
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="break_output_format">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>230</width>
+                      <width>16777215</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1787,10 +1784,61 @@ font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>hh : mm : ss</string>
+                     <string>./log/현재시간.txt</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="st_user_week_4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>Text 파일 위치</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="st_user_address_4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>타이머 문자열</string>
                     </property>
                    </widget>
                   </item>
@@ -1838,6 +1886,39 @@ color :   #353F40;</string>
                     </item>
                    </layout>
                   </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="break_output_format">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>190</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>190</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>hh : mm : ss</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="1" column="2">
                    <layout class="QHBoxLayout" name="horizontalLayout_7">
                     <property name="spacing">
@@ -1873,128 +1954,17 @@ color :   #353F40;</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="3" column="1" colspan="2">
-                   <widget class="QLineEdit" name="break_output_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>./log/현재시간.txt</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="st_user_address_4">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>문자열 삽입</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="break_output_string">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>230</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>230</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>쉬는시간 %TIME%</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="st_user_week_4">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>저장 위치</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_10">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2004,7 +1974,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>휴식 시간</string>
+                     <string>Break 시간</string>
                     </property>
                    </widget>
                   </item>
@@ -2032,17 +2002,80 @@ color :   #353F40;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_12">
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="st_user_name_4">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>타이머 형식</string>
+                    </property>
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="break_output_string">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>190</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>190</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>쉬는시간 %TIME%</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2052,86 +2085,30 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>카운트 방식</string>
+                     <string>Study 종료 시간</string>
                     </property>
                    </widget>
                   </item>
                   <item row="4" column="1" colspan="2">
-                   <layout class="QHBoxLayout" name="horizontalLayout_10">
-                    <property name="spacing">
-                     <number>5</number>
+                   <widget class="QLineEdit" name="endtime_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
-                    <property name="sizeConstraint">
-                     <enum>QLayout::SetFixedSize</enum>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
                     </property>
-                    <item>
-                     <widget class="QLabel" name="label_15">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>80</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">padding: 10px;
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
 font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
-                      </property>
-                      <property name="text">
-                       <string>카운팅 업</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QSlider" name="break_slider">
-                      <property name="maximum">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>1</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_16">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>80</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                      </property>
-                      <property name="text">
-                       <string>카운팅 다운</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -2185,39 +2162,25 @@ color :   #353F40;</string>
              <property name="verticalSpacing">
               <number>10</number>
              </property>
-             <item row="1" column="3">
-              <widget class="QLabel" name="save_config_status">
-               <property name="minimumSize">
-                <size>
-                 <width>230</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>230</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 13px &quot;Gong Gothic&quot;;
-color :  rgb(255, 66, 28)</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="2">
+             <item row="0" column="0" colspan="3">
               <widget class="QLabel" name="label_45">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>55</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>55</height>
+                </size>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-top:10px;
@@ -2229,43 +2192,7 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="save_config">
-               <property name="minimumSize">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-               </property>
-               <property name="text">
-                <string>Lunch 타이머 시작</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
+             <item row="1" column="0" colspan="3">
               <widget class="QLabel" name="label_46">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -2273,12 +2200,49 @@ QPushButton::hover
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>35</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
 font: 75 15px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
                 <string>식사 시간과 시간표를 지정하고 효과음을 설정 할 수 있습니다.</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3" rowspan="2">
+              <widget class="QLabel" name="label_11">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/music.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -2344,11 +2308,13 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-}</string>
+    padding: 0px 7900px 5px 8000px;
+}
+
+</string>
                </property>
                <property name="title">
-                <string>식사 시간</string>
+                <string>식사 시간을 설정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_15">
                 <item row="0" column="0">
@@ -2372,13 +2338,13 @@ QGroupBox::title  {
                    <widget class="QLabel" name="label_17">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2388,7 +2354,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>시간 설정</string>
+                     <string>시작 시간 설정</string>
                     </property>
                    </widget>
                   </item>
@@ -2396,13 +2362,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="label_18">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2529,13 +2495,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2556,13 +2522,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_week_5">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2572,7 +2538,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>저장 위치</string>
+                     <string>Text 파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -2586,13 +2552,13 @@ color :   #353F40;</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>230</width>
+                      <width>190</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2613,13 +2579,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_name_5">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2632,7 +2598,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>출력 형식</string>
+                     <string>타이머 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -2643,13 +2609,13 @@ color :   #353F40;</string>
                    <widget class="QLabel" name="st_user_address_5">
                     <property name="minimumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>130</width>
+                      <width>170</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2659,7 +2625,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>문자열 삽입</string>
+                     <string>타이머 문자열</string>
                     </property>
                    </widget>
                   </item>
@@ -2702,6 +2668,9 @@ color :   #353F40;</string>
                         <width>0</width>
                         <height>40</height>
                        </size>
+                      </property>
+                      <property name="minimum">
+                       <number>1</number>
                       </property>
                       <property name="maximum">
                        <number>10</number>
@@ -2771,11 +2740,13 @@ QGroupBox  {
 QGroupBox::title  {
     font: 20px;
     subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-}</string>
+    padding: 0px 7900px 5px 8000px;
+}
+
+</string>
                </property>
                <property name="title">
-                <string>효과음 설정</string>
+                <string>효과음을 설정해주세요.</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_17">
                 <property name="leftMargin">
@@ -2798,241 +2769,33 @@ QGroupBox::title  {
                   <property name="spacing">
                    <number>10</number>
                   </property>
-                  <item row="2" column="2">
-                   <widget class="QPushButton" name="path_3">
+                  <item row="3" column="3">
+                   <widget class="QLabel" name="sound_val">
                     <property name="minimumSize">
                      <size>
                       <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QPushButton" name="path_1">
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QPushButton" name="path_2">
-                    <property name="minimumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
                       <width>30</width>
-                      <height>30</height>
+                      <height>40</height>
                      </size>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::WheelFocus</enum>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="break_end_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="break_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1" colspan="2">
-                   <layout class="QHBoxLayout" name="horizontalLayout_16">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                   </layout>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="break_start_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="st_user_address_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
+                     <string notr="true">
+font:15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>종료 종소리</string>
+                     <string>100</string>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_26">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_25">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>시작 종소리</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="st_user_name_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>휴식 시간</string>
-                    </property>
-                    <property name="margin">
-                     <number>0</number>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -3058,6 +2821,237 @@ color :   #353F40;</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_25">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>시작 종소리</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="st_user_address_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>종료 종소리</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="break_sound_path">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QPushButton" name="path_3">
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icon/add.png);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="st_user_name_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>휴식 시간</string>
+                    </property>
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="break_start_sound_path">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QPushButton" name="path_2">
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icon/add.png);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_26">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QPushButton" name="path_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icon/add.png);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="break_end_sound_path">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;
+font: 75 15px&quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="2" column="3">
                    <widget class="QPushButton" name="play_3">
                     <property name="maximumSize">
@@ -3071,6 +3065,30 @@ color :   #353F40;</string>
                     </property>
                     <property name="text">
                      <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="st_user_week_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>효과음 크기</string>
                     </property>
                    </widget>
                   </item>
@@ -3096,35 +3114,11 @@ color :   #353F40;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="st_user_week_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>130</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>효과음 크기</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
+                  <item row="3" column="1" colspan="2">
                    <widget class="QSlider" name="sound_slider">
                     <property name="minimumSize">
                      <size>
-                      <width>210</width>
+                      <width>0</width>
                       <height>0</height>
                      </size>
                     </property>
@@ -3145,27 +3139,39 @@ color :   #353F40;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="2" colspan="2">
-                   <widget class="QLabel" name="sound_val">
+                  <item row="4" column="1" colspan="3">
+                   <widget class="QPushButton" name="withdistart">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>0</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>555</width>
+                      <width>16777215</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font:15px&quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">QPushButton
+{
+	color: #F2F1EF;
+	font: 20px&quot;Gong Gothic Light&quot;;
+	background-color:#353F40;
+	border : None;
+}
+
+QPushButton::hover
+{
+	color: #F2F1EF;
+	font: 20px&quot;Gong Gothic Light&quot;;
+	background-color:#000000;
+	border :solid;
+}</string>
                     </property>
                     <property name="text">
-                     <string>50</string>
+                     <string>With DI Start</string>
                     </property>
                    </widget>
                   </item>
@@ -3183,7 +3189,7 @@ color :   #353F40;</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>위젯</string>
+        <string>Streaming</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_27">
         <item row="0" column="0">
@@ -3221,23 +3227,6 @@ color :   #353F40;</string>
              <property name="verticalSpacing">
               <number>10</number>
              </property>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_47">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">padding-left:15px;
-font: 75 15px&quot;Gong Gothic&quot;;</string>
-               </property>
-               <property name="text">
-                <string>현재 상태를 확인할 수 있습니다.</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label_48">
                <property name="sizePolicy">
@@ -3256,65 +3245,45 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="start_basic_2">
-               <property name="minimumSize">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>200</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_47">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
                <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
+                <string notr="true">padding-left:15px;
+font: 75 15px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
-                <string>일지 저장</string>
+                <string>현재 상태를 확인할 수 있습니다.</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="0" column="1" rowspan="2">
               <widget class="QLabel" name="label_4">
                <property name="minimumSize">
                 <size>
-                 <width>230</width>
-                 <height>0</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>230</width>
-                 <height>16777215</height>
+                 <width>80</width>
+                 <height>80</height>
                 </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 13px &quot;Gong Gothic&quot;;
-color :  rgb(255, 66, 28)</string>
                </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/streaming.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -4171,7 +4140,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :    #F2F1EF;</string>
                </property>
                <property name="text">
-                <string>With DI ver 0.2.1 </string>
+                <string>With DI ver 0.3.0</string>
                </property>
               </widget>
              </item>
@@ -4226,49 +4195,64 @@ color :    #F2F1EF;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 추후 위젯 연동 기능으로 직관적인 ui 구성까지 더할 예정에 있습니다. 티스토리를 통해 배포되고 있으며, 최신 버전은 홈페이지를 확인해주세요.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;https://deep-eye.tistory.com/category/Program&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;아이콘 저작권&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;Icon made by Prosymbols from www.flaticon.com&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e3e3e3;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e3e3e3;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 추후 위젯 연동 기능으로 직관적인 ui 구성까지 더할 예정에 있습니다. 티스토리를 통해 배포되고 있으며, 최신 버전은 홈페이지를 확인해주세요.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#d4d4d4;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://deep-eye.tistory.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#d4d4d4;&quot;&gt;https://deep-eye.tistory.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#d4d4d4;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;deepi.contact.us@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#d4d4d4;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#d4d4d4;&quot;&gt;저작권&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;Icon made by Prosymbols and Freepik from www.flaticon.com&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;music made by our team member Jinsoo Kim&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-12-03] - [0.3.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 배포판 용량 압축 &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 아이콘 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 시작 시간을 기준으로 타이머 동작 변경&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#d4d4d4;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#d4d4d4;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -4284,6 +4268,8 @@ p, li { white-space: pre-wrap; }
  </widget>
  <resources>
   <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.qrc"/>
  </resources>
  <connections/>
 </ui>
