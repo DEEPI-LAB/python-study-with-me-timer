@@ -1,13 +1,19 @@
-# **With DI** ver - 0.2.1
+# **With DI** ver - 0.3.0
+
+![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
 스터디윗미 방송이나 PC 환경에서 공부하시는 분들을 위한 타이머 프로그램 위드디(with DI)입니다. 정말 다양한 관련 프로그램과 어플이 존재합니다. 가끔씩 유튜브에서 코딩 위드미를 방송하고 있는데 좀 더 저에게 필요한 기능만 구성하고 싶어서 만들게 됐습니다. 파이썬 기반이다 보니 조금 무거운 감이 있으며 인터프리터가 포함된 배포판 용량이 큰 점 양해 부탁드립니다.  **개발단계입니다. 오류와 버그는 지속적으로 수정하겠습니다.**  
 <br/>
     
+ ## **주요 기능**
  1. **OBS 프로그램에 맞게 txt 파일로 타이머가 동작하는 방식**
- 2. **날짜, 시간, 공부 시간, 휴식 시간, 식사 시간 등을 타이머로 설정**
-<br/>
+ 2. **현재 날짜, 현재 시간, 공부 시간, 휴식 시간, 식사 시간 등을 타이머로 설정**
+ 3. **효과음으로 시작 종료 이벤트** 
+ 4. ***위젯 생성 [추가 예정]***
 
-![Alt text](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdju6ct%2FbtqO0gzqkxn%2FLxqJtn0YmqOqgscO3YUWn1%2Fimg.png)
+## 
+![Alt text](https://blog.kakaocdn.net/dn/biOFb7/btqPaVBSEAX/2D2WRZGaI8v0S0YM3zZDV1/img.png)
+![Alt text](https://blog.kakaocdn.net/dn/L65F5/btqO3zmw2Ae/pWkuUeCD152Pbzgk6UIXQk/img.png)
 
 ## **사용 방법**
 
@@ -18,7 +24,6 @@
  <br/>
 
 ![Alt text](https://blog.kakaocdn.net/dn/1pwq0/btqOM9oOOxM/9r5rDdWCbbvsRe6u7RQ3c0/img.png)
-
 ![Alt text](https://blog.kakaocdn.net/dn/cDwDVT/btqOP3VYHA7/hDPhkS5cCwAeOUh2wvSJx1/img.png)
  <br/>
 
@@ -31,7 +36,7 @@
 ## **다운로드**
 
 소스코드 (python) : https://github.com/DEEPI-LAB/python-study-with-me-timer.git<br/>
-배포판 (windows10) : https://drive.google.com/file/d/1vwnDMK6npY7KFfVP2DdBLGtUwwRI2ffT/view?usp=sharing
+배포판 (windows10) : https://drive.google.com/file/d/1J64QTsQikO4AhohP2P5S-aCSBpis-bef/view?usp=sharing
 
 
 ## **패치노트**
@@ -43,5 +48,15 @@
  - 쓰레드 버그 수정
  - 위젯 추가
  - 폴더 트리 단일화
-<br/>
-<br/>
+
+### 2020-12-02 [0.3.0]
+
+ - UI 수정
+ - Streaming 위젯 추가
+ - 타이머 동작 방식 개선
+ - 교시제로 타이머 방식 변경
+ - 배포판 용량 축소 1GB -> 40mb
+
+## **Contact Us**
+blog : https://deep-eye.tistory.com
+mail : deepi.contact.us@gmail.com 
