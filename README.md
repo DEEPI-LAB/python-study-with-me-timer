@@ -1,4 +1,4 @@
-# **With DI** ver - 0.3.0
+# **With DI** ver - 0.4.0
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -57,6 +57,13 @@
  - 교시제로 타이머 방식 변경
  - 배포판 용량 축소 1GB -> 40mb
 
+### 2020-12-04 [0.4.0]
+
+ - UI 개선 
+ - 음원 재생 오류 수정
+ - ASMR 링크 추가
+ - 기타 버그 수정
+ 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com
 mail : deepi.contact.us@gmail.com 
