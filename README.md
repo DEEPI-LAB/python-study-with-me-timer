@@ -63,7 +63,15 @@
  - 음원 재생 오류 수정
  - ASMR 링크 추가
  - 기타 버그 수정
- 
+
+### 2020-12-05 [0.5.0]
+
+ - Config 저장 불러오기 추가
+ - UI 개선
+ - ASMR 링크 추가
+ - 기타 버그 수정
+ - 타이머 싱크 개선
+
 ## **Contact Us**
-blog : https://deep-eye.tistory.com
+blog : https://deep-eye.tistory.com<br/>
 mail : deepi.contact.us@gmail.com 
