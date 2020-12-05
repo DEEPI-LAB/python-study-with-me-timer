@@ -215,7 +215,7 @@ class WithDI(QMainWindow,FROM_CLASS):
 
         self.widget_timetable.setText('{}교시 준비중'.format(self.classes+1))
         self.setWindowTitle(self.version + ' | Live 대기중' )
-        self.tabWidget.setCurrentIndex(4)
+        self.tabWidget.setCurrentIndex(3)
         self.saveConfing()
         # save config
         
