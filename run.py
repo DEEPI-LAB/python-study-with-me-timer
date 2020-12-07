@@ -7,6 +7,7 @@ See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
 """
+
 import sys
 import os
 import time
@@ -18,9 +19,10 @@ import configparser
 from resource.icon import icon
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
-from PyQt5.QtCore import QTimer,QTime
+from PyQt5.QtCore import *
 from PyQt5 import QtGui
 
+# UI UPDATE
 path = glob.glob('./resource/*.ui')
 for ui_path in path:
     ui_ = open(ui_path, 'r', encoding='utf-8')
@@ -29,12 +31,16 @@ for ui_path in path:
     for ii, i in enumerate(lines_):
         if 'include location' in i:
             lines_[ii] = i.replace('.qrc', '.py')
+            
+        if '<pointsize>-1</pointsize>' in i:
+            lines_[ii] = ''
     ui_ = open(ui_path, 'w', encoding='utf-8')
     [ui_.write(i) for i in lines_]
-    ui_.close()
-    print('{} update'.format(ui_path))    
+    ui_.close()  
 
 FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
+
+# STYLE SHEET
 
 TEXT_OFF = """
 padding: 10px;
@@ -58,6 +64,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Medium.ttf")
         QtGui.QFontDatabase.applicationFontFamilies(_id1)
         QtGui.QFontDatabase.applicationFontFamilies(_id2)
+        
         QtGui.QFontDatabase.applicationFontFamilies(_id3)
         # UI load
         self.setupUi(self) 
@@ -83,11 +90,11 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         # log pah linking
         abs_path = os.getcwd()
-        self.date_output_path.setText(os.path.join(abs_path, 'log/[현재날짜]_카운트.txt'))
-        self.time_output_path.setText(os.path.join(abs_path, 'log/[현재시간]_카운트.txt'))
-        self.study_output_path.setText(os.path.join(abs_path, 'log/[공부시간]_카운트.txt'))
-        self.break_output_path.setText(os.path.join(abs_path, 'log/[쉬는시간]_카운트.txt'))
-        self.meal_output_path.setText(os.path.join(abs_path, 'log/[식사시간]_카운트.txt'))  
+        self.date_path.setText(os.path.join(abs_path, 'log/[현재날짜]_카운트.txt'))
+        self.time_path.setText(os.path.join(abs_path, 'log/[현재시간]_카운트.txt'))
+        self.study_path.setText(os.path.join(abs_path, 'log/[공부시간]_카운트.txt'))
+        self.break_path.setText(os.path.join(abs_path, 'log/[쉬는시간]_카운트.txt'))
+        self.meal_path.setText(os.path.join(abs_path, 'log/[식사시간]_카운트.txt'))  
         
         # config laod
         # 설정파일 읽기
@@ -110,6 +117,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.date_output_format_reset.clicked.connect(self.date_format_re)
         self.date_output_string_reset.clicked.connect(self.date_string_re)
         self.next1.clicked.connect(lambda: self.tabWidget.setCurrentIndex(1))
+    
         #%% 시간 INIT
         self.init_time_format = self.default_time_format
         self.init_time_string_1 = config['TIME']['STRING_1']
@@ -185,12 +193,23 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.sound_path = [self.break_start_sound_path,self.break_sound_path,
                            self.break_end_sound_path]
         
-        
         #%% WITH DI
         # read me
+
+        self.tabWidget.currentChanged.connect(self.mainTabChange)
         self.lablink.clicked.connect(lambda: webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
         self.gitlink.clicked.connect(lambda: webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
-                                     
+        
+        # User Inferface
+        self.copyPath = [self.date_path,self.time_path,self.study_path,self.break_path,self.meal_path]
+        self.clabel = [self.clabel_1,self.clabel_2,self.clabel_3]
+
+        self.clickable(self.copyPath[0]).connect(lambda: self.copyText(0))
+        self.clickable(self.copyPath[1]).connect(lambda: self.copyText(1))
+        self.clickable(self.copyPath[2]).connect(lambda: self.copyText(2))
+        self.clickable(self.copyPath[3]).connect(lambda: self.copyText(3))       
+        self.clickable(self.copyPath[4]).connect(lambda: self.copyText(4))    
+          
     def refresh(self):
         
         # study / break / lunch time init
@@ -549,18 +568,56 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.song.queue(x)  
         self.song.volume = self.sound_slider.value()/100.0
         self.song.play()
+    
+    # MAIN TAB CHANGE EVENT METHOD 
+    def mainTabChange(self,ids):
+        if ids == 4:
+            self.tabWidget.setCurrentIndex(5)
+    
+    # Q CLICK - COPY METHOD
+    def copyText(self, ids):
         
+        self.copyPath[ids].selectAll()
+        self.copyPath[ids].copy()
+        if ids < 2 : self.clabel[0].setText('경로가 복사되었습니다.')
+        elif ids < 4 : self.clabel[1].setText('경로가 복사되었습니다.')
+        else : self.clabel[2].setText('경로가 복사되었습니다.')
 
+    # OPEN Q FILE DIALOG METHOD
     def searchFile(self,ids):
         fname = QFileDialog.getOpenFileName(self, '음악파일을 선택해주세요.', './',"Audio files (*.mp3 *.wav)")
         if fname[0] == True:
             self.sound_path[ids].setText(fname[0])
-            
+    
+    # WITH DI START METHOD        
     def startTimer(self):
         self.refresh()
+        
+    # Q LINE EDIT CLICK METHOD
+    def clickable(self,widget):
+    
+        class Filter(QObject):
+    
+            clicked = pyqtSignal()
+           
+            def eventFilter(self, obj, event):
+           
+               if obj == widget:
+                   if event.type() == QEvent.MouseButtonRelease:
+                       if obj.rect().contains(event.pos()):
+                           self.clicked.emit()
+                           return True
+               
+               return False
+       
+        filter = Filter(widget)
+        widget.installEventFilter(filter)
+        
+        return filter.clicked
        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyle('Fusion')
     ShowApp = WithDI()
     sys.exit(app.exec_())
 
