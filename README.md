@@ -1,4 +1,4 @@
-# **With DI** ver - 0.8.0
+# **With DI** ver - 0.8.1
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
