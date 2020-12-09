@@ -36,7 +36,7 @@ for ui_path in path:
             lines_[ii] = ''
     ui_ = open(ui_path, 'w', encoding='utf-8')
     [ui_.write(i) for i in lines_]
-    ui_.close()  
+    ui_.close()
 
 FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
 
@@ -56,38 +56,45 @@ color :   rgb(240, 48, 30);
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = 'ver.0.5.0 | With DI'
-        super().__init__() 
+        self.version = 'ver.0.8.0 | With DI'
+        super().__init__()
         # System Font Init
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Bold.ttf")
         _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Light.ttf")
         _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Medium.ttf")
         QtGui.QFontDatabase.applicationFontFamilies(_id1)
         QtGui.QFontDatabase.applicationFontFamilies(_id2)
-        
         QtGui.QFontDatabase.applicationFontFamilies(_id3)
         # UI load
-        self.setupUi(self) 
+        self.setupUi(self)
         self.show()
         # Lolo load
-        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png')) 
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.setWindowTitle(self.version)
-        
+
         # break time  lunch time
         self.FLAG = [False,False,False]
         self.iter = 0       # 교시
         
         # Log file init
-        open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
-        open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
-        open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
-        open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')        
-        open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')          
-       
+        try:
+            open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
+        except:
+            time.sleep(1)
+            open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
+            open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
+
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
-        
+
         # log pah linking
         abs_path = os.getcwd()
         self.date_path.setText(os.path.join(abs_path, 'log/[현재날짜]_카운트.txt'))
@@ -98,67 +105,84 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         # config laod
         # 설정파일 읽기
-        config = configparser.ConfigParser()    
-        config.read('config.ini', encoding='utf-8') 
-        
+        config = configparser.ConfigParser()
+        config.read('config.ini', encoding='utf-8')
+
         self.default_date_format = config['DATE']['FORMAT']
         self.default_time_format = config['TIME']['FORMAT']
-        self.default_count_format =  "hh:mm:ss"
-        
+        self.study_format = config['STUDY']['FORMAT']
+        self.break_format = config['BREAK']['FORMAT']
+        self.meal_format = config['MEAL']['FORMAT']
+
         self.studywithdi.clicked.connect(self.startTimer)
-        
+
         #%% 날짜 INIT
         self.init_date_format = self.default_date_format
         self.init_date_string_1 =  config['DATE']['STRING_1']
         self.init_date_string_2 =  config['DATE']['STRING_2']
 
+
+        self.date_output_string.setText(self.init_date_string_1 + '%DATE%' + self.init_date_string_2 )
+        self.date_output_format.setText(self.init_date_format)
         self.date_output_string.textChanged.connect(self.dateStringChage)
         self.date_output_format.textChanged.connect(self.dateOuputChage)
         self.date_output_format_reset.clicked.connect(self.date_format_re)
         self.date_output_string_reset.clicked.connect(self.date_string_re)
         self.next1.clicked.connect(lambda: self.tabWidget.setCurrentIndex(1))
-    
+
         #%% 시간 INIT
         self.init_time_format = self.default_time_format
         self.init_time_string_1 = config['TIME']['STRING_1']
         self.init_time_string_2 = config['TIME']['STRING_2']
-        
+
+        self.time_output_format.setText(self.init_time_format)
+        self.time_output_string.setText(self.init_time_string_1 + '%TIME%' + self.init_time_string_2 )
         self.time_output_string.textChanged.connect(self.timeStringChage)
         self.time_output_format.textChanged.connect(self.timeOuputChage)
         self.time_output_format_reset.clicked.connect(self.time_format_re)
         self.time_output_string_reset.clicked.connect(self.time_string_re) 
-        
+
         #%% 공부시간 INIT
-        self.init_study_format = self.default_count_format
+        self.init_study_format =  config['STUDY']['FORMAT']
         self.init_study_string_1 = config['STUDY']['STRING_1']
         self.init_study_string_2 = config['STUDY']['STRING_2']
+        self.study_output_string.setText(self.init_study_string_1 + '%TIME%' + self.init_study_string_2)
+        self.study_output_format.setText(self.study_format)
+        
         qt = [int(i) for i in config['STUDY']['TIME'].split(',')]
-        self.studytime_edit.setTime(QTime(qt[0],qt[1],qt[2]))  
+        self.studytime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
         h,m = QTime.currentTime().hour(),QTime.currentTime().minute()
         self.starttime_edit.setTime(QTime(h,m+1,0))
         self.study_end_time()
         self.studytime_edit.timeChanged.connect(self.study_end_time)
         self.study_ep.setTime(QTime(int(config['STUDY']['LOOP']),0,0))
-                              
+
         self.study_ep.timeChanged.connect(self.study_end_time)
         self.starttime_edit.timeChanged.connect(self.study_end_time)
         self.study_output_format_reset.clicked.connect(self.study_format_re)
-        self.study_output_string_reset.clicked.connect(self.study_string_re) 
+        self.study_output_string_reset.clicked.connect(self.study_string_re)
         self.next2.clicked.connect(lambda: self.tabWidget.setCurrentIndex(2))
+        self.study_start_time_reset.clicked.connect(self.study_start_time_re)
         #%% 휴식 시간 INIT
-        self.init_break_format = self.default_count_format
+        self.init_break_format = config['BREAK']['FORMAT']
         self.init_break_string_1 = config['BREAK']['STRING_1']
         self.init_break_string_2 = config['BREAK']['STRING_2']
+        self.break_output_format.setText(self.break_format)
+        self.break_output_string.setText(self.init_break_string_1 + '%TIME%' + self.init_break_string_2)
+        
         qt = [int(i) for i in config['BREAK']['TIME'].split(',')]
         self.breaktime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
-        
         self.break_output_format_reset.clicked.connect(self.break_format_re)
         self.break_output_string_reset.clicked.connect(self.break_string_re) 
         
         #%% 식사 시간 INIT
-        self.init_meal_format = self.default_count_format
+        self.init_meal_format = config['MEAL']['FORMAT']
         self.init_meal_string_1 =  config['MEAL']['STRING_1']
-        self.init_meal_string_2 =  config['MEAL']['STRING_2']      
+        self.init_meal_string_2 =  config['MEAL']['STRING_2']
+        self.meal_output_format.setText(self.meal_format)
+        self.meal_output_string.setText(self.init_meal_string_1 + '%TIME%' + self.init_meal_string_2)
+        
+        
         qt = [int(i) for i in config['MEAL']['TIME'].split(',')]
         self.mealtime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
         self.meal_slider.setValue(int(config['MEAL']['WHEN']))
@@ -172,7 +196,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         if config['SOUND']['START'] == '': self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
         else: self.break_start_sound_path.setText(config['SOUND']['START'])
         if config['SOUND']['BGM'] == '': self.break_sound_path.setText(os.path.join(abs_path, 'resource/music/music.wav'))
-        else: self.break_start_sound_path.setText(config['SOUND']['BGM'])
+        else: self.break_sound_path.setText(config['SOUND']['BGM'])
         if config['SOUND']['END'] == '': self.break_end_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
         else: self.break_end_sound_path.setText(config['SOUND']['END'])
         
@@ -197,8 +221,9 @@ class WithDI(QMainWindow,FROM_CLASS):
         # read me
 
         self.tabWidget.currentChanged.connect(self.mainTabChange)
-        self.lablink.clicked.connect(lambda: webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
-        self.gitlink.clicked.connect(lambda: webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
+        self.clickable(self.lablink).connect(lambda:webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
+        self.clickable(self.gitlink).connect(lambda:webbrowser.open('https://github.com/DEEPI-LAB/python-study-with-me-timer'))
+
         
         # User Inferface
         self.copyPath = [self.date_path,self.time_path,self.study_path,self.break_path,self.meal_path]
@@ -242,35 +267,40 @@ class WithDI(QMainWindow,FROM_CLASS):
         config = configparser.ConfigParser()    
         config.read('config.ini', encoding='utf-8') 
         
-        
+        txt = self.date_output_string.text().split('%DATE%')
         config['DATE']['FORMAT'] = self.date_output_format.text().replace('%','%%')
-        config['DATE']['STRING_1'] = self.init_date_string_1
-        config['DATE']['STRING_2'] = self.init_date_string_2
+        config['DATE']['STRING_1'] = txt[0]
+        config['DATE']['STRING_2'] = txt[1]
 
+        txt = self.time_output_string.text().split('%TIME%')
         config['TIME']['FORMAT'] = self.time_output_format.text().replace('%','%%')
-        config['TIME']['STRING_1'] = self.init_time_string_1
-        config['TIME']['STRING_2'] = self.init_time_string_2
+        config['TIME']['STRING_1'] = txt[0]
+        config['TIME']['STRING_2'] = txt[1]
         
+        txt = self.study_output_string.text().split('%TIME%')
         config['STUDY']['FORMAT'] = self.study_output_format.text()
-        config['STUDY']['STRING_1'] = self.study_output_string.text().split('%TIME%')[0]
-        config['STUDY']['STRING_2'] = self.study_output_string.text().split('%TIME%')[1]
+        config['STUDY']['STRING_1'] = txt[0]
+        config['STUDY']['STRING_2'] = txt[1]
         config['STUDY']['LOOP'] = str(self.study_ep.time().hour())
         config['STUDY']['TIME'] = self.studytime_edit.time().toString().replace(':',',')
 
+        txt = self.break_output_string.text().split('%TIME%')
         config['BREAK']['FORMAT'] = self.break_output_format.text()
-        config['BREAK']['STRING_1'] = self.break_output_string.text().split('%TIME%')[0]
-        config['BREAK']['STRING_2'] = self.break_output_string.text().split('%TIME%')[1]
+        config['BREAK']['STRING_1'] = txt[0]
+        config['BREAK']['STRING_2'] = txt[1]
         config['BREAK']['TIME'] = self.breaktime_edit.time().toString().replace(':',',')
 
+        txt = self.meal_output_string.text().split('%TIME%')
         config['MEAL']['FORMAT'] = self.meal_output_format.text()
-        config['MEAL']['STRING_1'] = self.meal_output_string.text().split('%TIME%')[0]
-        config['MEAL']['STRING_2'] = self.meal_output_string.text().split('%TIME%')[1]
+        config['MEAL']['STRING_1'] = txt[0]
+        config['MEAL']['STRING_2'] = txt[1]
         config['MEAL']['TIME'] = self.mealtime_edit.time().toString().replace(':',',')
         config['MEAL']['WHEN'] = str(self.meal_slider.value())
 
         config['SOUND']['START'] = self.break_start_sound_path.text()
         config['SOUND']['BGM'] = self.break_sound_path.text()
         config['SOUND']['END'] = self.break_end_sound_path.text()
+        
         config['SOUND']['VOL'] = str(self.sound_slider.value())
         with open('config.ini', 'w', encoding='utf-8') as configfile:
             config.write(configfile)
@@ -290,7 +320,6 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.date_output_live.setText(self.init_date_string_1 + 
                                       time.strftime(self.default_date_format) + 
                                       self.init_date_string_2)
-        
         # Study 업데이트 활성화
         if True:
             self.checkTime()
@@ -398,7 +427,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
             c_date.write(txt)
             c_date.close()
-        except:pass         
+        except:pass
     def checkTime(self):
         try:
             self.current_time.setText(time.strftime('%H시 %M분 %S초'))
@@ -410,22 +439,22 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
         t = self.study_time_count.toString(self.study_output_format.text())
         xx = self.study_output_string.text().split('%')
-        
+
         c_date = open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
         c_date.write(xx[0]+t+xx[2])
-        c_date.close() 
+        c_date.close()
 
     def checkBreakCount(self):
-    
+
         try:
             self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
             t = self.break_time_count.toString(self.break_output_format.text())
             xx = self.break_output_string.text().split('%')
             c_date = open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
-            c_date.close()       
+            c_date.close()
         except:pass
-    
+
     def checkMealCount(self):
         try:
             self.current_meal.setText(self.meal_time_count_m.toString("hh시간 mm분 ss초"))
@@ -434,8 +463,8 @@ class WithDI(QMainWindow,FROM_CLASS):
             c_date = open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()
-        except:pass           
-    
+        except:pass
+
     def dateOuputChage(self):
         try:
             x = time.strftime(self.date_output_format.text())
@@ -444,33 +473,33 @@ class WithDI(QMainWindow,FROM_CLASS):
             
             self.date_output_live.setText(txt)
         except:pass
-        
+
     def dateStringChage(self):
         try:
             x = time.strftime(self.date_output_format.text())
             xx = self.date_output_string.text().split('%')
             self.init_date_string_1,self.init_date_string_2 = xx[0],xx[2]
             txt = self.init_date_string_1 + x + self.init_date_string_2
-            
+    
             self.date_output_live.setText(txt)
-        except:pass  
-        
+        except:pass
+
     def timeOuputChage(self):
         try:
             self.init_time_format = self.time_output_format.text()
         except:pass
-        
+
     def timeStringChage(self):
         try:
             x = time.strftime(self.time_output_format.text())
             xx = self.time_output_string.text().split('%')
             self.init_time_string_1,self.init_time_string_2 = xx[0],xx[2]
             txt = self.init_time_string_1 + x + self.init_time_string_2
-        
+
             self.time_output_live.setText(txt)
-        except:pass  
-        
-        
+        except:pass
+
+
     def study_end_time(self):
         # 반복횟수
         ep = self.study_ep.time().hour()
@@ -478,38 +507,38 @@ class WithDI(QMainWindow,FROM_CLASS):
         sh = self.studytime_edit.time().hour() * ep
         sm = self.studytime_edit.time().minute() * ep
         ss = self.studytime_edit.time().second() * ep
-        
+
         mins,secs = divmod(ss,60)
         hours,mins = divmod(sm + mins,60)
         hours = hours + sh
-        
+
         sh = self.starttime_edit.time().hour() + hours
         sm = self.starttime_edit.time().minute() + mins
         ss = self.starttime_edit.time().second() + secs
-        
+
         mins,secs = divmod(ss,60)
         hours,mins = divmod(sm + mins,60)
         hours = hours + sh
-        
+
         days,hours = divmod(hours,24)
         if days > 0:
-            self.endtime_edit.setText('+ {}일 '.format(days)+QTime(hours,mins,secs).toString("hh시 : mm분 : ss초"))
+            self.endtime_edit.setText('+ {}일 '.format(days)+QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
         else:
-            self.endtime_edit.setText(QTime(hours,mins,secs).toString("hh시 : mm분 : ss초"))
-    
+            self.endtime_edit.setText(QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
+
 
     def mealMode(self):
             self.meal_times.setText('{}교시 종료 후'.format(self.meal_slider.value()))
-            
+
     def soundMode(self):
         self.sound_val.setText(str(self.sound_slider.value()))
-        
+
         try:
             self.song
             self.song.volume = self.sound_slider.value() / 100.0
         except:pass
-        
-        
+
+
     def date_format_re(self):
         self.date_output_format.setText("%Y년%m월%d일")
         self.dateOuputChage()
@@ -517,66 +546,68 @@ class WithDI(QMainWindow,FROM_CLASS):
     def date_string_re(self):
         self.date_output_string.setText("오늘은 %DATE% 입니다.")
         self.dateStringChage()
-        
+
     def time_format_re(self):
         self.time_output_format.setText("%H:%M:%S")
         self.timeOuputChage()
 
     def time_string_re(self):
-        self.time_output_string.setText("지금 시간은 %DATE% 입니다.")
-        self.timeStringChage()        
+        self.time_output_string.setText("지금은 %TIME% 입니다.")
+        self.timeStringChage()
 
     def study_format_re(self):
-        self.study_output_format.setText("%H:%M:%S")
+        self.study_output_format.setText("%hh:%bb:%ss")
 
     def study_string_re(self):
         self.init_study_string_1 = "공부시간 : "
         self.init_study_string_2 = ""
         self.study_output_string.setText("공부시간 : %TIME%")
-  
+
     def break_format_re(self):
-        self.break_output_format.setText("%H:%M:%S")
-    
+        self.break_output_format.setText("%hh:%bb:%ss")
+
     def break_string_re(self):
         self.init_break_string_1 = "쉬는시간 : "
         self.init_break_string_2 = ""
         self.break_output_string.setText("쉬는시간 : %TIME%")
-        
+
     def meal_format_re(self):
-        self.meal_output_format.setText("%H:%M:%S")
-    
+        self.meal_output_format.setText("%hh:%bb:%ss")
+
     def meal_string_re(self):
         self.init_meal_string_1 = "식사시간 : "
         self.init_meal_string_2 = ""
-        self.meal_output_string.setText("식사시간 : %TIME%")   
-        
+        self.meal_output_string.setText("식사시간 : %TIME%")
+    def study_start_time_re(self):
+        h,m = QTime.currentTime().hour(),QTime.currentTime().minute()
+        self.starttime_edit.setTime(QTime(h,m+1,0))
     def playMusic(self,ids):
-        
+
         try:
             self.song
             self.song.pause()
             self.song.delete()
         except: pass
         self.song = pyglet.media.Player()
-        if ids == 0:
-            x= pyglet.media.load(self.break_start_sound_path.text())
-        elif ids == 1:
-            x= pyglet.media.load(self.break_sound_path.text())
-        elif ids == 2:
-            x= pyglet.media.load(self.break_end_sound_path.text())
-            
-        self.song.queue(x)  
-        self.song.volume = self.sound_slider.value()/100.0
-        self.song.play()
+        try:
+            if ids == 0:
+                x= pyglet.media.load(self.break_start_sound_path.text())
+            elif ids == 1:
+                x= pyglet.media.load(self.break_sound_path.text())
+            elif ids == 2:
+                x= pyglet.media.load(self.break_end_sound_path.text())
     
+            self.song.queue(x)
+            self.song.volume = self.sound_slider.value()/100.0
+            self.song.play()
+        except: return
     # MAIN TAB CHANGE EVENT METHOD 
     def mainTabChange(self,ids):
         if ids == 4:
             self.tabWidget.setCurrentIndex(5)
-    
+
     # Q CLICK - COPY METHOD
     def copyText(self, ids):
-        
         self.copyPath[ids].selectAll()
         self.copyPath[ids].copy()
         if ids < 2 : self.clabel[0].setText('경로가 복사되었습니다.')
@@ -588,37 +619,32 @@ class WithDI(QMainWindow,FROM_CLASS):
         fname = QFileDialog.getOpenFileName(self, '음악파일을 선택해주세요.', './',"Audio files (*.mp3 *.wav)")
         if fname[0] == True:
             self.sound_path[ids].setText(fname[0])
-    
-    # WITH DI START METHOD        
+
+    # WITH DI START METHOD
     def startTimer(self):
         self.refresh()
-        
+
     # Q LINE EDIT CLICK METHOD
     def clickable(self,widget):
-    
+
         class Filter(QObject):
-    
+
             clicked = pyqtSignal()
-           
+
             def eventFilter(self, obj, event):
-           
+
                if obj == widget:
                    if event.type() == QEvent.MouseButtonRelease:
                        if obj.rect().contains(event.pos()):
                            self.clicked.emit()
                            return True
-               
                return False
-       
         filter = Filter(widget)
         widget.installEventFilter(filter)
-        
         return filter.clicked
-       
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyle('Fusion')
     ShowApp = WithDI()
     sys.exit(app.exec_())
-
-

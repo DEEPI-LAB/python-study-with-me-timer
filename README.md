@@ -1,4 +1,4 @@
-# **With DI** ver - 0.6.0
+# **With DI** ver - 0.8.0
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -78,6 +78,13 @@
  - UI 개선
  - 경로 자동 복사기능 추가
  - 기타 버그 수정
+ - 
+### 2020-12-09 [0.8.0]
+- UI 개선
+- Config 관련 오류 수정
+- 경로 자동 복사기능 추가
+- 기타 버그 수정
+
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

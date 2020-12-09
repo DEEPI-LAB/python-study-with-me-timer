@@ -322,7 +322,7 @@ font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>오늘은 %DATE% 입니다.</string>
+                     <string/>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -349,7 +349,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Current Date</string>
+                     <string>시스템 날짜</string>
                     </property>
                    </widget>
                   </item>
@@ -373,7 +373,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Text 파일 위치</string>
+                     <string>텍스트파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -397,7 +397,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Date 문자열</string>
+                     <string>문구 추가하기</string>
                     </property>
                    </widget>
                   </item>
@@ -421,7 +421,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Live Date</string>
+                     <string>출력되는 문구</string>
                     </property>
                    </widget>
                   </item>
@@ -592,7 +592,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Date 형식</string>
+                     <string>날짜 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -751,7 +751,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Time 형식</string>
+                     <string>시간 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -811,7 +811,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Current Time</string>
+                     <string>시스템 시간</string>
                     </property>
                    </widget>
                   </item>
@@ -835,7 +835,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Text 파일 위치</string>
+                     <string>텍스트파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -859,7 +859,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Time 문자열</string>
+                     <string>문구 추가하기</string>
                     </property>
                    </widget>
                   </item>
@@ -883,7 +883,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Live Time</string>
+                     <string>출력되는 문구</string>
                     </property>
                    </widget>
                   </item>
@@ -913,7 +913,7 @@ font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>지금 시간은  %TIME% 입니다.</string>
+                     <string/>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1093,6 +1093,7 @@ color :   #353F40;</string>
 	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#353F40;
 	border : None;
+	border-radius : 10px;
 }
 
 QPushButton::hover
@@ -1391,7 +1392,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 형식</string>
+                     <string>시간 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -1418,7 +1419,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 문자열</string>
+                     <string>문구 추가하기</string>
                     </property>
                    </widget>
                   </item>
@@ -1442,7 +1443,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Text 파일 위치</string>
+                     <string>텍스트파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -1535,7 +1536,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Study 시간</string>
+                     <string>스터디 시간</string>
                     </property>
                    </widget>
                   </item>
@@ -1675,7 +1676,7 @@ color :   #353F40;</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="pushButton">
+                     <widget class="QPushButton" name="study_start_time_reset">
                       <property name="minimumSize">
                        <size>
                         <width>30</width>
@@ -1844,7 +1845,7 @@ QGroupBox::title  {
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>0</width>
+                    <width>150</width>
                     <height>40</height>
                    </size>
                   </property>
@@ -1860,6 +1861,7 @@ QGroupBox::title  {
 	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#353F40;
 	border : None;
+	border-radius : 10px;
 }
 
 QPushButton::hover
@@ -2023,7 +2025,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Text 파일 위치</string>
+                     <string>텍스트파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -2077,7 +2079,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 문자열</string>
+                     <string>문구 추가하기</string>
                     </property>
                    </widget>
                   </item>
@@ -2122,7 +2124,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Study 종료 시간</string>
+                     <string>최종 종료 시간</string>
                     </property>
                    </widget>
                   </item>
@@ -2149,7 +2151,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 형식</string>
+                     <string>시간 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -2176,7 +2178,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Break 시간</string>
+                     <string>휴식 시간</string>
                     </property>
                    </widget>
                   </item>
@@ -2496,7 +2498,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>시작 시간 설정</string>
+                     <string>식사 시작 교시</string>
                     </property>
                    </widget>
                   </item>
@@ -2680,7 +2682,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>Text 파일 위치</string>
+                     <string>텍스트파일 위치</string>
                     </property>
                    </widget>
                   </item>
@@ -2740,7 +2742,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 형식</string>
+                     <string>시간 형식</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -2767,7 +2769,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>타이머 문자열</string>
+                     <string>문구 추가하기</string>
                     </property>
                    </widget>
                   </item>
@@ -2791,7 +2793,7 @@ font: 75 15px&quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
-                     <string>HH시간 : mm분 : ss초</string>
+                     <string>HH시간:mm분:ss초</string>
                     </property>
                    </widget>
                   </item>
@@ -2988,6 +2990,7 @@ QGroupBox::title  {
 	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#353F40;
 	border : None;
+	border-radius : 10px;
 }
 
 QPushButton::hover
@@ -2998,7 +3001,7 @@ QPushButton::hover
 }</string>
                   </property>
                   <property name="text">
-                   <string>Study With DI </string>
+                   <string>Study With DI Start!</string>
                   </property>
                  </widget>
                 </item>
@@ -3091,7 +3094,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>시작 종소리</string>
+                     <string>휴식 시작 효과음</string>
                     </property>
                    </widget>
                   </item>
@@ -3115,7 +3118,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>종료 종소리</string>
+                     <string>휴식 종료 효과음</string>
                     </property>
                    </widget>
                   </item>
@@ -3191,7 +3194,7 @@ font: 20px &quot;Gong Gothic&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
-                     <string>휴식 시간</string>
+                     <string>휴식 시간 배경음</string>
                     </property>
                     <property name="margin">
                      <number>0</number>
@@ -3420,14 +3423,15 @@ color :   #353F40;</string>
                       <property name="styleSheet">
                        <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 15px&quot;Gong Gothic&quot;;
+	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#353F40;
 	border : None;
+	border-radius : 10px;
 }
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 15px&quot;Gong Gothic&quot;;
+	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -3454,14 +3458,15 @@ QPushButton::hover
                       <property name="styleSheet">
                        <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 15px&quot;Gong Gothic&quot;;
+	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#353F40;
 	border : None;
+	border-radius : 10px;
 }
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 15px&quot;Gong Gothic&quot;;
+	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -3551,7 +3556,7 @@ padding-left:10px;
 font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
-                <string>위젯</string>
+                <string>Streaming</string>
                </property>
               </widget>
              </item>
@@ -3580,7 +3585,7 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
 font: 75 15px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="text">
-                <string>Study With Me 타이머 상태를 확인할 수 있습니다.</string>
+                <string>모든 타이머 상태를 확인할 수 있습니다.</string>
                </property>
               </widget>
              </item>
@@ -3663,7 +3668,7 @@ QGroupBox::title  {
 }</string>
                </property>
                <property name="title">
-                <string>현재 날짜</string>
+                <string/>
                </property>
                <layout class="QGridLayout" name="gridLayout_23">
                 <property name="topMargin">
@@ -4030,7 +4035,7 @@ QGroupBox::title  {
 }</string>
                </property>
                <property name="title">
-                <string>현재 시간</string>
+                <string/>
                </property>
                <layout class="QGridLayout" name="gridLayout_25">
                 <item row="0" column="0">
@@ -4547,6 +4552,85 @@ color :   #353F40;</string>
            <property name="spacing">
             <number>5</number>
            </property>
+           <item row="0" column="2">
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="gitlink">
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/github.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lablink">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="icon/icon.qrc">:/icon/tistory.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="styleSheet">
+                <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :    #F2F1EF;</string>
+               </property>
+               <property name="text">
+                <string>With DI ver 0.8.0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="styleSheet">
+                <string notr="true">padding: 10px;;
+font: 20px &quot;Gong Gothic&quot;;
+color :    #F2F1EF;</string>
+               </property>
+               <property name="text">
+                <string>Copyright(C) 2020 Deep.I Inc.</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label">
              <property name="minimumSize">
@@ -4571,86 +4655,6 @@ color :   #353F40;</string>
               <bool>true</bool>
              </property>
             </widget>
-           </item>
-           <item row="0" column="1">
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <widget class="QLabel" name="label_2">
-               <property name="styleSheet">
-                <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :    #F2F1EF;</string>
-               </property>
-               <property name="text">
-                <string>With DI ver 0.6.0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_3">
-               <property name="styleSheet">
-                <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :    #F2F1EF;</string>
-               </property>
-               <property name="text">
-                <string>Copyright(C) 2020 Deep.I Inc.</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="2">
-            <layout class="QHBoxLayout" name="horizontalLayout_10">
-             <item>
-              <widget class="QPushButton" name="lablink">
-               <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-               </property>
-               <property name="text">
-                <string>Deep.I Lab</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="gitlink">
-               <property name="styleSheet">
-                <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#353F40;
-	border : None;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px&quot;Gong Gothic Light&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-               </property>
-               <property name="text">
-                <string>Deep.I Github</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </item>
           </layout>
          </widget>
@@ -4689,83 +4693,71 @@ QPushButton::hover
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 최신 버전은 티스토리와 깃허브를 통해 배포되고 있습니다.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#e8e8e8;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://deep-eye.tistory.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#e8e8e8;&quot;&gt;https://deep-eye.tistory.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#e8e8e8;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;deepi.contact.us@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#e8e8e8;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-07] - [0.7.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 경로 자동 복사기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-05] - [0.5.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- Config 저장 불러오기 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 타이머 싱크 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-04] - [0.4.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 개선 &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 음원 재생 오류 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-03] - [0.3.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 배포판 용량 압축 &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 아이콘 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 시작 시간을 기준으로 타이머 동작 변경&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#e8e8e8;&quot;&gt;저작권&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#e8e8e8;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#e8e8e8;&quot;&gt;Icon : &lt;/span&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt;사용된 아이콘은 www.flaticon.com에서 다운받았으며 Prosymbols와 Freepik로부터 디자인 되었습니다.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#e8e8e8;&quot;&gt;Font&lt;/span&gt;&lt;span style=&quot; color:#e8e8e8;&quot;&gt; : 사용된 폰트는 모두 (주)공게임즈에 저작권이 있으며 상업용 무료 폰트입니다.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 최신 버전은 티스토리와 깃허브를 통해 배포되고 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://deep-eye.tistory.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;https://deep-eye.tistory.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;deepi.contact.us@gmail.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-09] - [0.8.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- Config 관련 오류 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-07] - [0.7.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 경로 자동 복사기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-05] - [0.5.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- Config 저장 불러오기 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 타이머 싱크 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-04] - [0.4.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선 &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음원 재생 오류 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-03] - [0.3.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 배포판 용량 압축 &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 아이콘 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 시작 시간을 기준으로 타이머 동작 변경&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;저작권&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;Icon : &lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;사용된 아이콘은 www.flaticon.com에서 다운받았으며 Prosymbols와 Freepik로부터 디자인 되었습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;Font&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt; : 사용된 폰트는 모두 (주)공게임즈에 저작권이 있으며 상업용 무료 폰트입니다.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -4780,7 +4772,6 @@ p, li { white-space: pre-wrap; }
   </widget>
  </widget>
  <resources>
-  <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
  </resources>
