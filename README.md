@@ -1,4 +1,4 @@
-# **With DI** ver - 0.8.1
+# **With DI** ver - 0.8.5
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -78,7 +78,7 @@
  - UI 개선
  - 경로 자동 복사기능 추가
  - 기타 버그 수정
- - 
+
 ### 2020-12-09 [0.8.1]
 - UI 개선
 - Config 관련 오류 수정
@@ -86,6 +86,12 @@
 - 기타 버그 수정
 - 음원 압축
 
+### 2020-12-15 [0.8.5]
+- UI 개선
+- 폰트 변경
+- refresh 오류 수정
+- 버튼 클릭 이벤트 추가
+- 배포판 용량 압축
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

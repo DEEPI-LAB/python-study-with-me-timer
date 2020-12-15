@@ -54,7 +54,7 @@ QTabBar::tab
 {
     height:30px;
 	width: 150px;
-	font: 15px &quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어 Bold&quot;;
 }
 QTabBar::tab:hover
 {
@@ -134,10 +134,11 @@ QTabBar::tab:hover
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
-font: 75 15px&quot;Gong Gothic&quot;;</string>
+font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>출력되는 현재 날짜와 시간의 형식을 편집해주세요.</string>
+                <string>방송 화면에 출력되는 날짜와 시간을 편집해주세요.</string>
                </property>
               </widget>
              </item>
@@ -162,12 +163,13 @@ font: 75 15px&quot;Gong Gothic&quot;;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">padding-top:10px;
+                <string notr="true">padding-top:5px;
 padding-left:10px;
-font: 75 30px&quot;Gong Gothic&quot;;</string>
+font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>Today 설정</string>
+                <string>Today 설정하기</string>
                </property>
               </widget>
              </item>
@@ -261,13 +263,15 @@ background-color: #353F40;</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7900px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -317,8 +321,8 @@ QGroupBox::title  {
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -344,9 +348,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시스템 날짜</string>
@@ -368,9 +372,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>텍스트파일 위치</string>
@@ -392,9 +396,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>문구 추가하기</string>
@@ -416,9 +420,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>출력되는 문구</string>
@@ -447,15 +451,16 @@ color :   #353F40;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Gong Gothic</family>
-                      <weight>9</weight>
+                      <family>나눔스퀘어_ac Bold</family>
+                      <pointsize>-1</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -481,8 +486,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="frame">
@@ -587,9 +592,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>날짜 형식</string>
@@ -614,8 +619,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -644,8 +649,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="alignment">
@@ -674,7 +679,7 @@ color :   #353F40;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+font:17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   rgb(255, 74, 29)</string>
                   </property>
                   <property name="text">
@@ -696,13 +701,15 @@ color :   rgb(255, 74, 29)</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7900px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -746,9 +753,9 @@ QGroupBox::title  {
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시간 형식</string>
@@ -779,8 +786,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -806,9 +813,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시스템 시간</string>
@@ -830,9 +837,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>텍스트파일 위치</string>
@@ -854,9 +861,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>문구 추가하기</string>
@@ -878,9 +885,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>출력되는 문구</string>
@@ -908,8 +915,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -935,8 +942,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -1003,8 +1010,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -1027,8 +1034,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -1090,7 +1097,8 @@ color :   #353F40;</string>
                   <property name="styleSheet">
                    <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#353F40;
 	border : None;
 	border-radius : 10px;
@@ -1098,7 +1106,8 @@ color :   #353F40;</string>
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -1186,10 +1195,11 @@ QPushButton::hover
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
-font: 75 15px&quot;Gong Gothic&quot;;</string>
+font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>집중 공부 시간과 휴식 시간를 설정하고 형식을 편집해주세요.</string>
+                <string>방송 화면에 출력되는 공부와 휴식 시간를 편집해주세요.</string>
                </property>
               </widget>
              </item>
@@ -1214,12 +1224,13 @@ font: 75 15px&quot;Gong Gothic&quot;;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">padding-top:10px;
+                <string notr="true">padding-top:5px;
 padding-left:10px;
-font: 75 30px&quot;Gong Gothic&quot;;</string>
+font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>Study 설정</string>
+                <string>Study 설정하기</string>
                </property>
               </widget>
              </item>
@@ -1304,13 +1315,15 @@ background-color: #353F40;</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7850px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -1354,8 +1367,8 @@ QGroupBox::title  {
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
@@ -1387,9 +1400,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시간 형식</string>
@@ -1414,9 +1427,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>문구 추가하기</string>
@@ -1438,9 +1451,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>텍스트파일 위치</string>
@@ -1468,8 +1481,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -1498,8 +1511,8 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -1531,9 +1544,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>스터디 시간</string>
@@ -1628,9 +1641,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시작 시간 설정</string>
@@ -1658,8 +1671,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -1714,8 +1727,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
@@ -1750,7 +1763,7 @@ color :   #353F40;</string>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">padding: 5px;
-font: 75 15px&quot;Gong Gothic&quot;;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                       </property>
                       <property name="alignment">
@@ -1795,7 +1808,7 @@ color :   #353F40;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+font:17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   rgb(255, 74, 29)</string>
                   </property>
                   <property name="text">
@@ -1817,13 +1830,15 @@ color :   rgb(255, 74, 29)</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7900px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -1858,7 +1873,8 @@ QGroupBox::title  {
                   <property name="styleSheet">
                    <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#353F40;
 	border : None;
 	border-radius : 10px;
@@ -1866,7 +1882,8 @@ QGroupBox::title  {
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -1993,8 +2010,8 @@ QPushButton::hover
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2020,9 +2037,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>텍스트파일 위치</string>
@@ -2044,8 +2061,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2074,9 +2091,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>문구 추가하기</string>
@@ -2098,8 +2115,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                    </widget>
@@ -2119,9 +2136,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>최종 종료 시간</string>
@@ -2146,9 +2163,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시간 형식</string>
@@ -2173,9 +2190,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>휴식 시간</string>
@@ -2203,8 +2220,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2236,8 +2253,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
@@ -2318,12 +2335,13 @@ color :   #353F40;</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">padding-top:10px;
+                <string notr="true">padding-top:5px;
 padding-left:10px;
-font: 75 30px&quot;Gong Gothic&quot;;</string>
+font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>Sound 설정</string>
+                <string>Sound 설정하기</string>
                </property>
               </widget>
              </item>
@@ -2349,7 +2367,8 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
-font: 75 15px&quot;Gong Gothic&quot;;</string>
+font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
                 <string>식사 시간과 종소리, ASMR 등의 효과음을 설정 할 수 있습니다.</string>
@@ -2437,13 +2456,15 @@ background-color: #353F40;</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7900px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -2493,9 +2514,9 @@ QGroupBox::title  {
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>식사 시작 교시</string>
@@ -2517,9 +2538,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>식사 시간</string>
@@ -2541,8 +2562,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2650,8 +2671,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2677,9 +2698,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>텍스트파일 위치</string>
@@ -2707,8 +2728,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -2737,9 +2758,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시간 형식</string>
@@ -2764,9 +2785,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>문구 추가하기</string>
@@ -2788,8 +2809,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="displayFormat">
@@ -2891,8 +2912,8 @@ color :   #353F40;</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                        <string notr="true">padding: 5px;
+font: 15px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                        </property>
                        <property name="text">
@@ -2930,7 +2951,7 @@ color :   #353F40;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+font:17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   rgb(255, 74, 29)</string>
                   </property>
                   <property name="text">
@@ -2952,13 +2973,15 @@ color :   rgb(255, 74, 29)</string>
 QGroupBox  {
     border:0px;
     border-radius: 15px;
-	font: 75 15px&quot;Gong Gothic&quot;;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+	color :#353F40;
 }
 
 QGroupBox::title  {
-    font: 20px;
+    font: 17px;
     subcontrol-position: top center;
     padding: 0px 7900px 5px 8000px;
+	color :#353F40;
 }
 
 </string>
@@ -2987,7 +3010,8 @@ QGroupBox::title  {
                   <property name="styleSheet">
                    <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#353F40;
 	border : None;
 	border-radius : 10px;
@@ -2995,7 +3019,8 @@ QGroupBox::title  {
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -3040,8 +3065,8 @@ QPushButton::hover
                      <enum>Qt::WheelFocus</enum>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-font:15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 1px;
+font: 15px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3089,9 +3114,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>휴식 시작 효과음</string>
@@ -3113,9 +3138,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>휴식 종료 효과음</string>
@@ -3140,8 +3165,8 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -3189,9 +3214,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>휴식 시간 배경음</string>
@@ -3216,8 +3241,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -3278,8 +3303,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="readOnly">
@@ -3318,9 +3343,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>효과음 크기</string>
@@ -3395,9 +3420,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>ASMR</string>
@@ -3423,7 +3448,8 @@ color :   #353F40;</string>
                       <property name="styleSheet">
                        <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#353F40;
 	border : None;
 	border-radius : 10px;
@@ -3431,7 +3457,8 @@ color :   #353F40;</string>
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -3458,7 +3485,8 @@ QPushButton::hover
                       <property name="styleSheet">
                        <string notr="true">QPushButton
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#353F40;
 	border : None;
 	border-radius : 10px;
@@ -3466,7 +3494,8 @@ QPushButton::hover
 
 QPushButton::hover
 {
-	color: #F2F1EF;font: 20px&quot;AppleSDGothicNeoB00&quot;;
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 	background-color:#000000;
 	border :solid;
 }</string>
@@ -3551,9 +3580,10 @@ QPushButton::hover
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">padding-top:10px;
+                <string notr="true">padding-top:5px;
 padding-left:10px;
-font: 75 30px&quot;Gong Gothic&quot;;</string>
+font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
                 <string>Streaming</string>
@@ -3582,10 +3612,11 @@ font: 75 30px&quot;Gong Gothic&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">padding-left:15px;
-font: 75 15px&quot;Gong Gothic&quot;;</string>
+font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+color :   #353F40;</string>
                </property>
                <property name="text">
-                <string>모든 타이머 상태를 확인할 수 있습니다.</string>
+                <string>실시간 스터디 위드미 방송 타이머 정보</string>
                </property>
               </widget>
              </item>
@@ -3715,9 +3746,9 @@ QGroupBox::title  {
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>현재 날짜</string>
@@ -3748,8 +3779,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3784,9 +3815,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>공부 누적 시간</string>
@@ -3814,9 +3845,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>현재 시간</string>
@@ -3844,8 +3875,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3880,9 +3911,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>휴식 누적 시간</string>
@@ -3910,9 +3941,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>식사 누적 시간</string>
@@ -3934,8 +3965,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3964,8 +3995,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -3997,8 +4028,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4070,8 +4101,8 @@ QGroupBox::title  {
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4116,8 +4147,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4143,9 +4174,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>오늘 목표 #3</string>
@@ -4167,9 +4198,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>오늘 목표 #4</string>
@@ -4217,9 +4248,9 @@ color :   #353F40;</string>
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>시간표</string>
@@ -4250,8 +4281,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4277,9 +4308,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>오늘 목표 #2</string>
@@ -4301,9 +4332,9 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :   #353F40;</string>
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
                     </property>
                     <property name="text">
                      <string>오늘 목표 #1</string>
@@ -4342,8 +4373,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4369,8 +4400,8 @@ color :   #353F40;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding: 10px;
-font: 75 15px&quot;Gong Gothic&quot;;
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                     </property>
                     <property name="text">
@@ -4558,76 +4589,102 @@ color :   #353F40;</string>
               <number>20</number>
              </property>
              <item>
-              <widget class="QLabel" name="gitlink">
-               <property name="maximumSize">
-                <size>
-                 <width>80</width>
-                 <height>80</height>
-                </size>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>10</number>
                </property>
-               <property name="text">
-                <string/>
+               <property name="leftMargin">
+                <number>50</number>
                </property>
-               <property name="pixmap">
-                <pixmap resource="icon/icon.qrc">:/icon/github.png</pixmap>
+               <property name="rightMargin">
+                <number>10</number>
                </property>
-               <property name="scaledContents">
-                <bool>true</bool>
-               </property>
-              </widget>
+               <item>
+                <widget class="QLabel" name="gitlink">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>80</height>
+                  </size>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap resource="icon/icon.qrc">:/icon/github.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_15">
+                 <property name="styleSheet">
+                  <string notr="true">	color: #F2F1EF;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Github</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
-              <widget class="QLabel" name="lablink">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>80</height>
-                </size>
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <property name="spacing">
+                <number>10</number>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>80</width>
-                 <height>80</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap resource="icon/icon.qrc">:/icon/tistory.png</pixmap>
-               </property>
-               <property name="scaledContents">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="1">
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <widget class="QLabel" name="label_2">
-               <property name="styleSheet">
-                <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :    #F2F1EF;</string>
-               </property>
-               <property name="text">
-                <string>With DI ver 0.8.0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_3">
-               <property name="styleSheet">
-                <string notr="true">padding: 10px;;
-font: 20px &quot;Gong Gothic&quot;;
-color :    #F2F1EF;</string>
-               </property>
-               <property name="text">
-                <string>Copyright(C) 2020 Deep.I Inc.</string>
-               </property>
-              </widget>
+               <item>
+                <widget class="QLabel" name="lablink">
+                 <property name="minimumSize">
+                  <size>
+                   <width>80</width>
+                   <height>80</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>80</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap resource="icon/icon.qrc">:/icon/tistory.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_16">
+                 <property name="styleSheet">
+                  <string notr="true">	color: #F2F1EF;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Tistory</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
@@ -4656,6 +4713,57 @@ color :    #F2F1EF;</string>
              </property>
             </widget>
            </item>
+           <item row="0" column="1">
+            <widget class="QFrame" name="frame">
+             <property name="minimumSize">
+              <size>
+               <width>600</width>
+               <height>0</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="styleSheet">
+                 <string notr="true">padding: 10px;;
+font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :    #F2F1EF;</string>
+                </property>
+                <property name="text">
+                 <string>With DI ver 0.8.5</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="styleSheet">
+                 <string notr="true">padding: 10px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :    #F2F1EF;</string>
+                </property>
+                <property name="text">
+                 <string>Copyright(C) 2020 Deep.I Inc.</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -4668,6 +4776,9 @@ color :    #F2F1EF;</string>
 }</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <property name="leftMargin">
             <number>20</number>
            </property>
@@ -4681,83 +4792,134 @@ color :    #F2F1EF;</string>
             <number>20</number>
            </property>
            <item>
-            <widget class="QTextEdit" name="textEdit">
+            <widget class="QPlainTextEdit" name="plainTextEdit">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: rgb(217, 217, 217);</string>
+              <string notr="true">	color: #F2F1EF;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
              </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다. 아직 개발단계이다보니 부족한 점이 많습니다. 지속적인 업데이트를 통해 발전시키도록 하겠습니다. 최신 버전은 티스토리와 깃허브를 통해 배포되고 있습니다.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;제작자 홈페이지&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://deep-eye.tistory.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;https://deep-eye.tistory.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;제작자 메일&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;deepi.contact.us@gmail.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;deepi.contact.us@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-09] - [0.8.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- Config 관련 오류 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-07] - [0.7.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 경로 자동 복사기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-05] - [0.5.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- Config 저장 불러오기 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 타이머 싱크 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; text-decoration: underline; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-04] - [0.4.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선 &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음원 재생 오류 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- ASMR 링크 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-03] - [0.3.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 배포판 용량 압축 &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 아이콘 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 시작 시간을 기준으로 타이머 동작 변경&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-02] - [0.2.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 서브 위젯 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-02] - [0.2.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음악 재생 버그 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 개선&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-01] - [0.1.2] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 효과음 크기 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 효과음 변경 기능 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-12-01] - [0.1.1] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- UI 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 음성 파일 재생 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 위젯 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 오류 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;[2020-11-30] - [0.1.0] version&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기본 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 공부 시간 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 기타 설정 탭 추가&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;- 폰트 일부 수정&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;저작권&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;Icon : &lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt;사용된 아이콘은 www.flaticon.com에서 다운받았으며 Prosymbols와 Freepik로부터 디자인 되었습니다.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600; color:#ffffff;&quot;&gt;Font&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#ffffff;&quot;&gt; : 사용된 폰트는 모두 (주)공게임즈에 저작권이 있으며 상업용 무료 폰트입니다.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <property name="plainText">
+              <string>유투브 스터디윗미 방송을 위해 제작한 타이머 프로그램 위드디(with DI)입니다.
+최신 버전은 티스토리와 깃허브를 통해 배포되고 있습니다.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 216, 17);
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="plainText">
+              <string>Contac Us
+deepi.contact.us@gmail.com</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit_3">
+             <property name="styleSheet">
+              <string notr="true">	color: #F2F1EF;
+	font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+             </property>
+             <property name="plainText">
+              <string>[2020-12-14] - [0.8.5] version
+- UI 개선
+- 폰트 변경
+- refresh 오류 수정
+- 버튼 클릭 이벤트 추가
+- 배포판 용량 압축
+
+[2020-12-09] - [0.8.0] version
+- UI 개선
+- Config 관련 오류 수정
+
+[2020-12-07] - [0.7.0] version
+- UI 개선
+- 경로 자동 복사기능 추가
+- 기타 버그 수정
+
+[2020-12-05] - [0.5.0] version
+- Config 저장 불러오기 추가
+- UI 개선
+- ASMR 링크 추가
+- 기타 버그 수정
+- 타이머 싱크 개선
+
+[2020-12-04] - [0.4.0] version
+- UI 개선 
+- 음원 재생 오류 수정
+- ASMR 링크 추가
+- 기타 버그 수정
+
+[2020-12-03] - [0.3.0] version
+- 배포판 용량 압축 
+- 아이콘 추가
+- UI 개선
+- 시작 시간을 기준으로 타이머 동작 변경
+
+[2020-12-02] - [0.2.1] version
+- 폰트 수정
+- 서브 위젯 추가
+- 버그 수정
+
+[2020-12-02] - [0.2.0] version
+- 음악 재생 버그 수정
+- UI 개선
+
+[2020-12-01] - [0.1.2] version
+- 효과음 크기 변경 기능 추가
+- 효과음 변경 기능 추가
+
+[2020-12-01] - [0.1.1] version
+- UI 수정
+- 음성 파일 재생 추가
+- 위젯 탭 추가
+- 폰트 오류 일부 수정
+
+[2020-11-30] - [0.1.0] version
+- 기본 시간 설정 탭 추가
+- 공부 시간 설정 탭 추가
+- 기타 설정 탭 추가
+- 폰트 일부 수정
+
+저작권
+
+Icon : 사용된 아이콘은 www.flaticon.com에서 다운받았으며 Prosymbols와 Freepik로부터 디자인 되었습니다.
+Font : 사용된 폰트는 모두 (주)공게임즈에 저작권이 있으며 상업용 무료 폰트입니다.
+Program : WithDI는 MIT 라이센스를 기반한 프리웨어입니다. 라이센스 파일을 확인해주세요.</string>
              </property>
             </widget>
            </item>
@@ -4774,6 +4936,8 @@ p, li { white-space: pre-wrap; }
  <resources>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.qrc"/>
  </resources>
  <connections/>
 </ui>

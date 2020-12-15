@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.65.0
+With DI ver. 0.8.5
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2020-12-05
+Revision date: 2020-12-14
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -19,7 +19,7 @@ import configparser
 from resource.icon import icon
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
-from PyQt5.QtCore import *
+from PyQt5 import QtCore
 from PyQt5 import QtGui
 
 # UI UPDATE
@@ -43,28 +43,26 @@ FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
 # STYLE SHEET
 
 TEXT_OFF = """
-padding: 10px;
-font: 75 15px"Gong Gothic";
+padding: 5px;
+font:17px "나눔스퀘어_ac Bold";
 color :   #353F40;
 """
 TEXT_ON = """
-padding: 10px;
-font: 75 15px"Gong Gothic";
+padding: 5px;
+font:17px "나눔스퀘어_ac Bold";
 color :   rgb(240, 48, 30);
 """
 
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = 'ver.0.8.0 | With DI'
+        self.version = 'ver.0.8.5 | With DI'
         super().__init__()
         # System Font Init
-        _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Bold.ttf")
-        _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Light.ttf")
-        _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/Gong Gothic Medium.ttf")
+        _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acEB.ttf")
+        _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acB.ttf")
         QtGui.QFontDatabase.applicationFontFamilies(_id1)
         QtGui.QFontDatabase.applicationFontFamilies(_id2)
-        QtGui.QFontDatabase.applicationFontFamilies(_id3)
         # UI load
         self.setupUi(self)
         self.show()
@@ -91,7 +89,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
             open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
 
-        self.timer = QTimer(self)
+        self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
 
@@ -113,7 +111,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.study_format = config['STUDY']['FORMAT']
         self.break_format = config['BREAK']['FORMAT']
         self.meal_format = config['MEAL']['FORMAT']
-
+        
+        self.studywithdi.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.studywithdi.clicked.connect(self.startTimer)
 
         #%% 날짜 INIT
@@ -128,8 +127,12 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.date_output_format.textChanged.connect(self.dateOuputChage)
         self.date_output_format_reset.clicked.connect(self.date_format_re)
         self.date_output_string_reset.clicked.connect(self.date_string_re)
+        self.date_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.date_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.time_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.time_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next1.clicked.connect(lambda: self.tabWidget.setCurrentIndex(1))
-
+        self.next1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         #%% 시간 INIT
         self.init_time_format = self.default_time_format
         self.init_time_string_1 = config['TIME']['STRING_1']
@@ -150,18 +153,25 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.study_output_format.setText(self.study_format)
         
         qt = [int(i) for i in config['STUDY']['TIME'].split(',')]
-        self.studytime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
-        h,m = QTime.currentTime().hour(),QTime.currentTime().minute()
-        self.starttime_edit.setTime(QTime(h,m+1,0))
+        self.studytime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
+        h,m = QtCore.QTime.currentTime().hour(),QtCore.QTime.currentTime().minute()
+        self.starttime_edit.setTime(QtCore.QTime(h,m+1,0))
         self.study_end_time()
         self.studytime_edit.timeChanged.connect(self.study_end_time)
-        self.study_ep.setTime(QTime(int(config['STUDY']['LOOP']),0,0))
+        self.study_ep.setTime(QtCore.QTime(int(config['STUDY']['LOOP']),0,0))
 
         self.study_ep.timeChanged.connect(self.study_end_time)
         self.starttime_edit.timeChanged.connect(self.study_end_time)
         self.study_output_format_reset.clicked.connect(self.study_format_re)
         self.study_output_string_reset.clicked.connect(self.study_string_re)
+        
+        self.study_start_time_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.break_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.break_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.study_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.study_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next2.clicked.connect(lambda: self.tabWidget.setCurrentIndex(2))
+        self.next2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.study_start_time_reset.clicked.connect(self.study_start_time_re)
         #%% 휴식 시간 INIT
         self.init_break_format = config['BREAK']['FORMAT']
@@ -171,9 +181,20 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.break_output_string.setText(self.init_break_string_1 + '%TIME%' + self.init_break_string_2)
         
         qt = [int(i) for i in config['BREAK']['TIME'].split(',')]
-        self.breaktime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
+        self.breaktime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
         self.break_output_format_reset.clicked.connect(self.break_format_re)
         self.break_output_string_reset.clicked.connect(self.break_string_re) 
+        
+        self.meal_output_format_reset
+        self.meal_output_string_reset
+        self.path_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.path_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.path_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.play_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.play_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.play_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.asmr_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.asmr_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         
         #%% 식사 시간 INIT
         self.init_meal_format = config['MEAL']['FORMAT']
@@ -184,7 +205,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         
         qt = [int(i) for i in config['MEAL']['TIME'].split(',')]
-        self.mealtime_edit.setTime(QTime(qt[0],qt[1],qt[2]))
+        self.mealtime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
         self.meal_slider.setValue(int(config['MEAL']['WHEN']))
         self.meal_slider.valueChanged.connect(self.mealMode)
         self.mealMode()
@@ -223,7 +244,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.tabWidget.currentChanged.connect(self.mainTabChange)
         self.clickable(self.lablink).connect(lambda:webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
         self.clickable(self.gitlink).connect(lambda:webbrowser.open('https://github.com/DEEPI-LAB/python-study-with-me-timer'))
-
+        self.lablink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.gitlink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         
         # User Inferface
         self.copyPath = [self.date_path,self.time_path,self.study_path,self.break_path,self.meal_path]
@@ -238,15 +260,15 @@ class WithDI(QMainWindow,FROM_CLASS):
     def refresh(self):
         
         # study / break / lunch time init
-        self.study_time_count = QTime(0, 0, 0)             
+        self.study_time_count = QtCore.QTime(0, 0, 0)             
         self.study_time_count_m = self.studytime_edit.time()   
         
         self.break_time_count = self.breaktime_edit.time()  
-        self.break_time_count_m = QTime(0, 0, 0)
+        self.break_time_count_m = QtCore.QTime(0, 0, 0)
         
         self.mealTime = self.meal_slider.value()
         self.meal_time_count = self.mealtime_edit.time()
-        self.meal_time_count_m = QTime(0,0,0)
+        self.meal_time_count_m = QtCore.QTime(0,0,0)
         
         self.ep = self.study_ep.time().hour()
         self.starttime = self.starttime_edit.time()
@@ -266,7 +288,7 @@ class WithDI(QMainWindow,FROM_CLASS):
     def saveConfing(self):
         config = configparser.ConfigParser()    
         config.read('config.ini', encoding='utf-8') 
-        
+        self.song = pyglet.media.Player()
         txt = self.date_output_string.text().split('%DATE%')
         config['DATE']['FORMAT'] = self.date_output_format.text().replace('%','%%')
         config['DATE']['STRING_1'] = txt[0]
@@ -309,14 +331,13 @@ class WithDI(QMainWindow,FROM_CLASS):
     def run(self):
         
         # Today 시스템 시간 활성화
-        self.time_pc.setText(time.strftime(self.init_time_format))
-        self.date_pc.setText(time.strftime(self.init_date_format))
+        self.time_pc.setText(time.strftime("%H시 %M분 %S초"))
+        self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
         # Today 업데이트 활성화
         self.time_output_live.setText(self.init_time_string_1 + 
                                       time.strftime(self.init_time_format) + 
                                       self.init_time_string_2)
-        
-        self.date_pc.setText(time.strftime(self.default_date_format))
+    
         self.date_output_live.setText(self.init_date_string_1 + 
                                       time.strftime(self.default_date_format) + 
                                       self.init_date_string_2)
@@ -327,7 +348,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             
             # 시작 시점 
             if self.FLAG[0] == False : return
-            if self.starttime.toString() == QTime.currentTime().toString():
+            if self.starttime.toString() == QtCore.QTime.currentTime().toString():
                 print('스터디윗미 시작')
                 self.setWindowTitle(self.version + ' | Live 공부 중' )
                 self.FLAG[1] = True
@@ -468,7 +489,7 @@ class WithDI(QMainWindow,FROM_CLASS):
     def dateOuputChage(self):
         try:
             x = time.strftime(self.date_output_format.text())
-            
+            self.default_date_format = self.date_output_format.text()
             txt = self.init_date_string_1 + x + self.init_date_string_2
             
             self.date_output_live.setText(txt)
@@ -522,9 +543,9 @@ class WithDI(QMainWindow,FROM_CLASS):
 
         days,hours = divmod(hours,24)
         if days > 0:
-            self.endtime_edit.setText('+ {}일 '.format(days)+QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
+            self.endtime_edit.setText('+ {}일 '.format(days)+QtCore.QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
         else:
-            self.endtime_edit.setText(QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
+            self.endtime_edit.setText(QtCore.QTime(hours,mins,secs).toString("hh시:mm분:ss초"))
 
 
     def mealMode(self):
@@ -540,7 +561,8 @@ class WithDI(QMainWindow,FROM_CLASS):
 
 
     def date_format_re(self):
-        self.date_output_format.setText("%Y년%m월%d일")
+        self.date_output_format.setText("%Y년 %m월 %d일")
+        self.default_date_format = "%Y년 %m월 %d일"
         self.dateOuputChage()
 
     def date_string_re(self):
@@ -579,8 +601,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_meal_string_2 = ""
         self.meal_output_string.setText("식사시간 : %TIME%")
     def study_start_time_re(self):
-        h,m = QTime.currentTime().hour(),QTime.currentTime().minute()
-        self.starttime_edit.setTime(QTime(h,m+1,0))
+        h,m = QtCore.QTime.currentTime().hour(),QtCore.QTime.currentTime().minute()
+        self.starttime_edit.setTime(QtCore.QTime(h,m+1,0))
     def playMusic(self,ids):
 
         try:
@@ -627,14 +649,14 @@ class WithDI(QMainWindow,FROM_CLASS):
     # Q LINE EDIT CLICK METHOD
     def clickable(self,widget):
 
-        class Filter(QObject):
+        class Filter(QtCore.QObject):
 
-            clicked = pyqtSignal()
+            clicked = QtCore.pyqtSignal()
 
             def eventFilter(self, obj, event):
 
                if obj == widget:
-                   if event.type() == QEvent.MouseButtonRelease:
+                   if event.type() == QtCore.QEvent.MouseButtonRelease:
                        if obj.rect().contains(event.pos()):
                            self.clicked.emit()
                            return True
