@@ -1,4 +1,4 @@
-# **With DI** ver - 0.8.5
+# **With DI** ver - 0.9.0
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -92,6 +92,12 @@
 - refresh 오류 수정
 - 버튼 클릭 이벤트 추가
 - 배포판 용량 압축
+
+### 2020-12-20 [0.9.0]
+- UI 개선
+- 시간형식 버그 수정
+- 종료음, 배경음 삭제
+
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

@@ -452,7 +452,6 @@ color :#353F40;</string>
                     <property name="font">
                      <font>
                       <family>나눔스퀘어_ac Bold</family>
-                      <pointsize>-1</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
@@ -1762,7 +1761,7 @@ color :   #353F40;</string>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">padding: 5px;
+                       <string notr="true">padding: 2px;
 font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   #353F40;</string>
                       </property>
@@ -3047,7 +3046,174 @@ QPushButton::hover
                   <property name="spacing">
                    <number>10</number>
                   </property>
-                  <item row="3" column="3">
+                  <item row="0" column="2">
+                   <widget class="QPushButton" name="path_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icon/add.png);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QSlider" name="sound_slider">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>210</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>50</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="break_start_sound_path">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 5px;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;
+color :   #353F40;</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="st_user_week_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>170</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>종소리 크기</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_19">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
+color :#353F40;</string>
+                    </property>
+                    <property name="text">
+                     <string>ASMR</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1" colspan="3">
+                   <layout class="QHBoxLayout" name="horizontalLayout_16">
+                    <item>
+                     <widget class="QPushButton" name="asmr_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>120</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>120</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border-image: url(:/icon/asmr1.PNG);</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="asmr_1">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>120</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>120</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border-image: url(:/icon/asmr2.PNG);</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="3">
                    <widget class="QLabel" name="sound_val">
                     <property name="minimumSize">
                      <size>
@@ -3119,393 +3285,9 @@ font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
 color :#353F40;</string>
                     </property>
                     <property name="text">
-                     <string>휴식 시작 효과음</string>
+                     <string>휴식 종소리</string>
                     </property>
                    </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="st_user_address_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;;
-font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
-color :#353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>휴식 종료 효과음</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="break_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;
-font: 17px &quot;나눔스퀘어_ac Bold&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QPushButton" name="path_3">
-                    <property name="minimumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="st_user_name_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;;
-font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
-color :#353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>휴식 시간 배경음</string>
-                    </property>
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="break_start_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;
-font: 17px &quot;나눔스퀘어_ac Bold&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QPushButton" name="path_2">
-                    <property name="minimumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QPushButton" name="path_1">
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/add.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="break_end_sound_path">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;
-font: 17px &quot;나눔스퀘어_ac Bold&quot;;
-color :   #353F40;</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="3">
-                   <widget class="QPushButton" name="play_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/play.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="st_user_week_6">
-                    <property name="minimumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>170</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;;
-font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
-color :#353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>효과음 크기</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QPushButton" name="play_2">
-                    <property name="minimumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>30</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icon/play.png);</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1" colspan="2">
-                   <widget class="QSlider" name="sound_slider">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>210</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="maximum">
-                     <number>100</number>
-                    </property>
-                    <property name="value">
-                     <number>50</number>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_19">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding: 5px;;
-font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
-color :#353F40;</string>
-                    </property>
-                    <property name="text">
-                     <string>ASMR</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1" colspan="3">
-                   <layout class="QHBoxLayout" name="horizontalLayout_16">
-                    <item>
-                     <widget class="QPushButton" name="asmr_2">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
-	background-color:#353F40;
-	border : None;
-	border-radius : 10px;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>RAINY M</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="asmr_1">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton
-{
-	color: #F2F1EF;
-	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
-	background-color:#353F40;
-	border : None;
-	border-radius : 10px;
-}
-
-QPushButton::hover
-{
-	color: #F2F1EF;
-	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
-	background-color:#000000;
-	border :solid;
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>MURMUR</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
                   </item>
                  </layout>
                 </item>
@@ -4918,8 +4700,7 @@ deepi.contact.us@gmail.com</string>
 저작권
 
 Icon : 사용된 아이콘은 www.flaticon.com에서 다운받았으며 Prosymbols와 Freepik로부터 디자인 되었습니다.
-Font : 사용된 폰트는 모두 (주)공게임즈에 저작권이 있으며 상업용 무료 폰트입니다.
-Program : WithDI는 MIT 라이센스를 기반한 프리웨어입니다. 라이센스 파일을 확인해주세요.</string>
+Font : 사용된 폰트는 모두 상업용 무료 폰트입니다.</string>
              </property>
             </widget>
            </item>
@@ -4936,8 +4717,6 @@ Program : WithDI는 MIT 라이센스를 기반한 프리웨어입니다. 라이�
  <resources>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
-  <include location="icon/icon.py"/>
-  <include location="icon/icon.qrc"/>
  </resources>
  <connections/>
 </ui>

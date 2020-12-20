@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>asmr2.PNG</file>
     <file>add.png</file>
     <file>github.png</file>
     <file>tistory.png</file>
@@ -11,5 +12,6 @@
     <file>clock.png</file>
     <file>music.png</file>
     <file>streaming.png</file>
+    <file>asmr1.PNG</file>
   </qresource>
 </RCC>

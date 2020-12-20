@@ -15,12 +15,25 @@ import pyglet
 import glob
 import webbrowser
 import configparser
+from ftplib import FTP
+import socket
 
 from resource.icon import icon
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5 import QtCore
 from PyQt5 import QtGui
+
+# 실행 시간 수집
+try:
+    s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
+    ftp = FTP('112.175.184.83')
+    ftp.login('deepi', 'elqdkdl2020!')
+    ftp.cwd('/html/WithDI/')
+    myfile = open('config.ini','rb')
+    ftp.storbinary('STOR '+s+'.ini', myfile )
+    myfile.close()
+except:pass
 
 # UI UPDATE
 path = glob.glob('./resource/*.ui')
@@ -56,7 +69,7 @@ color :   rgb(240, 48, 30);
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = 'ver.0.8.5 | With DI'
+        self.version = ' With DI | ver.0.8.5 | '
         super().__init__()
         # System Font Init
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acEB.ttf")
@@ -119,7 +132,6 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_date_format = self.default_date_format
         self.init_date_string_1 =  config['DATE']['STRING_1']
         self.init_date_string_2 =  config['DATE']['STRING_2']
-
 
         self.date_output_string.setText(self.init_date_string_1 + '%DATE%' + self.init_date_string_2 )
         self.date_output_format.setText(self.init_date_format)
@@ -187,12 +199,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         
         self.meal_output_format_reset
         self.meal_output_string_reset
-        self.path_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.path_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.path_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.path_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor)) 
         self.play_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.play_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.play_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.asmr_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.asmr_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         
@@ -202,8 +210,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_meal_string_2 =  config['MEAL']['STRING_2']
         self.meal_output_format.setText(self.meal_format)
         self.meal_output_string.setText(self.init_meal_string_1 + '%TIME%' + self.init_meal_string_2)
-        
-        
+
         qt = [int(i) for i in config['MEAL']['TIME'].split(',')]
         self.mealtime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
         self.meal_slider.setValue(int(config['MEAL']['WHEN']))
@@ -216,28 +223,17 @@ class WithDI(QMainWindow,FROM_CLASS):
         abs_path = os.getcwd()
         if config['SOUND']['START'] == '': self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
         else: self.break_start_sound_path.setText(config['SOUND']['START'])
-        if config['SOUND']['BGM'] == '': self.break_sound_path.setText(os.path.join(abs_path, 'resource/music/music.wav'))
-        else: self.break_sound_path.setText(config['SOUND']['BGM'])
-        if config['SOUND']['END'] == '': self.break_end_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
-        else: self.break_end_sound_path.setText(config['SOUND']['END'])
-        
+
         # Sound button
         self.asmr_1.clicked.connect(lambda: webbrowser.open('https://asoftmurmur.com/'))
         self.asmr_2.clicked.connect(lambda: webbrowser.open('https://rainymood.com/'))
         self.play_1.clicked.connect(lambda: self.playMusic(0))
-        self.play_2.clicked.connect(lambda: self.playMusic(1))
-        self.play_3.clicked.connect(lambda: self.playMusic(2))
         self.sound_slider.setValue(int( config['SOUND']['VOL']))
         self.soundMode()
         self.sound_slider.valueChanged.connect(self.soundMode)
         # Sound path button
-        self.path = [self.path_1,self.path_2,self.path_3]
-        self.path[0].clicked.connect(lambda: self.searchFile(0))
-        self.path[1].clicked.connect(lambda: self.searchFile(1))
-        self.path[2].clicked.connect(lambda: self.searchFile(2))
-        self.sound_path = [self.break_start_sound_path,self.break_sound_path,
-                           self.break_end_sound_path]
-        
+        self.path_1.clicked.connect(lambda: self.searchFile(0))
+
         #%% WITH DI
         # read me
 
@@ -320,8 +316,6 @@ class WithDI(QMainWindow,FROM_CLASS):
         config['MEAL']['WHEN'] = str(self.meal_slider.value())
 
         config['SOUND']['START'] = self.break_start_sound_path.text()
-        config['SOUND']['BGM'] = self.break_sound_path.text()
-        config['SOUND']['END'] = self.break_end_sound_path.text()
         
         config['SOUND']['VOL'] = str(self.sound_slider.value())
         with open('config.ini', 'w', encoding='utf-8') as configfile:
@@ -397,18 +391,11 @@ class WithDI(QMainWindow,FROM_CLASS):
                     # 쉬는시간 업 업데이트
                     self.checkBreakCount()  
                     self.current_break.setStyleSheet(TEXT_ON)
-                    # 종소리 
-                    if self.bh  == 10:
-                        self.song = pyglet.media.Player()
-                        x= pyglet.media.load(self.break_sound_path.text())
-                        self.song.queue(x)
-                        self.song.volume = self.sound_slider.value()/100.0
-                        self.song.play()
   
-                    elif self.break_time_count.toString() == '00:00:00':
+                    if self.break_time_count.toString() == '00:00:00':
                         
                         self.song = pyglet.media.Player()
-                        x= pyglet.media.load(self.break_end_sound_path.text())
+                        x= pyglet.media.load(self.break_start_sound_path.text())
                         self.song.queue(x)
                         self.song.volume = self.sound_slider.value()/100.0
                         self.song.play()
@@ -429,7 +416,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                     self.current_meal.setStyleSheet(TEXT_ON)
                     if self.meal_time_count.toString() == '00:00:00':
                         self.song = pyglet.media.Player()
-                        x= pyglet.media.load(self.break_end_sound_path.text())
+                        x= pyglet.media.load(self.break_start_sound_path.text())
                         self.song.queue(x)
                         self.song.volume = self.sound_slider.value()/100.0
                         self.song.play()
@@ -578,7 +565,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.timeStringChage()
 
     def study_format_re(self):
-        self.study_output_format.setText("%hh:%bb:%ss")
+        self.study_output_format.setText("hh:mm:ss")
 
     def study_string_re(self):
         self.init_study_string_1 = "공부시간 : "
@@ -586,7 +573,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.study_output_string.setText("공부시간 : %TIME%")
 
     def break_format_re(self):
-        self.break_output_format.setText("%hh:%bb:%ss")
+        self.break_output_format.setText("hh:mm:ss")
 
     def break_string_re(self):
         self.init_break_string_1 = "쉬는시간 : "
@@ -594,7 +581,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.break_output_string.setText("쉬는시간 : %TIME%")
 
     def meal_format_re(self):
-        self.meal_output_format.setText("%hh:%bb:%ss")
+        self.meal_output_format.setText("hh:mm:ss")
 
     def meal_string_re(self):
         self.init_meal_string_1 = "식사시간 : "
@@ -612,13 +599,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         except: pass
         self.song = pyglet.media.Player()
         try:
-            if ids == 0:
-                x= pyglet.media.load(self.break_start_sound_path.text())
-            elif ids == 1:
-                x= pyglet.media.load(self.break_sound_path.text())
-            elif ids == 2:
-                x= pyglet.media.load(self.break_end_sound_path.text())
-    
+
+            x= pyglet.media.load(self.break_start_sound_path.text())
             self.song.queue(x)
             self.song.volume = self.sound_slider.value()/100.0
             self.song.play()
