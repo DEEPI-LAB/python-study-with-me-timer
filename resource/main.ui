@@ -4527,7 +4527,7 @@ font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
 color :    #F2F1EF;</string>
                 </property>
                 <property name="text">
-                 <string>With DI ver 0.8.5</string>
+                 <string>With DI ver 0.9.1</string>
                 </property>
                </widget>
               </item>
@@ -4625,7 +4625,7 @@ font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
               <bool>true</bool>
              </property>
              <property name="plainText">
-              <string>Contac Us
+              <string>Contact us
 deepi.contact.us@gmail.com</string>
              </property>
             </widget>
@@ -4637,7 +4637,9 @@ deepi.contact.us@gmail.com</string>
 	font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
              </property>
              <property name="plainText">
-              <string>[2020-12-14] - [0.8.5] version
+              <string>[2020-12-21] - [0.9.1] version
+[2020-12-20] - [0.9.0] version
+[2020-12-14] - [0.8.5] version
 - UI 개선
 - 폰트 변경
 - refresh 오류 수정
@@ -4715,6 +4717,7 @@ Font : 사용된 폰트는 모두 상업용 무료 폰트입니다.</string>
   </widget>
  </widget>
  <resources>
+  <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
  </resources>

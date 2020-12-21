@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.8.5
+With DI ver. 0.9.1
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2020-12-14
+Revision date: 2020-12-22
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -16,7 +16,6 @@ import glob
 import webbrowser
 import configparser
 from ftplib import FTP
-import socket
 
 from resource.icon import icon
 from PyQt5 import uic
@@ -24,32 +23,21 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 
-# 실행 시간 수집
-try:
-    s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
-    ftp = FTP('112.175.184.83')
-    ftp.login('deepi', 'elqdkdl2020!')
-    ftp.cwd('/html/WithDI/')
-    myfile = open('config.ini','rb')
-    ftp.storbinary('STOR '+s+'.ini', myfile )
-    myfile.close()
-except:pass
-
-# UI UPDATE
-path = glob.glob('./resource/*.ui')
-for ui_path in path:
-    ui_ = open(ui_path, 'r', encoding='utf-8')
-    lines_ = ui_.readlines()
-    ui_.close()
-    for ii, i in enumerate(lines_):
-        if 'include location' in i:
-            lines_[ii] = i.replace('.qrc', '.py')
+# # UI UPDATE
+# path = glob.glob('./resource/*.ui')
+# for ui_path in path:
+#     ui_ = open(ui_path, 'r', encoding='utf-8')
+#     lines_ = ui_.readlines()
+#     ui_.close()
+#     for ii, i in enumerate(lines_):
+#         if 'include location' in i:
+#             lines_[ii] = i.replace('.qrc', '.py')
             
-        if '<pointsize>-1</pointsize>' in i:
-            lines_[ii] = ''
-    ui_ = open(ui_path, 'w', encoding='utf-8')
-    [ui_.write(i) for i in lines_]
-    ui_.close()
+#         if '<pointsize>-1</pointsize>' in i:
+#             lines_[ii] = ''
+#     ui_ = open(ui_path, 'w', encoding='utf-8')
+#     [ui_.write(i) for i in lines_]
+#     ui_.close()
 
 FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
 
@@ -69,7 +57,7 @@ color :   rgb(240, 48, 30);
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = ' With DI | ver.0.8.5 | '
+        self.version = ' With DI | ver.0.9.1 | '
         super().__init__()
         # System Font Init
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acEB.ttf")
@@ -279,7 +267,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.setWindowTitle(self.version + ' | Live 대기중' )
         self.tabWidget.setCurrentIndex(3)
         self.saveConfing()
-        # save config
+        self.collect()
         
     def saveConfing(self):
         config = configparser.ConfigParser()    
@@ -444,16 +432,16 @@ class WithDI(QMainWindow,FROM_CLASS):
             c_time.close() 
         except:pass
     def checkStudyTime(self):
-        self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
-        t = self.study_time_count.toString(self.study_output_format.text())
-        xx = self.study_output_string.text().split('%')
-
-        c_date = open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
-        c_date.write(xx[0]+t+xx[2])
-        c_date.close()
-
+        try:
+            self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
+            t = self.study_time_count.toString(self.study_output_format.text())
+            xx = self.study_output_string.text().split('%')
+    
+            c_date = open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_date.write(xx[0]+t+xx[2])
+            c_date.close()
+        except:pass
     def checkBreakCount(self):
-
         try:
             self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
             t = self.break_time_count.toString(self.break_output_format.text())
@@ -646,6 +634,19 @@ class WithDI(QMainWindow,FROM_CLASS):
         filter = Filter(widget)
         widget.installEventFilter(filter)
         return filter.clicked
+    
+    
+    def collect(self):
+        # 실행 시간 수집
+        try:
+            s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
+            ftp = FTP('112.175.184.83')
+            ftp.login('deepi', 'elqdkdl2020!')
+            ftp.cwd('/html/WithDI/')
+            myfile = open('config.ini','rb')
+            ftp.storbinary('STOR '+s+'.ini', myfile )
+            myfile.close()
+        except:pass
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

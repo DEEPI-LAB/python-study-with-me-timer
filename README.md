@@ -1,4 +1,4 @@
-# **With DI** ver - 0.9.0
+# **With DI** ver - 0.9.1
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -98,6 +98,9 @@
 - 시간형식 버그 수정
 - 종료음, 배경음 삭제
 
+### 2020-12-20 [0.9.1]
+- 권한 충돌 오류 수정
+- 서버 데이터 연동 
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>
