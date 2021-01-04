@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.9.1
+With DI ver. 0.9.5
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2020-12-22
+Revision date: 2021-01-04
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -16,12 +16,16 @@ import glob
 import webbrowser
 import configparser
 from ftplib import FTP
+from datetime import datetime, date
 
 from resource.icon import icon
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget, QDialog
 from PyQt5 import QtCore
 from PyQt5 import QtGui
+
+# log files
+texts = ['current_date','current_time','study_time','break_time','meal_time']
 
 # # UI UPDATE
 # path = glob.glob('./resource/*.ui')
@@ -53,57 +57,99 @@ padding: 5px;
 font:17px "나눔스퀘어_ac Bold";
 color :   rgb(240, 48, 30);
 """
+WIDGET_BG_BLACK = """
+background-color: rgb(0, 0, 0);
+border-radius: 20px;
+"""
+WIDGET_BG_WHITE = """
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+"""
+WIDGET_BG_STYLE1 = """
+background-color: rgb(209, 139, 209);
+border-radius: 20px;
+"""
+WIDGET_BG_STYLE2 = """
+background-color: rgb(29, 165, 255);
+border-radius: 20px;
+"""
+WIDGET_TC_BLACK = """
+color : black;
+font: 80px "LAB디지털";
+"""
+WIDGET_TC_WHITE = """
+color : rgb(255, 255, 255);
+font: 80px "LAB디지털";
+"""
+WIDGET_TC_STYLE1 = """
+color :rgb(209, 139, 209);
+font: 80px "LAB디지털";
+"""
+WIDGET_TC_STYLE2 = """
+color : rgb(29, 165, 255);
+font: 80px "LAB디지털";
+"""
+WIDGET_TH_BLACK = """
+color : black;
+font: 25px "LAB디지털";
+"""
+WIDGET_TH_WHITE = """
+color : rgb(255, 255, 255);
+font: 25px "LAB디지털";
+"""
+WIDGET_TH_STYLE1 = """
+color :rgb(209, 139, 209);
+font: 25px "LAB디지털";
+"""
+WIDGET_TH_STYLE2 = """
+color : rgb(29, 165, 255);
+font: 25px "LAB디지털";
+"""
+
+WIDGET_BG = [WIDGET_BG_BLACK,WIDGET_BG_WHITE,WIDGET_BG_STYLE1,WIDGET_BG_STYLE2]
+WIDGET_TC = [WIDGET_TC_BLACK,WIDGET_TC_WHITE,WIDGET_TC_STYLE1,WIDGET_TC_STYLE2]
+WIDGET_TH = [WIDGET_TH_BLACK,WIDGET_TH_WHITE,WIDGET_TH_STYLE1,WIDGET_TH_STYLE2]
 
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = ' With DI | ver.0.9.1 | '
+        self.version = ' With DI | ver.0.9.5 | '
         super().__init__()
         # System Font Init
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acEB.ttf")
         _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acB.ttf")
+        _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/LABDISITAL.ttf")
         QtGui.QFontDatabase.applicationFontFamilies(_id1)
         QtGui.QFontDatabase.applicationFontFamilies(_id2)
+        QtGui.QFontDatabase.applicationFontFamilies(_id3)
         # UI load
         self.setupUi(self)
         self.show()
         # Lolo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.setWindowTitle(self.version)
-
         # break time  lunch time
         self.FLAG = [False,False,False]
         self.iter = 0       # 교시
-        
-        # Log file init
-        try:
-            open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
-        except:
-            time.sleep(1)
-            open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
-            open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
+
+        # # Log file init
+        if os.path.isdir('log') == False : os.makedirs('log')
+        if glob.glob('./log/*.txt') == [] :
+            for i in texts: open('./log/'+ i + '.txt', mode='wt', encoding='utf-8')
 
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
 
-        # log pah linking
+        # log path
         abs_path = os.getcwd()
-        self.date_path.setText(os.path.join(abs_path, 'log/[현재날짜]_카운트.txt'))
-        self.time_path.setText(os.path.join(abs_path, 'log/[현재시간]_카운트.txt'))
-        self.study_path.setText(os.path.join(abs_path, 'log/[공부시간]_카운트.txt'))
-        self.break_path.setText(os.path.join(abs_path, 'log/[쉬는시간]_카운트.txt'))
-        self.meal_path.setText(os.path.join(abs_path, 'log/[식사시간]_카운트.txt'))  
-        
+        self.date_path.setText(os.path.join(abs_path, './log/'+ texts[0] + '.txt'))
+        self.time_path.setText(os.path.join(abs_path, './log/'+ texts[1] + '.txt'))
+        self.study_path.setText(os.path.join(abs_path, './log/'+ texts[2] + '.txt'))
+        self.break_path.setText(os.path.join(abs_path, './log/'+ texts[3] + '.txt'))
+        self.meal_path.setText(os.path.join(abs_path, './log/'+ texts[4] + '.txt'))  
+
         # config laod
-        # 설정파일 읽기
         config = configparser.ConfigParser()
         config.read('config.ini', encoding='utf-8')
 
@@ -112,7 +158,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.study_format = config['STUDY']['FORMAT']
         self.break_format = config['BREAK']['FORMAT']
         self.meal_format = config['MEAL']['FORMAT']
-        
+
         self.studywithdi.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.studywithdi.clicked.connect(self.startTimer)
 
@@ -224,8 +270,7 @@ class WithDI(QMainWindow,FROM_CLASS):
 
         #%% WITH DI
         # read me
-
-        self.tabWidget.currentChanged.connect(self.mainTabChange)
+        # self.tabWidget.currentChanged.connect(self.mainTabChange)
         self.clickable(self.lablink).connect(lambda:webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
         self.clickable(self.gitlink).connect(lambda:webbrowser.open('https://github.com/DEEPI-LAB/python-study-with-me-timer'))
         self.lablink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -240,7 +285,57 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.clickable(self.copyPath[2]).connect(lambda: self.copyText(2))
         self.clickable(self.copyPath[3]).connect(lambda: self.copyText(3))       
         self.clickable(self.copyPath[4]).connect(lambda: self.copyText(4))    
-          
+        #%% Widget
+        self.timer_1_lcd.setText(QtCore.QDate.currentDate().toString("yyyy-MM-dd"))
+        self.timer_2_lcd.setText("D-DAY 100")
+        self.timer_3_lcd.setText(self.timer_3_select.text())
+
+
+        self.Timer = [None for i in range(5)]
+        self.timeridx = 0
+        self.DDay = None
+        self.Title = None
+        
+        self.timer_1.clicked.connect(self.openTimer) 
+        self.timer_2.clicked.connect(self.openDday) 
+        self.timer_3.clicked.connect(self.openTitle) 
+    
+    def openTimer(self):
+        idx = self.timer_1_select.currentIndex()
+
+        if self.timeridx == 4 : self.timeridx = 0
+        self.Timer[self.timeridx] = TimerWidget()
+        self.Timer[self.timeridx].start(idx, 
+                                        self.timer_1_bg.currentIndex(),
+                                        self.timer_1_tc.currentIndex(),
+                                        self.timer_1_txt.text())
+        
+        self.Timer[self.timeridx].show()
+        self.timeridx += 1
+        
+    def openDday(self):
+        idx = -1
+
+        if self.DDay is not None : self.DDay = None
+        self.DDay = DdayWidget()
+        self.DDay.start(idx, 
+                        self.timer_2_bg.currentIndex(),
+                        self.timer_2_tc.currentIndex(),
+                        self.timer_2_txt.text(),
+                        self.timer_2_select.date())
+
+        self.DDay.show() 
+    def openTitle(self):
+        idx = -1
+        if self.Title is not None : self.Title = None
+        self.Title = TitleWidget()
+        self.Title.start(idx, 
+                        self.timer_3_bg.currentIndex(),
+                        self.timer_3_tc.currentIndex(),
+                        self.timer_3_txt.text(),
+                        self.timer_3_select.text())
+
+        self.Title.show() 
     def refresh(self):
         
         # study / break / lunch time init
@@ -419,7 +514,7 @@ class WithDI(QMainWindow,FROM_CLASS):
     def checkDate(self):
         try:
             self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
-            c_date = open('./log/[현재날짜]_카운트.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/'+ texts[0] + '.txt', mode='wt', encoding='utf-8')
             txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
             c_date.write(txt)
             c_date.close()
@@ -427,7 +522,7 @@ class WithDI(QMainWindow,FROM_CLASS):
     def checkTime(self):
         try:
             self.current_time.setText(time.strftime('%H시 %M분 %S초'))
-            c_time = open('./log/[현재시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_time = open('./log/'+ texts[1] + '.txt', mode='wt', encoding='utf-8')
             c_time.write(self.init_time_string_1+time.strftime(self.time_output_format.text())+self.init_time_string_2)
             c_time.close() 
         except:pass
@@ -437,7 +532,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             t = self.study_time_count.toString(self.study_output_format.text())
             xx = self.study_output_string.text().split('%')
     
-            c_date = open('./log/[공부시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/'+ texts[2] + '.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()
         except:pass
@@ -446,7 +541,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
             t = self.break_time_count.toString(self.break_output_format.text())
             xx = self.break_output_string.text().split('%')
-            c_date = open('./log/[쉬는시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/'+ texts[3] + '.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()
         except:pass
@@ -456,7 +551,7 @@ class WithDI(QMainWindow,FROM_CLASS):
             self.current_meal.setText(self.meal_time_count_m.toString("hh시간 mm분 ss초"))
             t = seconds=self.meal_time_count.toString(self.meal_output_format.text())
             xx = self.meal_output_string.text().split('%')
-            c_date = open('./log/[식사시간]_카운트.txt', mode='wt', encoding='utf-8')
+            c_date = open('./log/'+ texts[4] + '.txt', mode='wt', encoding='utf-8')
             c_date.write(xx[0]+t+xx[2])
             c_date.close()
         except:pass
@@ -594,9 +689,9 @@ class WithDI(QMainWindow,FROM_CLASS):
             self.song.play()
         except: return
     # MAIN TAB CHANGE EVENT METHOD 
-    def mainTabChange(self,ids):
-        if ids == 4:
-            self.tabWidget.setCurrentIndex(5)
+    # def mainTabChange(self,ids):
+    #     if ids == 4:
+    #         self.tabWidget.setCurrentIndex(5)
 
     # Q CLICK - COPY METHOD
     def copyText(self, ids):
@@ -647,6 +742,145 @@ class WithDI(QMainWindow,FROM_CLASS):
             ftp.storbinary('STOR '+s+'.ini', myfile )
             myfile.close()
         except:pass
+        
+FROM_CLASS = uic.loadUiType("./resource/timer.ui")[0]      
+
+class TimerWidget(QDialog,FROM_CLASS):
+    def __init__(self):
+        super(TimerWidget,self).__init__()
+        self.setupUi(self) 
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)     
+        # Lolo load
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI Widget') 
+    def start(self,idx,bc,tc,txt):
+            self.idx = idx
+            self.frame.setStyleSheet(WIDGET_BG[bc])
+            self.lcd.setStyleSheet(WIDGET_TC[tc])
+            self.title.setStyleSheet(WIDGET_TH[tc])
+            self.timer = QtCore.QTimer(self)
+            self.timer.timeout.connect(self.timeout)
+            self.timer.start(250)
+            
+            self.title.setText(txt)
+        
+    # Drag Event Method
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
+
+    def timeout(self):
+        if self.idx == 0 :
+            currentTime = QtCore.QDate.currentDate().toString("yy-MM-dd")
+        elif self.idx == 1 :
+            currentTime = QtCore.QTime.currentTime().toString("hh:mm:ss")
+        elif self.idx >= 2 :
+            currentTime =  open('./log/'+ texts[self.idx] + '.txt', mode='r', encoding='utf-8').readline()
+            currentTime = self.str2time(currentTime)
+        self.lcd.setText(currentTime)
+
+    def str2time(self,x):
+        for ii, i in enumerate(x):
+            try: 
+                int(i)
+                return x[ii:]
+                break
+            except:pass
+
+class DdayWidget(QDialog,FROM_CLASS):
+    def __init__(self):
+        super(DdayWidget,self).__init__()
+        self.setupUi(self) 
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)     
+        # Lolo load
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI Widget')
+    def start(self,idx,bc,tc,txt,dd):
+            self.idx = idx
+            self.dd = dd
+            self.frame.setStyleSheet(WIDGET_BG[bc])
+            self.lcd.setStyleSheet(WIDGET_TC[tc])
+            self.title.setStyleSheet(WIDGET_TH[tc])
+            self.timer = QtCore.QTimer(self)
+            self.timer.timeout.connect(self.timeout)
+            self.timer.start(1000)
+            
+            self.title.setText(txt)
+
+    def timeout(self):
+        ddate = self.dd.toString().split(' ')[1:]
+        cdate = datetime.today().strftime("%m %d %Y").split(' ')
+        end = date( int(ddate[2]), int(ddate[0]), int(ddate[1]) )
+        start = date( int(cdate[2]), int(cdate[0]), int(cdate[1]) )
+        resl = (end - start).days 
+        self.lcd.setText('D-DAY '+str(resl))
+
+    # Drag Event Method
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
+
+class TitleWidget(QDialog,FROM_CLASS):
+    def __init__(self):
+        super(TitleWidget,self).__init__()
+        self.setupUi(self) 
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)   
+        # Lolo load
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI Widget')
+        
+    def start(self,idx,bc,tc,txt,dd):
+            self.idx = idx
+            self.frame.setStyleSheet(WIDGET_BG[bc])
+            self.lcd.setStyleSheet(WIDGET_TC[tc])
+            self.title.setStyleSheet(WIDGET_TH[tc])
+
+            self.lcd.setText(dd)
+            self.title.setText(txt)
+
+    # Drag Event Method
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

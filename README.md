@@ -1,4 +1,4 @@
-# **With DI** ver - 0.9.1
+# **With DI** ver - 0.9.5
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -101,6 +101,12 @@
 ### 2020-12-20 [0.9.1]
 - 권한 충돌 오류 수정
 - 서버 데이터 연동 
+
+### 2021-01-04 [0.9.5]
+- UI 개선
+- 종소리 변경
+- 기본 디지털 위젯 추가
+- 기타 오류 수정
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>
