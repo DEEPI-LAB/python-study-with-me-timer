@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.9.5
+With DI ver. 0.9.6
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2021-01-04
+Revision date: 2021-01-05
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -19,103 +19,44 @@ from ftplib import FTP
 from datetime import datetime, date
 
 from resource.icon import icon
+from resource.style import stylesheet
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget, QDialog
 from PyQt5 import QtCore
 from PyQt5 import QtGui
-
+#%%
 # log files
 texts = ['current_date','current_time','study_time','break_time','meal_time']
 
-# # UI UPDATE
-# path = glob.glob('./resource/*.ui')
-# for ui_path in path:
-#     ui_ = open(ui_path, 'r', encoding='utf-8')
-#     lines_ = ui_.readlines()
-#     ui_.close()
-#     for ii, i in enumerate(lines_):
-#         if 'include location' in i:
-#             lines_[ii] = i.replace('.qrc', '.py')
+## UI UPDATE
+path = glob.glob('./resource/*.ui')
+for ui_path in path:
+    ui_ = open(ui_path, 'r', encoding='utf-8')
+    lines_ = ui_.readlines()
+    ui_.close()
+    for ii, i in enumerate(lines_):
+        if 'include location' in i:
+            lines_[ii] = i.replace('.qrc', '.py')
             
-#         if '<pointsize>-1</pointsize>' in i:
-#             lines_[ii] = ''
-#     ui_ = open(ui_path, 'w', encoding='utf-8')
-#     [ui_.write(i) for i in lines_]
-#     ui_.close()
+        if '<pointsize>-1</pointsize>' in i:
+            lines_[ii] = ''
+    ui_ = open(ui_path, 'w', encoding='utf-8')
+    [ui_.write(i) for i in lines_]
+    ui_.close()
 
 FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
+WIDGET_CLASS = uic.loadUiType("./resource/timer.ui")[0]
+UPDATE_CLASS = uic.loadUiType("./resource/version.ui")[0]
 
-# STYLE SHEET
-
-TEXT_OFF = """
-padding: 5px;
-font:17px "나눔스퀘어_ac Bold";
-color :   #353F40;
-"""
-TEXT_ON = """
-padding: 5px;
-font:17px "나눔스퀘어_ac Bold";
-color :   rgb(240, 48, 30);
-"""
-WIDGET_BG_BLACK = """
-background-color: rgb(0, 0, 0);
-border-radius: 20px;
-"""
-WIDGET_BG_WHITE = """
-background-color: rgb(255, 255, 255);
-border-radius: 20px;
-"""
-WIDGET_BG_STYLE1 = """
-background-color: rgb(209, 139, 209);
-border-radius: 20px;
-"""
-WIDGET_BG_STYLE2 = """
-background-color: rgb(29, 165, 255);
-border-radius: 20px;
-"""
-WIDGET_TC_BLACK = """
-color : black;
-font: 80px "LAB디지털";
-"""
-WIDGET_TC_WHITE = """
-color : rgb(255, 255, 255);
-font: 80px "LAB디지털";
-"""
-WIDGET_TC_STYLE1 = """
-color :rgb(209, 139, 209);
-font: 80px "LAB디지털";
-"""
-WIDGET_TC_STYLE2 = """
-color : rgb(29, 165, 255);
-font: 80px "LAB디지털";
-"""
-WIDGET_TH_BLACK = """
-color : black;
-font: 25px "LAB디지털";
-"""
-WIDGET_TH_WHITE = """
-color : rgb(255, 255, 255);
-font: 25px "LAB디지털";
-"""
-WIDGET_TH_STYLE1 = """
-color :rgb(209, 139, 209);
-font: 25px "LAB디지털";
-"""
-WIDGET_TH_STYLE2 = """
-color : rgb(29, 165, 255);
-font: 25px "LAB디지털";
-"""
-
-WIDGET_BG = [WIDGET_BG_BLACK,WIDGET_BG_WHITE,WIDGET_BG_STYLE1,WIDGET_BG_STYLE2]
-WIDGET_TC = [WIDGET_TC_BLACK,WIDGET_TC_WHITE,WIDGET_TC_STYLE1,WIDGET_TC_STYLE2]
-WIDGET_TH = [WIDGET_TH_BLACK,WIDGET_TH_WHITE,WIDGET_TH_STYLE1,WIDGET_TH_STYLE2]
 
 class WithDI(QMainWindow,FROM_CLASS):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
-        self.version = ' With DI | ver.0.9.5 | '
         super().__init__()
         # System Font Init
+        config = configparser.ConfigParser()
+        config.read('config.ini', encoding='utf-8')
+        self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
         _id1 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acEB.ttf")
         _id2 = QtGui.QFontDatabase.addApplicationFont("./resource/font/NanumSquare_acB.ttf")
         _id3 = QtGui.QFontDatabase.addApplicationFont("./resource/font/LABDISITAL.ttf")
@@ -125,17 +66,22 @@ class WithDI(QMainWindow,FROM_CLASS):
         # UI load
         self.setupUi(self)
         self.show()
-        # Lolo load
+        # logo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.title_ver.setText('With DI ver '+  config['INFORMATION']['VERSION'])
         self.setWindowTitle(self.version)
+        # check version
+        self.update = VersionWidget()
+        self.update.cver =  config['INFORMATION']['VERSION']
+
+
         # break time  lunch time
         self.FLAG = [False,False,False]
         self.iter = 0       # 교시
 
         # # Log file init
         if os.path.isdir('log') == False : os.makedirs('log')
-        if glob.glob('./log/*.txt') == [] :
-            for i in texts: open('./log/'+ i + '.txt', mode='wt', encoding='utf-8')
+        for i in texts: open('./log/'+ i + '.txt', mode='wt', encoding='utf-8')
 
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.run)
@@ -150,9 +96,6 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.meal_path.setText(os.path.join(abs_path, './log/'+ texts[4] + '.txt'))  
 
         # config laod
-        config = configparser.ConfigParser()
-        config.read('config.ini', encoding='utf-8')
-
         self.default_date_format = config['DATE']['FORMAT']
         self.default_time_format = config['TIME']['FORMAT']
         self.study_format = config['STUDY']['FORMAT']
@@ -439,7 +382,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                 self.FLAG[0] = False
             if self.FLAG[0] == True and self.FLAG[1] == True and self.FLAG[2]==False:
 
-                self.current_study.setStyleSheet(TEXT_ON)
+                self.current_study.setStyleSheet(stylesheet.TEXT_ON)
                 self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
                 self.study_time_count = self.study_time_count.addSecs(1)
                 self.study_time_count_m = self.study_time_count_m.addSecs(-1)
@@ -453,7 +396,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                     self.classes += 1
                     self.study_time_count_m = self.studytime_edit.time() 
                     self.bh = 0
-                    self.current_study.setStyleSheet(TEXT_OFF)
+                    self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
                     self.song = pyglet.media.Player()
                     x= pyglet.media.load(self.break_start_sound_path.text())
                     self.song.queue(x)
@@ -473,7 +416,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                     self.break_time_count_m =  self.break_time_count_m.addSecs(1)
                     # 쉬는시간 업 업데이트
                     self.checkBreakCount()  
-                    self.current_break.setStyleSheet(TEXT_ON)
+                    self.current_break.setStyleSheet(stylesheet.TEXT_ON)
   
                     if self.break_time_count.toString() == '00:00:00':
                         
@@ -487,7 +430,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                         # self.break_time_count =  self.break_time_count.addSecs(1)
                         print('쉬는시간 종료')
                         self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
-                        self.current_break.setStyleSheet(TEXT_OFF)
+                        self.current_break.setStyleSheet(stylesheet.TEXT_OFF)
                         return
 
                 elif self.mealTime == self.classes and self.ep >= self.classes:
@@ -508,7 +451,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                         self.mealTime =0
                         print('점심시간 종료')
                         self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
-                        self.current_meal.setStyleSheet(TEXT_OFF)
+                        self.current_meal.setStyleSheet(stylesheet.TEXT_OFF)
                         return
     # 업데이트 
     def checkDate(self):
@@ -729,8 +672,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         filter = Filter(widget)
         widget.installEventFilter(filter)
         return filter.clicked
-    
-    
+
     def collect(self):
         # 실행 시간 수집
         try:
@@ -742,10 +684,8 @@ class WithDI(QMainWindow,FROM_CLASS):
             ftp.storbinary('STOR '+s+'.ini', myfile )
             myfile.close()
         except:pass
-        
-FROM_CLASS = uic.loadUiType("./resource/timer.ui")[0]      
 
-class TimerWidget(QDialog,FROM_CLASS):
+class TimerWidget(QDialog,WIDGET_CLASS):
     def __init__(self):
         super(TimerWidget,self).__init__()
         self.setupUi(self) 
@@ -758,15 +698,15 @@ class TimerWidget(QDialog,FROM_CLASS):
         self.setWindowTitle('WithDI Widget') 
     def start(self,idx,bc,tc,txt):
             self.idx = idx
-            self.frame.setStyleSheet(WIDGET_BG[bc])
-            self.lcd.setStyleSheet(WIDGET_TC[tc])
-            self.title.setStyleSheet(WIDGET_TH[tc])
+            self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
+            self.lcd.setStyleSheet(stylesheet.WIDGET_TC[tc])
+            self.title.setStyleSheet(stylesheet.WIDGET_TH[tc])
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.timeout)
             self.timer.start(250)
-            
+
             self.title.setText(txt)
-        
+
     # Drag Event Method
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
@@ -800,7 +740,7 @@ class TimerWidget(QDialog,FROM_CLASS):
                 break
             except:pass
 
-class DdayWidget(QDialog,FROM_CLASS):
+class DdayWidget(QDialog,WIDGET_CLASS):
     def __init__(self):
         super(DdayWidget,self).__init__()
         self.setupUi(self) 
@@ -814,13 +754,13 @@ class DdayWidget(QDialog,FROM_CLASS):
     def start(self,idx,bc,tc,txt,dd):
             self.idx = idx
             self.dd = dd
-            self.frame.setStyleSheet(WIDGET_BG[bc])
-            self.lcd.setStyleSheet(WIDGET_TC[tc])
-            self.title.setStyleSheet(WIDGET_TH[tc])
+            self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
+            self.lcd.setStyleSheet(stylesheet.WIDGET_TC[tc])
+            self.title.setStyleSheet(stylesheet.WIDGET_TH[tc])
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.timeout)
             self.timer.start(1000)
-            
+
             self.title.setText(txt)
 
     def timeout(self):
@@ -846,23 +786,23 @@ class DdayWidget(QDialog,FROM_CLASS):
         self.offset = None
         super().mouseReleaseEvent(event)
 
-class TitleWidget(QDialog,FROM_CLASS):
+class TitleWidget(QDialog,WIDGET_CLASS):
     def __init__(self):
         super(TitleWidget,self).__init__()
         self.setupUi(self) 
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.setWindowFlags(
-                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)   
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
         # Lolo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.setWindowTitle('WithDI Widget')
-        
+
     def start(self,idx,bc,tc,txt,dd):
             self.idx = idx
-            self.frame.setStyleSheet(WIDGET_BG[bc])
-            self.lcd.setStyleSheet(WIDGET_TC[tc])
-            self.title.setStyleSheet(WIDGET_TH[tc])
+            self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
+            self.lcd.setStyleSheet(stylesheet.WIDGET_TC[tc])
+            self.title.setStyleSheet(stylesheet.WIDGET_TH[tc])
 
             self.lcd.setText(dd)
             self.title.setText(txt)
@@ -881,6 +821,75 @@ class TitleWidget(QDialog,FROM_CLASS):
     def mouseReleaseEvent(self, event):
         self.offset = None
         super().mouseReleaseEvent(event)
+
+class VersionWidget(QDialog,UPDATE_CLASS):
+    def __init__(self):
+        super(VersionWidget,self).__init__()
+        self.setupUi(self)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)       
+        self.show()
+        # Lolo load
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI Updater Beta')
+        self.cver = None
+        self.but_update.clicked.connect(self.update)
+        self.but_close.clicked.connect(self.deleteLater)
+
+    def update(self):
+        try:
+            cv = self.cver.split('.')
+            cv = (int(cv[0])*100 + int(cv[1])*10 + int(cv[2]))
+            self.log.setText('서버 접속중...')
+            ftp = FTP('112.175.184.83')
+            try:
+                ftp.login('deepi', 'elqdkdl2020!')
+                ftp.cwd('/html/WithDIversion/')
+                ftp.retrlines('LIST') 
+                ver = ftp.nlst()[0]
+                if ver == [] : self.log.setText('버전 파일 오류가 발생했습니다.')
+                ch = ver[4:].split('.txt')[0].split('.')
+                flag = (int(ch[0])*100 + int(ch[1])*10 + int(ch[2])) <= cv 
+                if flag == True:
+                    self.progressBar.setValue(100)
+                    self.log.setText('최신 버전이 이미 설치되었습니다.')
+                    self.but_update.setEnabled(False)
+                    self.but_close.setText('확인')
+                    ftp.close()
+                else:
+                    try:
+                        self.log.setText('최신 버전 설치 중...')
+                        fd = open (ver, 'wb')
+                        ftp.retrbinary("RETR " + ver, fd.write)
+                        fd.close()
+                        fd = open (ver, 'r')
+                        files = fd.readlines()
+                        fd.close()
+                        ftp.cwd('/html/WithDIupdate/')
+                        for ii,i in enumerate(files):
+                            fn,fp = i.split(',')
+                            fd = open(fp[:-1]+'/'+fn,'wb')
+                            ftp.retrbinary ("RETR " + fn, fd.write)
+                            fd.close()
+                            self.progressBar.setValue(int((ii+1)*100 / len(files)))
+
+                        self.progressBar.setValue(100)
+                        self.log.setText('패치 완료!! 프로그램을 다시 실행 해주세요.')
+                        self.but_update.setEnabled(False)
+                        self.but_close.setText('확인')
+                        config = configparser.ConfigParser()    
+                        config.read('config.ini', encoding='utf-8') 
+                        config['INFORMATION']['version'] =  ver[4:].split('.txt')[0]
+                        with open('config.ini', 'w', encoding='utf-8') as configfile:
+                            config.write(configfile)
+                        ftp.close()
+                        os.remove(ver)
+                    except:
+                        self.log.setText('패치 파일 다운로드를 실패했습니다.')
+            except:
+                self.log.setText('서버 접속에 실패했습니다.')
+                ftp.close()
+        except: self.log.setText('WithDI 프로그램 오류가 발생했습니다.')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

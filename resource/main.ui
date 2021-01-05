@@ -483,6 +483,7 @@ color :#353F40;</string>
                     <property name="font">
                      <font>
                       <family>나눔스퀘어_ac Bold</family>
+                      <pointsize>-1</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
@@ -3643,15 +3644,21 @@ QGroupBox::title  {
                   </property>
                   <item row="3" column="1" colspan="2">
                    <widget class="QLineEdit" name="current_break">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>256</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>256</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3918,13 +3925,13 @@ color :#353F40;</string>
                    <widget class="QLineEdit" name="current_meal">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
+                      <width>256</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>256</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3958,7 +3965,7 @@ border-radius: 5px;</string>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>256</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -5908,10 +5915,10 @@ border-radius: 5px;</string>
                 <number>10</number>
                </property>
                <property name="leftMargin">
-                <number>50</number>
+                <number>0</number>
                </property>
                <property name="rightMargin">
-                <number>10</number>
+                <number>0</number>
                </property>
                <item>
                 <widget class="QLabel" name="gitlink">
@@ -5940,6 +5947,12 @@ border-radius: 5px;</string>
                </item>
                <item>
                 <widget class="QLabel" name="label_15">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">color: rgb(255, 216, 17);
 font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
@@ -5986,6 +5999,12 @@ font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
                </item>
                <item>
                 <widget class="QLabel" name="label_16">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">color: rgb(255, 216, 17);
 font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
@@ -6052,7 +6071,13 @@ font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QLabel" name="label_2">
+               <widget class="QLabel" name="title_ver">
+                <property name="maximumSize">
+                 <size>
+                  <width>350</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">padding: 10px;;
 font: 30px &quot;나눔스퀘어_ac ExtraBold&quot;;
@@ -6065,6 +6090,12 @@ color :    #F2F1EF;</string>
               </item>
               <item>
                <widget class="QLabel" name="label_3">
+                <property name="maximumSize">
+                 <size>
+                  <width>350</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">padding: 10px;;
 font: 20px &quot;나눔스퀘어_ac ExtraBold&quot;;
@@ -6190,7 +6221,7 @@ deepi.contact.us@gmail.com</string>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
-  <include location="icon/icon.py"/>
+  <include location="icon/icon.qrc"/>
  </resources>
  <connections/>
 </ui>
