@@ -17,39 +17,21 @@ import webbrowser
 import configparser
 from ftplib import FTP
 from datetime import datetime, date
-
+from core import withDI
+from core.Utils import Utils
 from resource.icon import icon
 from resource.style import stylesheet
-from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget, QDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QDialog, QMessageBox,QPushButton
 from PyQt5 import QtCore
 from PyQt5 import QtGui
-#%%
-# log files
-texts = ['current_date','current_time','study_time','break_time','meal_time']
+from PyQt5 import uic
 
-## UI UPDATE
-path = glob.glob('./resource/*.ui')
-for ui_path in path:
-    ui_ = open(ui_path, 'r', encoding='utf-8')
-    lines_ = ui_.readlines()
-    ui_.close()
-    for ii, i in enumerate(lines_):
-        if 'include location' in i:
-            lines_[ii] = i.replace('.qrc', '.py')
-            
-        if '<pointsize>-1</pointsize>' in i:
-            lines_[ii] = ''
-    ui_ = open(ui_path, 'w', encoding='utf-8')
-    [ui_.write(i) for i in lines_]
-    ui_.close()
+# sys init
+Utils.uiUpdate()
+texts = Utils.text
+classes = Utils.uiSetup()
 
-FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
-WIDGET_CLASS = uic.loadUiType("./resource/timer.ui")[0]
-UPDATE_CLASS = uic.loadUiType("./resource/version.ui")[0]
-
-
-class WithDI(QMainWindow,FROM_CLASS):
+class WithDI(QMainWindow,classes[0]):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
         super().__init__()
@@ -65,28 +47,24 @@ class WithDI(QMainWindow,FROM_CLASS):
         QtGui.QFontDatabase.applicationFontFamilies(_id3)
         # UI load
         self.setupUi(self)
-        self.show()
-        # logo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.title_ver.setText('With DI ver '+  config['INFORMATION']['VERSION'])
         self.setWindowTitle(self.version)
         # check version
-        self.update = VersionWidget()
+        self.update = VersionWidget(self)
         self.update.cver =  config['INFORMATION']['VERSION']
-
-
         # break time  lunch time
         self.FLAG = [False,False,False]
-        self.iter = 0       # 교시
-
-        # # Log file init
+        self.iter = 0
+        # Log init
         if os.path.isdir('log') == False : os.makedirs('log')
         for i in texts: open('./log/'+ i + '.txt', mode='wt', encoding='utf-8')
-
+        try: os.remove('path.exe')
+        except:pass
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.run)
         self.timer.start(1000)
-
+        
         # log path
         abs_path = os.getcwd()
         self.date_path.setText(os.path.join(abs_path, './log/'+ texts[0] + '.txt'))
@@ -103,8 +81,8 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.meal_format = config['MEAL']['FORMAT']
 
         self.studywithdi.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.studyfinish.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.studywithdi.clicked.connect(self.startTimer)
-
         #%% 날짜 INIT
         self.init_date_format = self.default_date_format
         self.init_date_string_1 =  config['DATE']['STRING_1']
@@ -140,7 +118,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_study_string_2 = config['STUDY']['STRING_2']
         self.study_output_string.setText(self.init_study_string_1 + '%TIME%' + self.init_study_string_2)
         self.study_output_format.setText(self.study_format)
-        
+
         qt = [int(i) for i in config['STUDY']['TIME'].split(',')]
         self.studytime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
         h,m = QtCore.QTime.currentTime().hour(),QtCore.QTime.currentTime().minute()
@@ -168,19 +146,19 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.init_break_string_2 = config['BREAK']['STRING_2']
         self.break_output_format.setText(self.break_format)
         self.break_output_string.setText(self.init_break_string_1 + '%TIME%' + self.init_break_string_2)
-        
+
         qt = [int(i) for i in config['BREAK']['TIME'].split(',')]
         self.breaktime_edit.setTime(QtCore.QTime(qt[0],qt[1],qt[2]))
         self.break_output_format_reset.clicked.connect(self.break_format_re)
         self.break_output_string_reset.clicked.connect(self.break_string_re) 
-        
+
         self.meal_output_format_reset
         self.meal_output_string_reset
         self.path_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor)) 
         self.play_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.asmr_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.asmr_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        
+
         #%% 식사 시간 INIT
         self.init_meal_format = config['MEAL']['FORMAT']
         self.init_meal_string_1 =  config['MEAL']['STRING_1']
@@ -195,10 +173,13 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.mealMode()
         self.meal_output_format_reset.clicked.connect(self.meal_format_re)
         self.meal_output_string_reset.clicked.connect(self.meal_string_re) 
-
+        self.meal_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meal_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         #%% 휴게 시간
         abs_path = os.getcwd()
         if config['SOUND']['START'] == '': self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
+        try : x= pyglet.media.load(self.break_start_sound_path.text())
+        except: self.break_start_sound_path.setText(os.path.join(abs_path, 'resource/sound/breaktime.mp3'))
         else: self.break_start_sound_path.setText(config['SOUND']['START'])
 
         # Sound button
@@ -210,10 +191,9 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.sound_slider.valueChanged.connect(self.soundMode)
         # Sound path button
         self.path_1.clicked.connect(lambda: self.searchFile(0))
+        self.studyfinish.clicked.connect(self.stopStudy)
 
         #%% WITH DI
-        # read me
-        # self.tabWidget.currentChanged.connect(self.mainTabChange)
         self.clickable(self.lablink).connect(lambda:webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
         self.clickable(self.gitlink).connect(lambda:webbrowser.open('https://github.com/DEEPI-LAB/python-study-with-me-timer'))
         self.lablink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -233,16 +213,41 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.timer_2_lcd.setText("D-DAY 100")
         self.timer_3_lcd.setText(self.timer_3_select.text())
 
-
         self.Timer = [None for i in range(5)]
         self.timeridx = 0
         self.DDay = None
         self.Title = None
-        
+
         self.timer_1.clicked.connect(self.openTimer) 
         self.timer_2.clicked.connect(self.openDday) 
         self.timer_3.clicked.connect(self.openTitle) 
-    
+
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'WithDI', '프로그램을 종료하시겠습니까?',
+            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            try : 
+                self.update.deleteLater()
+            except:pass
+            self.deleteLater()
+            app.quit()
+        else: event.ignore()
+
+    def path(self):
+        import subprocess
+        self.deleteLater()
+        subprocess.Popen("path.exe")
+        app.quit()
+
+    def stopStudy(self):
+        self.setWindowTitle(self.version + ' | Live 대기 중' )
+        self.widget_timetable.setText('스터디 종료! 수고하셨습니다.')
+        self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
+        self.current_break.setStyleSheet(stylesheet.TEXT_OFF)
+        self.current_meal.setStyleSheet(stylesheet.TEXT_OFF)
+        self.FLAG[1] = False 
+        self.FLAG[2] = False
+        self.FLAG[0] = False
     def openTimer(self):
         idx = self.timer_1_select.currentIndex()
 
@@ -252,10 +257,10 @@ class WithDI(QMainWindow,FROM_CLASS):
                                         self.timer_1_bg.currentIndex(),
                                         self.timer_1_tc.currentIndex(),
                                         self.timer_1_txt.text())
-        
+
         self.Timer[self.timeridx].show()
         self.timeridx += 1
-        
+
     def openDday(self):
         idx = -1
 
@@ -278,9 +283,8 @@ class WithDI(QMainWindow,FROM_CLASS):
                         self.timer_3_txt.text(),
                         self.timer_3_select.text())
 
-        self.Title.show() 
+        self.Title.show()
     def refresh(self):
-        
         # study / break / lunch time init
         self.study_time_count = QtCore.QTime(0, 0, 0)             
         self.study_time_count_m = self.studytime_edit.time()   
@@ -291,12 +295,12 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.mealTime = self.meal_slider.value()
         self.meal_time_count = self.mealtime_edit.time()
         self.meal_time_count_m = QtCore.QTime(0,0,0)
-        
+
         self.ep = self.study_ep.time().hour()
         self.starttime = self.starttime_edit.time()
         self.FLAG[0] = True
         self.classes = 0
-        
+
         self.checkStudyTime()
         self.checkBreakCount()
         self.checkMealCount()
@@ -306,7 +310,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.tabWidget.setCurrentIndex(3)
         self.saveConfing()
         self.collect()
-        
+
     def saveConfing(self):
         config = configparser.ConfigParser()    
         config.read('config.ini', encoding='utf-8') 
@@ -346,10 +350,9 @@ class WithDI(QMainWindow,FROM_CLASS):
         config['SOUND']['VOL'] = str(self.sound_slider.value())
         with open('config.ini', 'w', encoding='utf-8') as configfile:
             config.write(configfile)
-        
-        
+
     def run(self):
-        
+
         # Today 시스템 시간 활성화
         self.time_pc.setText(time.strftime("%H시 %M분 %S초"))
         self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
@@ -357,7 +360,7 @@ class WithDI(QMainWindow,FROM_CLASS):
         self.time_output_live.setText(self.init_time_string_1 + 
                                       time.strftime(self.init_time_format) + 
                                       self.init_time_string_2)
-    
+
         self.date_output_live.setText(self.init_date_string_1 + 
                                       time.strftime(self.default_date_format) + 
                                       self.init_date_string_2)
@@ -365,18 +368,17 @@ class WithDI(QMainWindow,FROM_CLASS):
         if True:
             self.checkTime()
             self.checkDate()
-            
+
             # 시작 시점 
             if self.FLAG[0] == False : return
             if self.starttime.toString() == QtCore.QTime.currentTime().toString():
-                print('스터디윗미 시작')
                 self.setWindowTitle(self.version + ' | Live 공부 중' )
                 self.FLAG[1] = True
                 return
 
             if  self.ep <= self.classes : 
                 self.setWindowTitle(self.version + ' | Live 대기 중' )
-                print('수고하셨습니다.')
+                self.widget_timetable.setText('스터디 종료! 수고하셨습니다.')
                 self.FLAG[1] = False 
                 self.FLAG[2] = False
                 self.FLAG[0] = False
@@ -386,9 +388,7 @@ class WithDI(QMainWindow,FROM_CLASS):
                 self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
                 self.study_time_count = self.study_time_count.addSecs(1)
                 self.study_time_count_m = self.study_time_count_m.addSecs(-1)
-                self.checkStudyTime()   
-                
-                
+                self.checkStudyTime()
                 # 현재 교시 종료
                 if self.study_time_count_m.toString() == '00:00:00':
                     # 교시 업
@@ -397,13 +397,13 @@ class WithDI(QMainWindow,FROM_CLASS):
                     self.study_time_count_m = self.studytime_edit.time() 
                     self.bh = 0
                     self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
-                    self.song = pyglet.media.Player()
-                    x= pyglet.media.load(self.break_start_sound_path.text())
-                    self.song.queue(x)
-                    self.song.volume = self.sound_slider.value()/100.0
-                    self.song.play()
-
-                    print('쉬는시간 시작')
+                    try:
+                        self.song = pyglet.media.Player()
+                        x= pyglet.media.load(self.break_start_sound_path.text())
+                        self.song.queue(x)
+                        self.song.volume = self.sound_slider.value()/100.0
+                        self.song.play()
+                    except:pass
                     return
 
             elif self.FLAG[0] == True and self.FLAG[1] == True and self.FLAG[2]== True and  self.ep>= self.classes :
@@ -420,15 +420,16 @@ class WithDI(QMainWindow,FROM_CLASS):
   
                     if self.break_time_count.toString() == '00:00:00':
                         
-                        self.song = pyglet.media.Player()
-                        x= pyglet.media.load(self.break_start_sound_path.text())
-                        self.song.queue(x)
-                        self.song.volume = self.sound_slider.value()/100.0
-                        self.song.play()
+                        try:
+                            self.song = pyglet.media.Player()
+                            x= pyglet.media.load(self.break_start_sound_path.text())
+                            self.song.queue(x)
+                            self.song.volume = self.sound_slider.value()/100.0
+                            self.song.play()
+                        except:pass
                         self.FLAG[2] = False
                         self.break_time_count = self.breaktime_edit.time() 
                         # self.break_time_count =  self.break_time_count.addSecs(1)
-                        print('쉬는시간 종료')
                         self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
                         self.current_break.setStyleSheet(stylesheet.TEXT_OFF)
                         return
@@ -439,17 +440,18 @@ class WithDI(QMainWindow,FROM_CLASS):
                     self.meal_time_count_m =  self.meal_time_count_m.addSecs(1)
                     # 쉬는시간 업 업데이트
                     self.checkMealCount()   
-                    self.current_meal.setStyleSheet(TEXT_ON)
+                    self.current_meal.setStyleSheet(stylesheet.TEXT_ON)
                     if self.meal_time_count.toString() == '00:00:00':
-                        self.song = pyglet.media.Player()
-                        x= pyglet.media.load(self.break_start_sound_path.text())
-                        self.song.queue(x)
-                        self.song.volume = self.sound_slider.value()/100.0
-                        self.song.play()
+                        try:
+                            self.song = pyglet.media.Player()
+                            x= pyglet.media.load(self.break_start_sound_path.text())
+                            self.song.queue(x)
+                            self.song.volume = self.sound_slider.value()/100.0
+                            self.song.play()
+                        except:pass
                         self.meal_time_count = self.mealtime_edit.time()
                         self.FLAG[2] = False
                         self.mealTime =0
-                        print('점심시간 종료')
                         self.widget_timetable.setText('{}교시 진행중'.format(self.classes+1))
                         self.current_meal.setStyleSheet(stylesheet.TEXT_OFF)
                         return
@@ -532,8 +534,6 @@ class WithDI(QMainWindow,FROM_CLASS):
 
             self.time_output_live.setText(txt)
         except:pass
-
-
     def study_end_time(self):
         # 반복횟수
         ep = self.study_ep.time().hour()
@@ -631,10 +631,6 @@ class WithDI(QMainWindow,FROM_CLASS):
             self.song.volume = self.sound_slider.value()/100.0
             self.song.play()
         except: return
-    # MAIN TAB CHANGE EVENT METHOD 
-    # def mainTabChange(self,ids):
-    #     if ids == 4:
-    #         self.tabWidget.setCurrentIndex(5)
 
     # Q CLICK - COPY METHOD
     def copyText(self, ids):
@@ -677,15 +673,15 @@ class WithDI(QMainWindow,FROM_CLASS):
         # 실행 시간 수집
         try:
             s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
-            ftp = FTP('112.175.184.83')
-            ftp.login('deepi', 'elqdkdl2020!')
+            ftp = FTP(withDI.server_up)
+            ftp.login(withDI.user_id, withDI.user_pw)
             ftp.cwd('/html/WithDI/')
             myfile = open('config.ini','rb')
             ftp.storbinary('STOR '+s+'.ini', myfile )
             myfile.close()
         except:pass
 
-class TimerWidget(QDialog,WIDGET_CLASS):
+class TimerWidget(QDialog,classes[1]):
     def __init__(self):
         super(TimerWidget,self).__init__()
         self.setupUi(self) 
@@ -740,7 +736,7 @@ class TimerWidget(QDialog,WIDGET_CLASS):
                 break
             except:pass
 
-class DdayWidget(QDialog,WIDGET_CLASS):
+class DdayWidget(QDialog,classes[1]):
     def __init__(self):
         super(DdayWidget,self).__init__()
         self.setupUi(self) 
@@ -786,7 +782,7 @@ class DdayWidget(QDialog,WIDGET_CLASS):
         self.offset = None
         super().mouseReleaseEvent(event)
 
-class TitleWidget(QDialog,WIDGET_CLASS):
+class TitleWidget(QDialog,classes[1]):
     def __init__(self):
         super(TitleWidget,self).__init__()
         self.setupUi(self) 
@@ -822,28 +818,40 @@ class TitleWidget(QDialog,WIDGET_CLASS):
         self.offset = None
         super().mouseReleaseEvent(event)
 
-class VersionWidget(QDialog,UPDATE_CLASS):
-    def __init__(self):
-        super(VersionWidget,self).__init__()
+class VersionWidget(QDialog,classes[2]):
+    def __init__(self,parent):
+        super(VersionWidget,self).__init__(parent)
         self.setupUi(self)
         self.setWindowFlags(
                    self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)       
+        time.sleep(1)
         self.show()
-        # Lolo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.setWindowTitle('WithDI Updater Beta')
         self.cver = None
+        self.flags = False
         self.but_update.clicked.connect(self.update)
-        self.but_close.clicked.connect(self.deleteLater)
+        self.but_close.clicked.connect(self.close)
 
+    def close(self):
+        if self.flags == True:
+            self.parent().path()
+        else:self.deleteLater()
+    def sleep(self):
+        loop = QtCore.QEventLoop()
+        QtCore.QTimer.singleShot(500, loop.quit) # msec
+        loop.exec_()
     def update(self):
         try:
             cv = self.cver.split('.')
             cv = (int(cv[0])*100 + int(cv[1])*10 + int(cv[2]))
             self.log.setText('서버 접속중...')
-            ftp = FTP('112.175.184.83')
+            self.sleep()
+            ftp = FTP(withDI.server_ip)
             try:
-                ftp.login('deepi', 'elqdkdl2020!')
+                self.log.setText('최신 버전 확인중...')
+                self.sleep()
+                ftp.login(withDI.user_id, withDI.user_pw)
                 ftp.cwd('/html/WithDIversion/')
                 ftp.retrlines('LIST') 
                 ver = ftp.nlst()[0]
@@ -858,23 +866,15 @@ class VersionWidget(QDialog,UPDATE_CLASS):
                     ftp.close()
                 else:
                     try:
-                        self.log.setText('최신 버전 설치 중...')
-                        fd = open (ver, 'wb')
-                        ftp.retrbinary("RETR " + ver, fd.write)
-                        fd.close()
-                        fd = open (ver, 'r')
-                        files = fd.readlines()
-                        fd.close()
+                        self.log.setText('최신 패치파일 설치 중...')
+                        self.sleep()
                         ftp.cwd('/html/WithDIupdate/')
-                        for ii,i in enumerate(files):
-                            fn,fp = i.split(',')
-                            fd = open(fp[:-1]+'/'+fn,'wb')
-                            ftp.retrbinary ("RETR " + fn, fd.write)
-                            fd.close()
-                            self.progressBar.setValue(int((ii+1)*100 / len(files)))
-
+                        fd = open('path.exe','wb')
+                        ftp.retrbinary ("RETR " + 'path.exe', fd.write)
+                        fd.close()
                         self.progressBar.setValue(100)
-                        self.log.setText('패치 완료!! 프로그램을 다시 실행 해주세요.')
+                        self.log.setText('패치를 위해 확인을 눌러주세요.')
+                        self.flags = True
                         self.but_update.setEnabled(False)
                         self.but_close.setText('확인')
                         config = configparser.ConfigParser()    
@@ -883,7 +883,6 @@ class VersionWidget(QDialog,UPDATE_CLASS):
                         with open('config.ini', 'w', encoding='utf-8') as configfile:
                             config.write(configfile)
                         ftp.close()
-                        os.remove(ver)
                     except:
                         self.log.setText('패치 파일 다운로드를 실패했습니다.')
             except:
@@ -895,4 +894,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyle('Fusion')
     ShowApp = WithDI()
+    ShowApp.show()
     sys.exit(app.exec_())

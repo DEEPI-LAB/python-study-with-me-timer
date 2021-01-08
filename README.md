@@ -1,4 +1,4 @@
-# **With DI** ver - 0.9.6
+# **With DI** ver - 0.9.7
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -112,6 +112,12 @@
 - 자동 업데이터 기능 추가 (베타)
 - 기타 오류 수정
 - UI 깨짐 오류 수정
+
+### 2021-01-08 [0.9.7]
+- 자동 업데이터 기능 변경
+- 기타 오류 수정
+- UI 개선 수정
+- 음원 경로 오류 수정
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

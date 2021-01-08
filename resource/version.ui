@@ -6,28 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>410</width>
-    <height>215</height>
+    <width>450</width>
+    <height>250</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>410</width>
-    <height>215</height>
+    <width>450</width>
+    <height>250</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>410</width>
-    <height>215</height>
+    <width>450</width>
+    <height>312</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
    <item row="0" column="1">
     <widget class="QPlainTextEdit" name="title">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
       <string notr="true">padding: 5px;;
 font: 15px;
@@ -107,7 +113,9 @@ Study With DI 입니다.
   </layout>
  </widget>
  <resources>
-  <include location="icon/icon.qrc"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
  </resources>
  <connections/>
 </ui>
