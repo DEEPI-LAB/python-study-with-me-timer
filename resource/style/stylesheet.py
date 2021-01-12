@@ -60,6 +60,43 @@ color : rgb(29, 165, 255);
 font: 25px "LAB디지털";
 """
 
+MEAL_BUT_OFF = """
+QPushButton
+{
+	color: #F2F1EF;
+	font: 20px "나눔스퀘어_ac Bold";
+	background-color:#353F40;
+	border : None;
+}
+
+QPushButton::hover
+{
+	color: #F2F1EF;
+	font: 20px "나눔스퀘어_ac Bold";
+	background-color: rgb(57, 103, 255);
+	border :solid;
+}
+"""
+
+MEAL_BUT_ON = """
+QPushButton::hover
+{
+	color: #F2F1EF;
+	font: 20px "나눔스퀘어_ac Bold";
+	background-color:#353F40;
+	border : None;
+}
+
+QPushButton
+{
+	color: #F2F1EF;
+	font: 20px "나눔스퀘어_ac Bold";
+	background-color: rgb(57, 103, 255);
+	border :solid;
+}
+"""
+
+
 WIDGET_BG = [WIDGET_BG_BLACK,WIDGET_BG_WHITE,WIDGET_BG_STYLE1,WIDGET_BG_STYLE2]
 WIDGET_TC = [WIDGET_TC_BLACK,WIDGET_TC_WHITE,WIDGET_TC_STYLE1,WIDGET_TC_STYLE2]
 WIDGET_TH = [WIDGET_TH_BLACK,WIDGET_TH_WHITE,WIDGET_TH_STYLE1,WIDGET_TH_STYLE2]

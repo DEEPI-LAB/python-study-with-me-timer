@@ -1,4 +1,4 @@
-# **With DI** ver - 0.9.7
+# **With DI** ver - 0.9.8
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -11,6 +11,7 @@
  3. **ASMR 링크 음악 재생**
  4. **효과음으로 시작 종료 이벤트** 
  5. ***위젯 생성 [추가 예정]***
+ 6. ** ver 0.9.7 이후 오픈소스코드에는 보안을 위해 서버 정보가 포함되지 않습니다.**
 
 ## 
 ![Alt text](https://blog.kakaocdn.net/dn/biOFb7/btqPaVBSEAX/2D2WRZGaI8v0S0YM3zZDV1/img.png)
@@ -118,6 +119,14 @@
 - 기타 오류 수정
 - UI 개선 수정
 - 음원 경로 오류 수정
+
+### 2021-01-12 [0.9.8]
+- 종소리 음원 추가
+- 랭킹 시스템 추가
+- UI 레이아웃 변경
+- 반응형 버튼 변경
+- 식사시간 시스템 변경
+- 권한 충돌 오류 수정
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

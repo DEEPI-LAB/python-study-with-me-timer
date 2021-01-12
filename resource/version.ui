@@ -25,31 +25,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
-   <item row="0" column="1">
-    <widget class="QPlainTextEdit" name="title">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">padding: 5px;;
-font: 15px;
-color :#353F40;</string>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="plainText">
-      <string>스터디 윗미 통합 타이머 프로그램
-Study With DI 입니다.
-
-최신 버전을 확인해주세요.</string>
-     </property>
-    </widget>
-   </item>
+  <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="maximumSize">
@@ -79,17 +55,7 @@ Study With DI 입니다.
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QProgressBar" name="progressBar">
-     <property name="value">
-      <number>0</number>
-     </property>
-     <property name="textDirection">
-      <enum>QProgressBar::TopToBottom</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="but_update">
@@ -110,9 +76,60 @@ Study With DI 입니다.
      </item>
     </layout>
    </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="textDirection">
+      <enum>QProgressBar::TopToBottom</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPlainTextEdit" name="title">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 5px;;
+font: 15px;
+color :#353F40;</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="plainText">
+      <string>스터디 윗미 통합 타이머 프로그램
+Study With DI 입니다.
+
+최신 버전을 확인해주세요.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QCheckBox" name="vercheck">
+     <property name="maximumSize">
+      <size>
+       <width>580</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>최신 버전 확인하지 않기</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>
+  <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
   <include location="icon/icon.py"/>
