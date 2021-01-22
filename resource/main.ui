@@ -3794,6 +3794,9 @@ border-width: 1px;
 border-color: gray;
 border-radius: 5px;</string>
                    </property>
+                   <property name="text">
+                    <string>대기중</string>
+                   </property>
                    <property name="readOnly">
                     <bool>true</bool>
                    </property>
@@ -3870,6 +3873,9 @@ border-width: 1px;
 border-color: gray;
 border-radius: 5px;</string>
                    </property>
+                   <property name="text">
+                    <string>대기중</string>
+                   </property>
                    <property name="readOnly">
                     <bool>true</bool>
                    </property>
@@ -3897,6 +3903,9 @@ border-style: outset;
 border-width: 1px;
 border-color: gray;
 border-radius: 5px;</string>
+                   </property>
+                   <property name="text">
+                    <string>대기중</string>
                    </property>
                    <property name="readOnly">
                     <bool>true</bool>
@@ -3926,6 +3935,9 @@ border-width: 1px;
 border-color: gray;
 border-radius: 5px;</string>
                    </property>
+                   <property name="text">
+                    <string>대기중</string>
+                   </property>
                    <property name="readOnly">
                     <bool>true</bool>
                    </property>
@@ -3953,6 +3965,9 @@ border-style: outset;
 border-width: 1px;
 border-color: gray;
 border-radius: 5px;</string>
+                   </property>
+                   <property name="text">
+                    <string>대기중</string>
                    </property>
                    <property name="readOnly">
                     <bool>true</bool>
@@ -4141,7 +4156,7 @@ border-color: gray;
 border-radius: 5px;</string>
                      </property>
                      <property name="text">
-                      <string>사용자 #21</string>
+                      <string>대기중</string>
                      </property>
                      <property name="readOnly">
                       <bool>true</bool>
@@ -4172,7 +4187,7 @@ border-color: gray;
 border-radius: 5px;</string>
                      </property>
                      <property name="text">
-                      <string>측정중...</string>
+                      <string>대기중</string>
                      </property>
                      <property name="readOnly">
                       <bool>true</bool>
@@ -4257,7 +4272,7 @@ border-color: gray;
 border-radius: 5px;</string>
                         </property>
                         <property name="text">
-                         <string>준비중입니다.</string>
+                         <string>대기중</string>
                         </property>
                         <property name="readOnly">
                          <bool>true</bool>
@@ -4272,7 +4287,7 @@ font:17px &quot;나눔스퀘어_ac Bold&quot;;
 color :   rgb(255, 74, 29)</string>
                         </property>
                         <property name="text">
-                         <string>+12</string>
+                         <string>-</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -4307,7 +4322,7 @@ color :#353F40;</string>
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QLineEdit" name="lineEdit">
+                    <widget class="QLineEdit" name="top_1">
                      <property name="minimumSize">
                       <size>
                        <width>274</width>
@@ -4330,7 +4345,7 @@ border-color: gray;
 border-radius: 5px;</string>
                      </property>
                      <property name="text">
-                      <string>준비중입니다.</string>
+                      <string>대기중</string>
                      </property>
                      <property name="readOnly">
                       <bool>true</bool>
@@ -4338,7 +4353,7 @@ border-radius: 5px;</string>
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QLineEdit" name="lineEdit_2">
+                    <widget class="QLineEdit" name="top_2">
                      <property name="minimumSize">
                       <size>
                        <width>274</width>
@@ -4361,7 +4376,7 @@ border-color: gray;
 border-radius: 5px;</string>
                      </property>
                      <property name="text">
-                      <string>준비중입니다.</string>
+                      <string>대기중</string>
                      </property>
                      <property name="readOnly">
                       <bool>true</bool>
@@ -4438,7 +4453,7 @@ QPushButton::hover
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_3">
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_6">
            <property name="styleSheet">
@@ -5927,6 +5942,43 @@ deepi.contact.us@gmail.com</string>
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QPushButton" name="configrefresh">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton
+{
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+	background-color:#353F40;
+	border : None;
+	border-radius : 10px;
+}
+
+QPushButton::hover
+{
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+	background-color:#000000;
+	border :solid;
+}</string>
+             </property>
+             <property name="text">
+              <string>사용자 설정 초기화</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -6177,11 +6229,12 @@ color :    #F2F1EF;</string>
  </widget>
  <resources>
   <include location="icon/icon.py"/>
-  <include location="icon/icon.qrc"/>
-  <include location="icon/icon.qrc"/>
-  <include location="icon/icon.qrc"/>
-  <include location="icon/icon.qrc"/>
-  <include location="python-study-with-me-timer/resource/icon/icon.qrc"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
+  <include location="icon/icon.py"/>
  </resources>
  <connections/>
 </ui>

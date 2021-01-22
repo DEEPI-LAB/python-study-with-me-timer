@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.9.8
+With DI ver. 0.9.9
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2021-01-12
+Revision date: 2021-01-22
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -14,6 +14,8 @@ import time
 import pyglet
 import webbrowser
 import configparser
+import random
+import shutil
 from ftplib import FTP
 from datetime import datetime, date
 from core import withDI
@@ -34,8 +36,13 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         # System Font Init
         config = configparser.ConfigParser()
         config.read('config.ini', encoding='utf-8')
-        self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
-
+        try:
+            self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
+        except:
+            self.configRefresh()
+            config = configparser.ConfigParser()
+            config.read('config.ini', encoding='utf-8')
+            self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
         _ids = [QtGui.QFontDatabase.addApplicationFont(utils.fonts[i]) for i in range(3)]
         [QtGui.QFontDatabase.applicationFontFamilies(_ids[i]) for i in range(3)]
         # UI load
@@ -45,8 +52,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.setWindowTitle(self.version)
         # check version
         if config['USER']['VERCHECK'] =='1':
-            self.update = VersionWidget(self)
-            self.update.cver =  config['INFORMATION']['VERSION']
+            self.updates = VersionWidget(self)
+            self.updates.cver =  config['INFORMATION']['VERSION']
         self.vercheck = False
         self.nickname = config['USER']['NICKNAME']
         self.totaltime = config['USER']['TOTAL']
@@ -59,9 +66,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         for i in utils.texts: open('./log/'+ i + '.txt', mode='wt', encoding='utf-8')
         try: os.remove('path.exe')
         except:pass
-        self.timer = QtCore.QTimer(self)
-        self.timer.timeout.connect(self.run)
-        self.timer.start(1000)
 
         # log path
         apath = os.getcwd()
@@ -110,6 +114,15 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.time_output_format_reset.clicked.connect(self.time_format_re)
         self.time_output_string_reset.clicked.connect(self.time_string_re) 
 
+        self.time_pc.setText(time.strftime("%H시 %M분 %S초"))
+        self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
+        self.time_output_live.setText(self.init_time_string_1 + 
+                                      time.strftime(self.init_time_format) + 
+                                      self.init_time_string_2)
+
+        self.date_output_live.setText(self.init_date_string_1 + 
+                                      time.strftime(self.default_date_format) + 
+                                      self.init_date_string_2)
         #%% 공부시간 INIT
         self.init_study_format =  config['STUDY']['FORMAT']
         self.init_study_string_1 = config['STUDY']['STRING_1']
@@ -192,6 +205,12 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.sound_slider.setValue(int(config['SOUND']['VOL']))
         self.soundMode()
         self.sound_slider.valueChanged.connect(self.soundMode)
+        try:
+            x= pyglet.media.load(utils.bells[self.bgm_box.currentIndex()])
+            self.song.queue(x)
+            self.song.volume = 0
+            self.song.play()
+        except:pass
         # Sound path button
         self.play.clicked.connect(self.playMusic)
         self.studyfinish.clicked.connect(self.stopStudy)
@@ -209,7 +228,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.clickable(self.copyPath[1]).connect(lambda: self.copyText(1))
         self.clickable(self.copyPath[2]).connect(lambda: self.copyText(2))
         self.clickable(self.copyPath[3]).connect(lambda: self.copyText(3))       
-        self.clickable(self.copyPath[4]).connect(lambda: self.copyText(4))    
+        self.clickable(self.copyPath[4]).connect(lambda: self.copyText(4)) 
+        self.configrefresh.clicked.connect(self.configRefresh)
         #%% Widget
         self.timer_1_lcd.setText(QtCore.QDate.currentDate().toString("yyyy-MM-dd"))
         self.timer_2_lcd.setText("D-DAY 100")
@@ -260,12 +280,20 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         except:pass
         self.song = pyglet.media.Player()
         try:
-            x= pyglet.media.load(utils.bells[self.bgm_box.currentIndex()])
-            self.song.queue(x)
-            self.song.volume = self.sound_slider.value() / 100.0
-            self.song.play()
+                x= pyglet.media.load(utils.bells[self.bgm_box.currentIndex()])
+                self.song.queue(x)
+                self.song.volume = self.sound_slider.value() / 100.0
+                self.song.play()
         except: pass
 
+    #%% ABOUT
+    def configRefresh(self):
+        try:
+            # os.remove('config.ini')
+            shutil.copy('./resource/config.ini','config.ini')
+            self.deleteLater()
+            app.quit()
+        except:pass
     # WITH DI START METHOD
     def startTimer(self):
         if self.nickname =='' :
@@ -284,13 +312,32 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             ftp.storbinary('STOR '+s+'.ini', myfile )
             myfile.close()
             print('upload!')
+            ftp.cwd('/html/RANKING/')
+            fd = open('rank.ini','wb')
+            ftp.retrbinary("RETR " + 'rank.ini', fd.write)
+            fd.close()
+            fd = open('rank.ini','r')
+            rank = fd.readlines()
+            top = []
+            for i in range(2):
+                top.append('  - '.join(rank[-(i+1)].split(',')[1:]))
+            for i in range(len(rank)):
+                if rank[-i].split(',')[1] == self.nickname:
+                    ids = rank[-i].split(',')
+                    self.dirank.setText("{}위  - {}".format(ids[0],ids[2]))
+                    break
+                else: self.dirank.setText("+ 100위권")
+            os.remove('rank.ini')
+            self.top_1.setText(top[0])
+            self.top_2.setText(top[1])
+
         except:pass
     def closeEvent(self, event):
         reply = QMessageBox.question(self, 'WithDI', '프로그램을 종료하시겠습니까?',
             QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             try : 
-                self.update.deleteLater()
+                self.updates.deleteLater()
             except:pass
             self.deleteLater()
             app.quit()
@@ -358,7 +405,7 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             if i == 1:self.mtimes.append(ii+1)
         self.meal_time_count = self.mealtime_edit.time()
         self.meal_time_count_m = QtCore.QTime(0,0,0)
-
+        
         self.ep = self.study_ep.time().hour()
         self.starttime = self.starttime_edit.time()
         self.FLAG[0] = True
@@ -374,7 +421,17 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.saveConfing()
         self.nick.setText(self.nickname)
         self.addtime = "00:00:00"
-        self.dirank.setText("32위 (00시간 00분 00초)")
+
+        self.totalt.setText(self.totaltime)
+
+        self.ptime = time.time()
+        self.ctime = self.ptime
+        try:self.timer
+        except:
+            self.timer = QtCore.QTimer(self)
+            self.timer.timeout.connect(self.run)
+            self.timer.start(500)
+        
     def saveConfing(self):
         config = configparser.ConfigParser()    
         config.read('config.ini', encoding='utf-8') 
@@ -418,6 +475,10 @@ class WithDI(QMainWindow,utils.CLASS[0]):
     def run(self):
 
         # Today 시스템 시간 활성화
+        self.ptime = time.time()
+        self.gt = round(self.ptime - self.ctime)
+        print(self.gt)
+        self.ctime = self.ptime
         self.time_pc.setText(time.strftime("%H시 %M분 %S초"))
         self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
         # Today 업데이트 활성화
@@ -451,8 +512,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
 
                 self.current_study.setStyleSheet(stylesheet.TEXT_ON)
                 self.state.setText('{}교시 진행중'.format(self.classes+1))
-                self.study_time_count = self.study_time_count.addSecs(1)
-                self.study_time_count_m = self.study_time_count_m.addSecs(-1)
+                self.study_time_count = self.study_time_count.addSecs(self.gt)
+                self.study_time_count_m = self.study_time_count_m.addSecs(-self.gt)
                 self.checkStudyTime()
 
                 # 현재 교시 종료
@@ -485,8 +546,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                 if self.mt != self.classes and self.ep >= self.classes: 
                     self.state.setText('{}교시 종료'.format(self.classes))
                     self.bh += 1
-                    self.break_time_count =  self.break_time_count.addSecs(-1)
-                    self.break_time_count_m =  self.break_time_count_m.addSecs(1)
+                    self.break_time_count =  self.break_time_count.addSecs(-self.gt)
+                    self.break_time_count_m =  self.break_time_count_m.addSecs(self.gt)
 
                     # 쉬는시간 업데이트
                     self.checkBreakCount()  
@@ -510,8 +571,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
 
                 elif self.mt == self.classes and self.ep >= self.classes:
                     self.state.setText('{}교시 종료'.format(self.classes))
-                    self.meal_time_count =  self.meal_time_count.addSecs(-1)
-                    self.meal_time_count_m =  self.meal_time_count_m.addSecs(1)
+                    self.meal_time_count =  self.meal_time_count.addSecs(-self.gt)
+                    self.meal_time_count_m =  self.meal_time_count_m.addSecs(self.gt)
 
                     # 식사시간 업데이트
                     self.checkMealCount()   
@@ -532,23 +593,23 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                         return
     # 업데이트 
     def checkDate(self):
+        self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
         try:
-            self.current_date.setText(time.strftime('%Y년 %m월 %d일'))
             c_date = open('./log/'+ utils.texts[0] + '.txt', mode='wt', encoding='utf-8')
             txt = self.init_date_string_1 + time.strftime(self.date_output_format.text()) + self.init_date_string_2
             c_date.write(txt)
             c_date.close()
         except:pass
     def checkTime(self):
+        self.current_time.setText(time.strftime('%H시 %M분 %S초'))
         try:
-            self.current_time.setText(time.strftime('%H시 %M분 %S초'))
             c_time = open('./log/'+ utils.texts[1] + '.txt', mode='wt', encoding='utf-8')
             c_time.write(self.init_time_string_1+time.strftime(self.time_output_format.text())+self.init_time_string_2)
             c_time.close() 
         except:pass
     def checkStudyTime(self):
+        self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
         try:
-            self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
             t = self.study_time_count.toString(self.study_output_format.text())
             xx = self.study_output_string.text().split('%')
     
@@ -557,8 +618,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             c_date.close()
         except:pass
     def checkBreakCount(self):
+        self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
         try:
-            self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
             t = self.break_time_count.toString(self.break_output_format.text())
             xx = self.break_output_string.text().split('%')
             c_date = open('./log/'+ utils.texts[3] + '.txt', mode='wt', encoding='utf-8')
@@ -566,8 +627,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             c_date.close()
         except:pass
     def checkMealCount(self):
+        self.current_meal.setText(self.meal_time_count_m.toString("hh시간 mm분 ss초"))
         try:
-            self.current_meal.setText(self.meal_time_count_m.toString("hh시간 mm분 ss초"))
             t = seconds=self.meal_time_count.toString(self.meal_output_format.text())
             xx = self.meal_output_string.text().split('%')
             c_date = open('./log/'+ utils.texts[4] + '.txt', mode='wt', encoding='utf-8')
@@ -580,7 +641,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             x = time.strftime(self.date_output_format.text())
             self.default_date_format = self.date_output_format.text()
             txt = self.init_date_string_1 + x + self.init_date_string_2
-            
             self.date_output_live.setText(txt)
         except:pass
 
@@ -634,12 +694,12 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         else:
             self.endtime_edit.setText(QtCore.QTime(hours,mins,secs).toString("hh시 mm분 ss초"))
     def addTotalTime(self):
-        
+
         at = [int(i) for i in self.addtime.split(':')]
         pt = [int(i) for i in self.totaltime.split(':')]
         ct = [int(i) for i in self.study_time_count.toString("hh:mm:ss").split(':')]
         self.addtime = self.study_time_count.toString("hh:mm:ss")
-        
+
         sh = pt[0]+ct[0]-at[0]
         sm = pt[1]+ct[1]-at[1]
         ss = pt[2]+ct[2]-at[2]
@@ -857,11 +917,15 @@ class RankingWidget(QDialog,utils.CLASS[3]):
         self.setWindowTitle('WithDI')
         self.nickname.setText('사용자 #'+time.strftime("%H%M%S"))
         self.no.clicked.connect(self.close)
-        self.yes.clicked.connect(self.update)
+        self.yes.clicked.connect(self.apply)
     def close(self):
         self.parent().refresh()
         self.deleteLater()
-
+    def apply(self):
+        self.parent().nickname = self.nickname.text()
+        self.parent().refresh()
+        self.parent().update()
+        self.deleteLater()
 
 class VersionWidget(QDialog,utils.CLASS[2]):
     def __init__(self,parent):
@@ -874,7 +938,7 @@ class VersionWidget(QDialog,utils.CLASS[2]):
         self.setWindowTitle('WithDI Updater')
         self.cver = None
         self.flags = False
-        self.but_update.clicked.connect(self.update)
+        self.but_update.clicked.connect(self.updates)
         self.but_close.clicked.connect(self.close)
 
     def close(self):
@@ -887,7 +951,7 @@ class VersionWidget(QDialog,utils.CLASS[2]):
         loop = QtCore.QEventLoop()
         QtCore.QTimer.singleShot(500, loop.quit) # msec
         loop.exec_()
-    def update(self):
+    def updates(self):
         try:
             cv = self.cver.split('.')
             cv = (int(cv[0])*100 + int(cv[1])*10 + int(cv[2]))

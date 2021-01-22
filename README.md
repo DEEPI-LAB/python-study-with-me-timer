@@ -1,4 +1,4 @@
-# **With DI** ver - 0.9.8
+# **With DI** ver - 0.9.9
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -127,6 +127,11 @@
 - 반응형 버튼 변경
 - 식사시간 시스템 변경
 - 권한 충돌 오류 수정
+
+### 2021-01-22 [0.9.9]
+- 타이머 오류 수정
+- 랭킹 시스템 추가
+- 자동 패치 
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>
