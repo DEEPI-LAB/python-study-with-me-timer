@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 0.9.9
+With DI ver. 1.0.0
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2021-01-22
+Revision date: 2021-01-26
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -14,7 +14,6 @@ import time
 import pyglet
 import webbrowser
 import configparser
-import random
 import shutil
 from ftplib import FTP
 from datetime import datetime, date
@@ -33,24 +32,21 @@ class WithDI(QMainWindow,utils.CLASS[0]):
     def __init__(self):
         global TEXT_ON, TEXT_OFF
         super().__init__()
-        # System Font Init
+        
+        # CONFIG 파일 불러오기
+        if os.path.exists('config.ini') == False: self.configRefresh()
         config = configparser.ConfigParser()
         config.read('config.ini', encoding='utf-8')
-        try:
-            self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
-        except:
-            self.configRefresh()
-            config = configparser.ConfigParser()
-            config.read('config.ini', encoding='utf-8')
-            self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
+        self.version = ' With DI | ver.' + config['INFORMATION']['VERSION'] + ' | '
+        # 폰트 불러오기
         _ids = [QtGui.QFontDatabase.addApplicationFont(utils.fonts[i]) for i in range(3)]
         [QtGui.QFontDatabase.applicationFontFamilies(_ids[i]) for i in range(3)]
-        # UI load
+        # UI 불러오기
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
         self.title_ver.setText('With DI ver '+  config['INFORMATION']['VERSION'])
         self.setWindowTitle(self.version)
-        # check version
+        # Update 확인 위젯 불러오기
         if config['USER']['VERCHECK'] =='1':
             self.updates = VersionWidget(self)
             self.updates.cver =  config['INFORMATION']['VERSION']
@@ -197,6 +193,7 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.meal_output_string_reset.clicked.connect(self.mstringReset) 
         self.meal_output_format_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.meal_output_string_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meal_count_reset.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         #%% 휴게 시간
         # Sound button
         self.asmr_1.clicked.connect(lambda: webbrowser.open('https://asoftmurmur.com/'))
@@ -217,9 +214,10 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         #%% WITH DI
         self.clickable(self.lablink).connect(lambda:webbrowser.open('https://deep-eye.tistory.com/32?category=442879'))
         self.clickable(self.gitlink).connect(lambda:webbrowser.open('https://github.com/DEEPI-LAB/python-study-with-me-timer'))
+        self.clickable(self.youlink).connect(lambda:webbrowser.open('https://www.youtube.com/channel/UCi18EeOdU26XvfKzcOMW3XA'))
         self.lablink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.gitlink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        
+        self.youlink.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         # User Inferface
         self.copyPath = [self.date_path,self.time_path,self.study_path,self.break_path,self.meal_path]
         self.clabel = [self.clabel_1,self.clabel_2,self.clabel_3]
@@ -242,7 +240,24 @@ class WithDI(QMainWindow,utils.CLASS[0]):
 
         self.timer_1.clicked.connect(self.openTimer) 
         self.timer_2.clicked.connect(self.openDday) 
-        self.timer_3.clicked.connect(self.openTitle) 
+        self.timer_3.clicked.connect(self.openTitle)
+        
+        # 반응형 위젯 #1
+        self.timer_1_select.currentIndexChanged.connect(self.timer_1_changed)
+        self.timer_1_bg.currentIndexChanged.connect(self.timer_1_changed)
+        self.timer_1_tc.currentIndexChanged.connect(self.timer_1_changed)
+        self.timer_1_txt.textChanged.connect(self.timer_1_changed)
+
+        # 반응형 위젯 #2
+        self.timer_2_bg.currentIndexChanged.connect(self.timer_2_changed)
+        self.timer_2_tc.currentIndexChanged.connect(self.timer_2_changed)
+        self.timer_2_txt.textChanged.connect(self.timer_2_changed)
+
+        # 반응형 위젯 #1
+        self.timer_3_select.textChanged.connect(self.timer_3_changed)
+        self.timer_3_bg.currentIndexChanged.connect(self.timer_3_changed)
+        self.timer_3_tc.currentIndexChanged.connect(self.timer_3_changed)
+        self.timer_3_txt.textChanged.connect(self.timer_3_changed)        
 
     #%% MEAL DEF
     def mealCount(self,idx):
@@ -256,7 +271,7 @@ class WithDI(QMainWindow,utils.CLASS[0]):
     def mealReset(self):
         for i in range(9):
             self.meal_count[i].setStyleSheet(stylesheet.MEAL_BUT_OFF)
-            self.meaml_but[i] = 0
+            self.meal_but[i] = 0
     def mstringReset(self):
         self.init_meal_string_1 = "식사시간 : "
         self.init_meal_string_2 = ""
@@ -303,35 +318,35 @@ class WithDI(QMainWindow,utils.CLASS[0]):
             self.update()
 
     def update(self):
-        try:
-            s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
-            ftp = FTP(withDI.server_ip)
-            ftp.login(withDI.user_id, withDI.user_pw)
-            ftp.cwd('/html/WithDI/')
-            myfile = open('config.ini','rb')
-            ftp.storbinary('STOR '+s+'.ini', myfile )
-            myfile.close()
-            print('upload!')
-            ftp.cwd('/html/RANKING/')
-            fd = open('rank.ini','wb')
-            ftp.retrbinary("RETR " + 'rank.ini', fd.write)
-            fd.close()
-            fd = open('rank.ini','r')
-            rank = fd.readlines()
-            top = []
-            for i in range(2):
-                top.append('  - '.join(rank[-(i+1)].split(',')[1:]))
-            for i in range(len(rank)):
-                if rank[-i].split(',')[1] == self.nickname:
-                    ids = rank[-i].split(',')
-                    self.dirank.setText("{}위  - {}".format(ids[0],ids[2]))
-                    break
-                else: self.dirank.setText("+ 100위권")
-            os.remove('rank.ini')
-            self.top_1.setText(top[0])
-            self.top_2.setText(top[1])
+        # try:
+        s = time.strftime("[%Y_%m_%d_%H_%M_%S]")
+        ftp = FTP(withDI.server_ip)
+        ftp.login(withDI.user_id, withDI.user_pw)
+        ftp.cwd('/html/WithDI/')
+        myfile = open('config.ini','rb')
+        ftp.storbinary('STOR '+s+'.ini', myfile )
+        myfile.close()
+        ftp.cwd('/html/RANKING/')
+        fd = open('rank.ini','wb')
+        ftp.retrbinary("RETR " + 'rank.ini', fd.write)
+        fd.close()
+        fd = open('rank.ini','r')
+        rank = fd.readlines()
+        fd.close()
+        top = []
+        for i in range(2):
+            top.append('  - '.join(rank[-(i+1)].split(',')[1:]))
+        for i in range(len(rank)):
+            if rank[-i].split(',')[1] == self.nickname:
+                ids = rank[-i].split(',')
+                self.dirank.setText("{} 위  - {}".format(ids[0],ids[2]))
+                break
+            else: self.dirank.setText("{} 위".format(i))
+        os.remove('rank.ini')
+        self.top_1.setText(top[0])
+        self.top_2.setText(top[1])
 
-        except:pass
+        # except:pass
     def closeEvent(self, event):
         reply = QMessageBox.question(self, 'WithDI', '프로그램을 종료하시겠습니까?',
             QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
@@ -392,6 +407,36 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                         self.timer_3_txt.text(),
                         self.timer_3_select.text())
         self.Title.show()
+    
+    def timer_1_changed(self):
+        
+        self.timer_1_title.setText(self.timer_1_txt.text())
+        self.timer_1_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_1_bg.currentIndex()])
+        self.timer_1_lcd.setStyleSheet(stylesheet.WIDGET_TC_T[self.timer_1_tc.currentIndex()])
+        self.timer_1_title.setStyleSheet(stylesheet.WIDGET_TH_T[self.timer_1_tc.currentIndex()])
+        
+        idx = self.timer_1_select.currentIndex()
+        if idx == 0: 
+            self.timer_1_lcd.setText(time.strftime('%Y-%m-%d'))
+        else : 
+            self.timer_1_lcd.setText(time.strftime('%H:%M:%S'))
+            
+    def timer_2_changed(self):
+        
+        self.timer_2_title.setText(self.timer_2_txt.text())
+        self.timer_2_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_2_bg.currentIndex()])
+        self.timer_2_lcd.setStyleSheet(stylesheet.WIDGET_TC_T[self.timer_2_tc.currentIndex()])
+        self.timer_2_title.setStyleSheet(stylesheet.WIDGET_TH_T[self.timer_2_tc.currentIndex()])
+    
+    def timer_3_changed(self):
+        
+        self.timer_3_title.setText(self.timer_3_txt.text())
+        self.timer_3_lcd.setText(self.timer_3_select.text())
+        self.timer_3_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_3_bg.currentIndex()])
+        self.timer_3_lcd.setStyleSheet(stylesheet.WIDGET_TC_T[self.timer_3_tc.currentIndex()])
+        self.timer_3_title.setStyleSheet(stylesheet.WIDGET_TH_T[self.timer_3_tc.currentIndex()])        
+    
+    #%% WITH DI STARTING SETUP
 
     def refresh(self):
         # study / break / lunch time init
@@ -422,7 +467,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.nick.setText(self.nickname)
         self.addtime = "00:00:00"
 
-        self.totalt.setText(self.totaltime)
+        st = self.totaltime.split(':')
+        self.totalt.setText(st[0]+"시간 " + st[1] + "분 " + st[2] + "초")
 
         self.ptime = time.time()
         self.ctime = self.ptime
@@ -430,12 +476,11 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         except:
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.run)
-            self.timer.start(500)
+            self.timer.start(1000)
         
     def saveConfing(self):
         config = configparser.ConfigParser()    
         config.read('config.ini', encoding='utf-8') 
-        self.song = pyglet.media.Player()
         txt = self.date_output_string.text().split('%DATE%')
         config['DATE']['FORMAT'] = self.date_output_format.text().replace('%','%%')
         config['DATE']['STRING_1'] = txt[0]
@@ -477,7 +522,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         # Today 시스템 시간 활성화
         self.ptime = time.time()
         self.gt = round(self.ptime - self.ctime)
-        print(self.gt)
         self.ctime = self.ptime
         self.time_pc.setText(time.strftime("%H시 %M분 %S초"))
         self.date_pc.setText(time.strftime("%Y년 %m월 %d일"))
@@ -779,7 +823,7 @@ class TimerWidget(QDialog,utils.CLASS[1]):
                    self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)     
         # Lolo load
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
-        self.setWindowTitle('WithDI Widget') 
+        self.setWindowTitle('WithDI') 
     def start(self,idx,bc,tc,txt):
             self.idx = idx
             self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
@@ -787,7 +831,7 @@ class TimerWidget(QDialog,utils.CLASS[1]):
             self.title.setStyleSheet(stylesheet.WIDGET_TH[tc])
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.timeout)
-            self.timer.start(250)
+            self.timer.start(100)
 
             self.title.setText(txt)
 
@@ -914,7 +958,7 @@ class RankingWidget(QDialog,utils.CLASS[3]):
                    self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)       
         self.show()
         self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
-        self.setWindowTitle('WithDI')
+        self.setWindowTitle('Rank DI')
         self.nickname.setText('사용자 #'+time.strftime("%H%M%S"))
         self.no.clicked.connect(self.close)
         self.yes.clicked.connect(self.apply)
@@ -955,12 +999,14 @@ class VersionWidget(QDialog,utils.CLASS[2]):
         try:
             cv = self.cver.split('.')
             cv = (int(cv[0])*100 + int(cv[1])*10 + int(cv[2]))
+            self.progressBar.setValue(10)
             self.log.setText('서버 접속중...')
             self.sleep()
             ftp = FTP(withDI.server_ip)
             try:
                 self.log.setText('최신 버전 확인중...')
                 self.sleep()
+                self.progressBar.setValue(20)
                 ftp.login(withDI.user_id, withDI.user_pw)
                 ftp.cwd('/html/WithDIversion/')
                 ftp.retrlines('LIST') 
@@ -978,6 +1024,7 @@ class VersionWidget(QDialog,utils.CLASS[2]):
                     try:
                         self.log.setText('최신 패치파일 설치 중...')
                         self.sleep()
+                        self.progressBar.setValue(30)
                         ftp.cwd('/html/WithDIupdate/')
                         fd = open('path.exe','wb')
                         ftp.retrbinary ("RETR " + 'path.exe', fd.write)

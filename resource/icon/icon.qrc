@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>youtube.png</file>
     <file>refresh_h.png</file>
     <file>add_h.png</file>
     <file>asmr2.PNG</file>

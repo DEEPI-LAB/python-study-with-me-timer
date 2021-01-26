@@ -20,7 +20,7 @@ class Utils():
         self.uiSetup()
 
     def uiUpdate(self):
-        path = glob.glob('./resource/*.ui')
+        path = glob.glob('./resource/style/*.ui')
         for ui_path in path:
             ui_ = open(ui_path, 'r', encoding='utf-8')
             lines_ = ui_.readlines()
@@ -35,8 +35,8 @@ class Utils():
             ui_.close()
 
     def uiSetup(self):
-        FROM_CLASS = uic.loadUiType("./resource/main.ui")[0]
-        WIDGET_CLASS = uic.loadUiType("./resource/timer.ui")[0]
-        UPDATE_CLASS = uic.loadUiType("./resource/version.ui")[0]
-        RANKING_CLASS = uic.loadUiType("./resource/ranking.ui")[0]
+        FROM_CLASS = uic.loadUiType("./resource/style/main.ui")[0]
+        WIDGET_CLASS = uic.loadUiType("./resource/style/timer.ui")[0]
+        UPDATE_CLASS = uic.loadUiType("./resource/style/version.ui")[0]
+        RANKING_CLASS = uic.loadUiType("./resource/style/ranking.ui")[0]
         self.CLASS = [FROM_CLASS,WIDGET_CLASS,UPDATE_CLASS,RANKING_CLASS]

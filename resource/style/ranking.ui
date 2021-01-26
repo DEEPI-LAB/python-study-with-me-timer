@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>402</width>
-    <height>310</height>
+    <height>301</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
       <number>10</number>
      </property>
      <property name="bottomMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <item>
       <widget class="QFrame" name="gridFrame">
@@ -157,7 +157,7 @@ color :    #F2F1EF;</string>
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="icon/icon.qrc">:/icon/logo.png</pixmap>
+           <pixmap resource="../icon/icon.qrc">:/icon/logo.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -308,8 +308,9 @@ QPushButton::hover
   </layout>
  </widget>
  <resources>
+  <include location="../icon/icon.py"/>
+  <include location="../icon/icon.py"/>
   <include location="icon/icon.py"/>
-  <include location="../../../../티스토리/38번째 글/icon/icon.py"/>
  </resources>
  <connections/>
 </ui>

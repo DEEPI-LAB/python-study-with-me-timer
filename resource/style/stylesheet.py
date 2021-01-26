@@ -27,6 +27,10 @@ WIDGET_BG_STYLE2 = """
 background-color: rgb(29, 165, 255);
 border-radius: 20px;
 """
+WIDGET_BG_STYLE3 = """
+background-color: rgb(0, 0, 0,0);
+border-radius: 20px;
+"""
 WIDGET_TC_BLACK = """
 color : black;
 font: 80px "LAB디지털";
@@ -59,6 +63,62 @@ WIDGET_TH_STYLE2 = """
 color : rgb(29, 165, 255);
 font: 25px "LAB디지털";
 """
+
+
+WIDGET_BG_BLACK_T = """
+background-color: rgb(0, 0, 0);
+border-radius: 20px;
+"""
+WIDGET_BG_WHITE_T = """
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+"""
+WIDGET_BG_STYLE1_T = """
+background-color: rgb(209, 139, 209);
+border-radius: 20px;
+"""
+WIDGET_BG_STYLE2_T = """
+background-color: rgb(29, 165, 255);
+border-radius: 20px;
+"""
+WIDGET_BG_STYLE3_T = """
+background-color: rgb(0, 0, 0,0);
+border-radius: 20px;
+"""
+WIDGET_TC_BLACK_T = """
+color : black;
+font: 35px "LAB디지털";
+"""
+WIDGET_TC_WHITE_T = """
+color : rgb(255, 255, 255);
+font: 35px "LAB디지털";
+"""
+WIDGET_TC_STYLE1_T = """
+color :rgb(209, 139, 209);
+font: 35px "LAB디지털";
+"""
+WIDGET_TC_STYLE2_T = """
+color : rgb(29, 165, 255);
+font: 35px "LAB디지털";
+"""
+WIDGET_TH_BLACK_T = """
+color : black;
+font: 15px "LAB디지털";
+"""
+WIDGET_TH_WHITE_T = """
+color : rgb(255, 255, 255);
+font: 15px "LAB디지털";
+"""
+WIDGET_TH_STYLE1_T = """
+color :rgb(209, 139, 209);
+font: 15px "LAB디지털";
+"""
+WIDGET_TH_STYLE2_T = """
+color : rgb(29, 165, 255);
+font: 15px "LAB디지털";
+"""
+
+
 
 MEAL_BUT_OFF = """
 QPushButton
@@ -97,6 +157,13 @@ QPushButton
 """
 
 
-WIDGET_BG = [WIDGET_BG_BLACK,WIDGET_BG_WHITE,WIDGET_BG_STYLE1,WIDGET_BG_STYLE2]
+WIDGET_BG = [WIDGET_BG_BLACK,WIDGET_BG_WHITE,WIDGET_BG_STYLE1,WIDGET_BG_STYLE2,WIDGET_BG_STYLE3]
 WIDGET_TC = [WIDGET_TC_BLACK,WIDGET_TC_WHITE,WIDGET_TC_STYLE1,WIDGET_TC_STYLE2]
 WIDGET_TH = [WIDGET_TH_BLACK,WIDGET_TH_WHITE,WIDGET_TH_STYLE1,WIDGET_TH_STYLE2]
+
+WIDGET_BG_T = [WIDGET_BG_BLACK_T,WIDGET_BG_WHITE_T,WIDGET_BG_STYLE1_T,WIDGET_BG_STYLE2_T,WIDGET_BG_STYLE3_T]
+WIDGET_TC_T = [WIDGET_TC_BLACK_T,WIDGET_TC_WHITE_T,WIDGET_TC_STYLE1_T,WIDGET_TC_STYLE2_T]
+WIDGET_TH_T = [WIDGET_TH_BLACK_T,WIDGET_TH_WHITE_T,WIDGET_TH_STYLE1_T,WIDGET_TH_STYLE2_T]
+
+
+
