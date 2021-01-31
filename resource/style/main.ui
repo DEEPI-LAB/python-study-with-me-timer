@@ -64,7 +64,7 @@ QTabBar::tab:hover
 </string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -185,7 +185,7 @@ color :   #353F40;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/clock.png</pixmap>
+                  <pixmap>:/icon/clock.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -1189,7 +1189,7 @@ color :   #353F40;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/books.png</pixmap>
+                  <pixmap>:/icon/books.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -2289,7 +2289,7 @@ color :   #353F40;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/music.png</pixmap>
+                  <pixmap>:/icon/music.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -3636,7 +3636,7 @@ color :   #353F40;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/streaming.png</pixmap>
+                  <pixmap>:/icon/streaming.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -4364,7 +4364,7 @@ QPushButton::hover
 }</string>
                  </property>
                  <property name="text">
-                  <string>스터디 중지</string>
+                  <string>타이머 대기중</string>
                  </property>
                 </widget>
                </item>
@@ -4434,10 +4434,10 @@ QPushButton::hover
               <widget class="QWidget" name="scrollAreaWidgetContents">
                <property name="geometry">
                 <rect>
-                 <x>0</x>
+                 <x>-622</x>
                  <y>0</y>
-                 <width>1267</width>
-                 <height>436</height>
+                 <width>1582</width>
+                 <height>445</height>
                 </rect>
                </property>
                <layout class="QGridLayout" name="gridLayout_3">
@@ -4447,6 +4447,9 @@ QPushButton::hover
                    <number>25</number>
                   </property>
                   <property name="leftMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="rightMargin">
                    <number>5</number>
                   </property>
                   <item>
@@ -4505,7 +4508,7 @@ font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                          </property>
                          <property name="text">
-                          <string>Basic 타이머</string>
+                          <string>타이머 위젯</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -4621,91 +4624,6 @@ color :#353F40;</string>
                            </property>
                           </widget>
                          </item>
-                         <item row="0" column="1">
-                          <widget class="QComboBox" name="timer_1_select">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>132</width>
-                             <height>40</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>150</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">QComboBox {
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 1px 0px 1px 3px;
-    min-width: 6em;
-	padding: 5px;
-    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
-    color :#353F40;
-}
-
-QComboBox:editable {
-    background: white;
-}
-
-
-QComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 20px;
-
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-}
-
-QComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    top: 1px;
-    left: 1px;
-}</string>
-                           </property>
-                           <item>
-                            <property name="text">
-                             <string>현재 날짜</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>현재 시간</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>공부 시간</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>휴식 시간</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>식사 시간</string>
-                            </property>
-                           </item>
-                          </widget>
-                         </item>
                          <item row="1" column="0">
                           <widget class="QLabel" name="label_37">
                            <property name="sizePolicy">
@@ -4787,22 +4705,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                            </property>
                            <item>
                             <property name="text">
-                             <string>검정</string>
+                             <string>블랙</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>흰색</string>
+                             <string>화이트</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #1</string>
+                             <string>핑크</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #2</string>
+                             <string>스카이</string>
                             </property>
                            </item>
                            <item>
@@ -4893,22 +4811,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                            </property>
                            <item>
                             <property name="text">
-                             <string>검정</string>
+                             <string>블랙</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>흰색</string>
+                             <string>화이트</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #1</string>
+                             <string>핑크</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #2</string>
+                             <string>스카이</string>
                             </property>
                            </item>
                           </widget>
@@ -4996,6 +4914,91 @@ QPushButton::hover
                            </property>
                           </widget>
                          </item>
+                         <item row="0" column="1">
+                          <widget class="QComboBox" name="timer_1_select">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>132</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QComboBox {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1px 0px 1px 3px;
+    min-width: 6em;
+	padding: 5px;
+    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+    color :#353F40;
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>현재 날짜</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>현재 시간</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>공부 시간</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>휴식 시간</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>식사 시간</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
                         </layout>
                        </item>
                       </layout>
@@ -5059,7 +5062,7 @@ font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                          </property>
                          <property name="text">
-                          <string>Basic 디데이</string>
+                          <string>디데이 위젯</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -5300,22 +5303,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                            </property>
                            <item>
                             <property name="text">
-                             <string>검정</string>
+                             <string>블랙</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>흰색</string>
+                             <string>화이트</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #1</string>
+                             <string>핑크</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #2</string>
+                             <string>스카이</string>
                             </property>
                            </item>
                            <item>
@@ -5406,22 +5409,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                            </property>
                            <item>
                             <property name="text">
-                             <string>검정</string>
+                             <string>블랙</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>흰색</string>
+                             <string>화이트</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #1</string>
+                             <string>핑크</string>
                             </property>
                            </item>
                            <item>
                             <property name="text">
-                             <string>스타일 #2</string>
+                             <string>스카이</string>
                             </property>
                            </item>
                           </widget>
@@ -5574,7 +5577,7 @@ font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                            </property>
                            <property name="text">
-                            <string>Basic 타이틀</string>
+                            <string>타이틀 위젯</string>
                            </property>
                            <property name="alignment">
                             <set>Qt::AlignCenter</set>
@@ -5747,22 +5750,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                              </property>
                              <item>
                               <property name="text">
-                               <string>검정</string>
+                               <string>블랙</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>흰색</string>
+                               <string>화이트</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>스타일 #1</string>
+                               <string>핑크</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>스타일 #2</string>
+                               <string>스카이</string>
                               </property>
                              </item>
                              <item>
@@ -5853,22 +5856,22 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                              </property>
                              <item>
                               <property name="text">
-                               <string>검정</string>
+                               <string>블랙</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>흰색</string>
+                               <string>화이트</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>스타일 #1</string>
+                               <string>핑크</string>
                               </property>
                              </item>
                              <item>
                               <property name="text">
-                               <string>스타일 #2</string>
+                               <string>스카이</string>
                               </property>
                              </item>
                             </widget>
@@ -6070,7 +6073,7 @@ font: 20px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                          </property>
                          <property name="text">
-                          <string>Basic 시간표</string>
+                          <string>시간표 위젯</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -6078,7 +6081,7 @@ color :#353F40;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QFrame" name="verticalFrame_13">
+                        <widget class="QFrame" name="timer_4_frame">
                          <property name="minimumSize">
                           <size>
                            <width>0</width>
@@ -6112,10 +6115,10 @@ border-radius: 20px;</string>
                            <number>10</number>
                           </property>
                           <item>
-                           <widget class="QLabel" name="timer_1_title_8">
+                           <widget class="QLabel" name="timer_4_title">
                             <property name="styleSheet">
-                             <string notr="true">font: 15px &quot;LAB디지털&quot;;
-color: rgb(0, 0, 0)</string>
+                             <string notr="true">color :blacke;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
                             </property>
                             <property name="text">
                              <string>시간표</string>
@@ -6126,7 +6129,7 @@ color: rgb(0, 0, 0)</string>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QTableWidget" name="tableWidget">
+                           <widget class="QTableWidget" name="timer_4_table">
                             <property name="styleSheet">
                              <string notr="true">color :blacke;
 font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
@@ -6260,21 +6263,15 @@ font: 18px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                            </property>
                            <property name="text">
-                            <string>-</string>
+                            <string>타이틀</string>
                            </property>
                           </widget>
                          </item>
                          <item row="0" column="1">
-                          <widget class="QComboBox" name="timer_1_bg_8">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
+                          <widget class="QLineEdit" name="timer_4_select">
                            <property name="minimumSize">
                             <size>
-                             <width>132</width>
+                             <width>150</width>
                              <height>40</height>
                             </size>
                            </property>
@@ -6285,42 +6282,16 @@ color :#353F40;</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">QComboBox {
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 1px 0px 1px 3px;
-    min-width: 6em;
-	padding: 5px;
-    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
-    color :#353F40;
-}
-
-QComboBox:editable {
-    background: white;
-}
-
-
-QComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 20px;
-
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-}
-
-QComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    top: 1px;
-    left: 1px;
-}</string>
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;
+border-style: outset;
+border-width: 1px;
+border-color: gray;
+border-radius: 5px;</string>
+                           </property>
+                           <property name="text">
+                            <string>시간표</string>
                            </property>
                           </widget>
                          </item>
@@ -6338,12 +6309,12 @@ font: 18px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                            </property>
                            <property name="text">
-                            <string>-</string>
+                            <string>배경 색상</string>
                            </property>
                           </widget>
                          </item>
                          <item row="1" column="1">
-                          <widget class="QComboBox" name="timer_1_tc_8">
+                          <widget class="QComboBox" name="timer_4_bg">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                              <horstretch>0</horstretch>
@@ -6401,8 +6372,33 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
 }</string>
                            </property>
                            <property name="currentIndex">
-                            <number>-1</number>
+                            <number>1</number>
                            </property>
+                           <item>
+                            <property name="text">
+                             <string>블랙</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>화이트</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>핑크</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>스카이</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>투명</string>
+                            </property>
+                           </item>
                           </widget>
                          </item>
                          <item row="2" column="0">
@@ -6419,12 +6415,30 @@ font: 18px &quot;나눔스퀘어_ac Bold&quot;;
 color :#353F40;</string>
                            </property>
                            <property name="text">
+                            <string>글자 색상</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="3" column="0">
+                          <widget class="QLabel" name="label_113">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                           </property>
+                           <property name="text">
                             <string>-</string>
                            </property>
                           </widget>
                          </item>
-                         <item row="2" column="1">
-                          <widget class="QComboBox" name="timer_3_bg_2">
+                         <item row="3" column="1">
+                          <widget class="QComboBox" name="timer_4_pt">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                              <horstretch>0</horstretch>
@@ -6487,58 +6501,6 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                            </property>
                           </widget>
                          </item>
-                         <item row="3" column="0">
-                          <widget class="QLabel" name="label_113">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">padding: 5px;;
-font: 18px &quot;나눔스퀘어_ac Bold&quot;;
-color :#353F40;</string>
-                           </property>
-                           <property name="text">
-                            <string>-</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="3" column="1">
-                          <widget class="QLineEdit" name="timer_1_txt_8">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>150</width>
-                             <height>40</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>150</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">padding: 5px;;
-font: 18px &quot;나눔스퀘어_ac Bold&quot;;
-color :#353F40;
-border-style: outset;
-border-width: 1px;
-border-color: gray;
-border-radius: 5px;</string>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                          </widget>
-                         </item>
                          <item row="4" column="0" colspan="2">
                           <widget class="QPushButton" name="timer_4">
                            <property name="minimumSize">
@@ -6569,7 +6531,586 @@ QPushButton::hover
 }</string>
                            </property>
                            <property name="text">
-                            <string>준비중</string>
+                            <string>열기</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="2" column="1">
+                          <widget class="QComboBox" name="timer_4_tc">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>132</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QComboBox {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+	padding: 5px;
+    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+    color :#353F40;
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>블랙</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>화이트</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>핑크</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>스카이</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_5">
+                    <property name="minimumSize">
+                     <size>
+                      <width>290</width>
+                      <height>405</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>290</width>
+                      <height>405</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: #F2F1EF;
+border-radius:10px;</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_12">
+                     <property name="leftMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="spacing">
+                      <number>10</number>
+                     </property>
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="verticalLayout_39">
+                       <item>
+                        <widget class="QLabel" name="label_126">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">padding: 5px;;
+font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                         </property>
+                         <property name="text">
+                          <string>스탑워치 위젯</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="timer_5_frame_4">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>90</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>90</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: rgb(255,255, 255);
+border-radius: 20px;</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_40">
+                          <property name="spacing">
+                           <number>10</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>15</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>20</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>5</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>10</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="timer_5_title_4">
+                            <property name="styleSheet">
+                             <string notr="true">color :blacke;
+font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
+                            </property>
+                            <property name="text">
+                             <string>토익 모의고사</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="timer_5_lcd_4">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color : black;
+font: 35px &quot;LAB디지털&quot;;</string>
+                            </property>
+                            <property name="text">
+                             <string>02:00:00</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QFormLayout" name="formLayout_12">
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetMaximumSize</enum>
+                         </property>
+                         <property name="fieldGrowthPolicy">
+                          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                         </property>
+                         <property name="horizontalSpacing">
+                          <number>10</number>
+                         </property>
+                         <property name="verticalSpacing">
+                          <number>10</number>
+                         </property>
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="label_127">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>100</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                           </property>
+                           <property name="text">
+                            <string>타이틀</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QLineEdit" name="timer_5_select_4">
+                           <property name="minimumSize">
+                            <size>
+                             <width>150</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;
+border-style: outset;
+border-width: 1px;
+border-color: gray;
+border-radius: 5px;</string>
+                           </property>
+                           <property name="text">
+                            <string>토익 모의고사</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="0">
+                          <widget class="QLabel" name="label_128">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                           </property>
+                           <property name="text">
+                            <string>배경 색상</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="1">
+                          <widget class="QComboBox" name="timer_5_bg_4">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>132</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QComboBox {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1px 0px 1px 3px;
+    min-width: 6em;
+	padding: 5px;
+    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+    color :#353F40;
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
+                           </property>
+                           <property name="currentIndex">
+                            <number>1</number>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>블랙</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>화이트</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>핑크</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>스카이</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>투명</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
+                         <item row="2" column="0">
+                          <widget class="QLabel" name="label_129">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                           </property>
+                           <property name="text">
+                            <string>글자 색상</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="3" column="0">
+                          <widget class="QLabel" name="label_130">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;</string>
+                           </property>
+                           <property name="text">
+                            <string>타이머</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="4" column="0" colspan="2">
+                          <widget class="QPushButton" name="timer_8">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="autoFillBackground">
+                            <bool>false</bool>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QPushButton
+{
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+	background-color:#353F40;
+	border : None;
+	border-radius : 10px;
+}
+
+QPushButton::hover
+{
+	color: #F2F1EF;
+	font: 20px &quot;나눔스퀘어_ac Bold&quot;;
+	background-color:#000000;
+	border :solid;
+}</string>
+                           </property>
+                           <property name="text">
+                            <string>준비중!</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="2" column="1">
+                          <widget class="QComboBox" name="timer_5_tc_4">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>132</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QComboBox {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+	padding: 5px;
+    font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+    color :#353F40;
+}
+
+QComboBox:editable {
+    background: white;
+}
+
+
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    top: 1px;
+    left: 1px;
+}</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>블랙</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>화이트</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>핑크</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>스카이</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
+                         <item row="3" column="1">
+                          <widget class="QTimeEdit" name="timer_5_timer_4">
+                           <property name="minimumSize">
+                            <size>
+                             <width>150</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>150</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">padding: 5px;;
+font: 18px &quot;나눔스퀘어_ac Bold&quot;;
+color :#353F40;
+border-style: outset;
+border-width: 1px;
+border-color: gray;
+border-radius: 5px;</string>
+                           </property>
+                           <property name="displayFormat">
+                            <string>HH:mm:ss</string>
                            </property>
                           </widget>
                          </item>
@@ -6802,7 +7343,7 @@ QPushButton::hover
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/github.png</pixmap>
+                  <pixmap>:/icon/github.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -6857,7 +7398,7 @@ font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/tistory.png</pixmap>
+                  <pixmap>:/icon/tistory.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -6906,7 +7447,7 @@ font: 17px &quot;나눔스퀘어_ac Bold&quot;;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../icon/icon.qrc">:/icon/youtube.png</pixmap>
+                  <pixmap>:/icon/youtube.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -7036,6 +7577,7 @@ color :    #F2F1EF;</string>
   </widget>
  </widget>
  <resources>
+  <include location="../icon/icon.py"/>
   <include location="../icon/icon.py"/>
   <include location="../icon/icon.py"/>
  </resources>

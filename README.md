@@ -1,4 +1,4 @@
-# **With DI** ver - 1.0.0
+# **With DI** ver - 1.0.1
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -139,6 +139,13 @@
 - 랭킹 시스템 최적화
 - 타이머 시스템 최적화
 - 음원 재생 충돌 오류 수정
+
+### 2021-01-31 [1.0.1]
+- 시간표 위젯 추가
+- 타이머 일시 정지 버튼 추가
+- 타이머 다시 시작 버튼 추가
+- 서버 연동 데이터 전송 방식 변경
+- UI 오류 수정
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

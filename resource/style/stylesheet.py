@@ -118,7 +118,22 @@ color : rgb(29, 165, 255);
 font: 15px "LAB디지털";
 """
 
-
+TABLE_TH_BLACK_T = """
+color : black;
+font: 17px "나눔스퀘어_ac Bold";
+"""
+TABLE_TH_WHITE_T = """
+color : rgb(255, 255, 255);
+font: 17px "나눔스퀘어_ac Bold";
+"""
+TABLE_TH_STYLE1_T = """
+color :rgb(209, 139, 209);
+font: 17px "나눔스퀘어_ac Bold";
+"""
+TABLE_TH_STYLE2_T = """
+color : rgb(29, 165, 255);
+font: 17px "나눔스퀘어_ac Bold";
+"""
 
 MEAL_BUT_OFF = """
 QPushButton
@@ -165,5 +180,5 @@ WIDGET_BG_T = [WIDGET_BG_BLACK_T,WIDGET_BG_WHITE_T,WIDGET_BG_STYLE1_T,WIDGET_BG_
 WIDGET_TC_T = [WIDGET_TC_BLACK_T,WIDGET_TC_WHITE_T,WIDGET_TC_STYLE1_T,WIDGET_TC_STYLE2_T]
 WIDGET_TH_T = [WIDGET_TH_BLACK_T,WIDGET_TH_WHITE_T,WIDGET_TH_STYLE1_T,WIDGET_TH_STYLE2_T]
 
-
+TABLE_TH_T = [TABLE_TH_BLACK_T,TABLE_TH_WHITE_T,TABLE_TH_STYLE1_T,TABLE_TH_STYLE2_T]
 

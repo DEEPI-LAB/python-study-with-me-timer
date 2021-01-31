@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 1.0.0
+With DI ver. 1.0.1
 @author: Deep.I Inc. @Jongwon Kim
 Revision date: 2021-01-26
 See here for more information :
@@ -21,8 +21,8 @@ from core import withDI
 from core.Utils import Utils
 from resource.icon import icon
 from resource.style import stylesheet
-from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog, QMessageBox
-from PyQt5 import QtCore
+from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog, QMessageBox, QTableWidgetItem
+from PyQt5 import QtCore,QtWidgets
 from PyQt5 import QtGui
 
 # sys init
@@ -56,6 +56,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.addtime = '00:00:00'
         # break time  lunch time
         self.FLAG = [False,False,False]
+        self.TRIGER = False
+        self.addFLAG = False
         self.iter = 0
         # Log init
         if os.path.isdir('log') == False : os.makedirs('log')
@@ -237,10 +239,12 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timeridx = 0
         self.DDay = None
         self.Title = None
+        self.Table = None
 
         self.timer_1.clicked.connect(self.openTimer) 
         self.timer_2.clicked.connect(self.openDday) 
         self.timer_3.clicked.connect(self.openTitle)
+        self.timer_4.clicked.connect(self.openTable)
         
         # 반응형 위젯 #1
         self.timer_1_select.currentIndexChanged.connect(self.timer_1_changed)
@@ -259,9 +263,14 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timer_3_tc.currentIndexChanged.connect(self.timer_3_changed)
         self.timer_3_txt.textChanged.connect(self.timer_3_changed)        
 
+        # 반응형 위젯 #1
+        self.timer_4_select.textChanged.connect(self.timer_4_changed)
+        self.timer_4_bg.currentIndexChanged.connect(self.timer_4_changed)
+        self.timer_4_tc.currentIndexChanged.connect(self.timer_4_changed)
+
     #%% MEAL DEF
     def mealCount(self,idx):
-        if sum(self.meal_but) > 3: return
+        if sum(self.meal_but) >= 2: return
         if self.meal_but[idx] == 0:
             self.meal_count[idx].setStyleSheet(stylesheet.MEAL_BUT_ON)
             self.meal_but[idx] = 1
@@ -311,11 +320,32 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         except:pass
     # WITH DI START METHOD
     def startTimer(self):
-        if self.nickname =='' :
-            self.ranking = RankingWidget(self)
-        else : 
-            self.refresh()
-            self.update()
+        if self.FLAG[0] == True or self.TRIGER == True:
+            reply = QMessageBox.question(self, 'WithDI', '타이머가 실행중입니다. 다시 시작하겠습니까?',
+                QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                self.setWindowTitle(self.version + ' | Live 대기중' )
+                self.state.setText('Live 대기중')  
+                self.FLAG[1] = False
+                self.FLAG[2] = False
+                self.FLAG[0] = False
+                self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
+                self.current_break.setStyleSheet(stylesheet.TEXT_OFF)
+                self.current_meal.setStyleSheet(stylesheet.TEXT_OFF)
+                if self.nickname =='' :
+                    self.ranking = RankingWidget(self)
+                else : 
+                    self.refresh()
+                    self.update()
+            else: return
+        else:
+            if self.nickname =='' :
+                self.ranking = RankingWidget(self)
+            else : 
+                self.refresh()
+                self.update()
+
+            
 
     def update(self):
         # try:
@@ -365,14 +395,32 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         app.quit()
 
     def stopStudy(self):
-        self.setWindowTitle(self.version + ' | Live 대기중' )
-        self.state.setText('Live 대기중')  
-        self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
-        self.current_break.setStyleSheet(stylesheet.TEXT_OFF)
-        self.current_meal.setStyleSheet(stylesheet.TEXT_OFF)
-        self.FLAG[1] = False 
-        self.FLAG[2] = False
-        self.FLAG[0] = False
+        
+        if self.FLAG[1] == True and self.FLAG[0] == True:
+            reply = QMessageBox.question(self, 'WithDI', '타이머를 일시정지하시겠습니까?',
+                QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                self.setWindowTitle(self.version + ' | Live 일시정지' )
+                self.state.setText('Live 일시정지')  
+                self.FLAG[1] = False 
+                self.FLAG[2] = False
+                self.FLAG[0] = False
+                self.TRIGER = True
+                self.studyfinish.setText('타이머 다시 시작')
+            else: return
+        elif self.TRIGER == True:
+            reply = QMessageBox.question(self, 'WithDI', '타이머를 다시 시작하겠습니까?',
+            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                self.setWindowTitle(self.version + ' | Live 공부중' )
+                self.state.setText('Live 공부중')  
+                self.FLAG[0] = True
+                self.FLAG[1] = True
+                self.FLAG[2] = False
+                self.TRIGER = False
+                self.studyfinish.setText('타이머 일시정지')
+                # self.run()
+        
 
     #%% Widget DEF
     def openTimer(self):
@@ -407,6 +455,23 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                         self.timer_3_txt.text(),
                         self.timer_3_select.text())
         self.Title.show()
+    def openTable(self):
+        rowcount = self.study_ep.time().hour() 
+        if self.Table is not None : self.Table = None
+        self.Table = TableWidget()
+        self.Table.initTable(rowcount,
+                             self.starttime_edit.time(),
+                             self.breaktime_edit.time(),
+                             self.studytime_edit.time(),
+                             self.mealtime_edit.time(),
+                             self.meal_but)
+        self.Table.cdate = int(self.date_pc.text().split('월')[1][:-1])
+        self.Table.start(self.timer_4_bg.currentIndex(),
+                self.timer_4_tc.currentIndex(),
+                self.timer_4_select.text())
+
+        self.Table.show()
+        
     
     def timer_1_changed(self):
         
@@ -436,13 +501,19 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timer_3_lcd.setStyleSheet(stylesheet.WIDGET_TC_T[self.timer_3_tc.currentIndex()])
         self.timer_3_title.setStyleSheet(stylesheet.WIDGET_TH_T[self.timer_3_tc.currentIndex()])        
     
+    def timer_4_changed(self):
+        
+        self.timer_4_title.setText(self.timer_4_select.text())
+        self.timer_4_title.setStyleSheet(stylesheet.TABLE_TH_T[self.timer_4_tc.currentIndex()])
+        self.timer_4_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_4_bg.currentIndex()])
+        self.timer_4_table.setStyleSheet(stylesheet.TABLE_TH_T[self.timer_4_tc.currentIndex()])     
     #%% WITH DI STARTING SETUP
 
     def refresh(self):
         # study / break / lunch time init
         self.study_time_count = QtCore.QTime(0, 0, 0)             
         self.study_time_count_m = self.studytime_edit.time()   
-        
+        self.addtimes = self.study_time_count_m.toString()
         self.break_time_count = self.breaktime_edit.time()  
         self.break_time_count_m = QtCore.QTime(0, 0, 0)
         self.mtimes = []
@@ -461,6 +532,7 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.checkMealCount()
 
         self.state.setText('{}교시 준비중'.format(self.classes+1))
+        self.studyfinish.setText('타이머 일시정지')
         self.setWindowTitle(self.version + ' | Live 대기중' )
         self.tabWidget.setCurrentIndex(3)
         self.saveConfing()
@@ -512,7 +584,9 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         if self.vercheck == True : config['USER']['VERCHECK'] = '0'
         config['USER']['NICKNAME'] = self.nickname
         config['USER']['TOTAL'] = self.totaltime
-
+        if self.FLAG[0] == True and self.FLAG[1] == True and self.addFLAG == True:
+            config['USER']['CURRENT'] = self.addtimes
+        else: config['USER']['CURRENT'] = "00:00:00"
         config['SOUND']['VOL'] = str(self.sound_slider.value())
         with open('config.ini', 'w', encoding='utf-8') as configfile:
             config.write(configfile)
@@ -743,7 +817,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         pt = [int(i) for i in self.totaltime.split(':')]
         ct = [int(i) for i in self.study_time_count.toString("hh:mm:ss").split(':')]
         self.addtime = self.study_time_count.toString("hh:mm:ss")
-
         sh = pt[0]+ct[0]-at[0]
         sm = pt[1]+ct[1]-at[1]
         ss = pt[2]+ct[2]-at[2]
@@ -752,8 +825,10 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         hours,mins = divmod(sm + mins,60)
         hours = hours + sh
         self.totaltime = "{}:{}:{}".format(hours,mins,secs)
+        self.addFLAG = True
         self.saveConfing()
         self.update()
+        self.addFLAG = False
 
     def date_format_re(self):
         self.date_output_format.setText("%Y년 %m월 %d일")
@@ -950,6 +1025,144 @@ class TitleWidget(QDialog,utils.CLASS[1]):
         self.offset = None
         super().mouseReleaseEvent(event)
 
+class TableWidget(QDialog,utils.CLASS[4]):
+    def __init__(self):
+        super(TableWidget,self).__init__()
+        self.setupUi(self) 
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
+        # Lolo load
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI Widget')
+    def initTable(self,rowcount,starttime,breaktime,studytime,mealtime,mealcount):
+        self.table.setRowCount(rowcount+mealcount.count(1))
+        self.setFixedSize(450,110+(37*(rowcount+mealcount.count(1))))
+        self.tablecount = rowcount+mealcount.count(1)
+        k = 0
+        for i in range(rowcount):
+            t, mi = self.study_end_time(starttime,studytime)
+            self.table.setItem(k,0, QTableWidgetItem(str(i+1)+'교시'))
+            self.table.setItem(k,1, QTableWidgetItem(starttime.toString("hh:mm")))
+            self.table.setItem(k,2, QTableWidgetItem('~'))
+            self.table.setItem(k,3, QTableWidgetItem(t.toString("hh:mm")))
+            self.table.setItem(k,4, QTableWidgetItem(str(mi)+'분'))
+            starttime = t
+            if i == (rowcount - 1) : break
+            if mealcount[i] == 1:
+                k = k + 1 
+                t, mi = self.study_end_time(starttime,mealtime)
+                self.table.setItem(k,0, QTableWidgetItem('식사 시간'))
+                self.table.setItem(k,1, QTableWidgetItem(starttime.toString("hh:mm")))
+                self.table.setItem(k,2, QTableWidgetItem('~'))
+                self.table.setItem(k,3, QTableWidgetItem(t.toString("hh:mm")))
+                self.table.setItem(k,4, QTableWidgetItem(str(mi)+'분'))
+                starttime = t
+            else:
+                starttime, _ = self.study_end_time(starttime,breaktime)
+            k = k + 1 
+            
+        header = self.table.horizontalHeader()       
+        header.setSectionResizeMode(0,  QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1,  QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(2,  QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(3,  QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(4,  QtWidgets.QHeaderView.ResizeToContents)
+        self.table.setItemDelegate( AlignDelegate(self.table))
+        self.table.update()
+        self.cdate = None
+        # self.timer = QtCore.QTimer(self)
+        # self.timer.timeout.connect(self.run)
+        # self.timer.start(1000)
+    # def run(self):
+    #     if self.cdate is None : return
+    #     ctime = datetime.now().hour,datetime.now().minute
+    #     for i in range(self.tablecount):
+    #         stime = [int(ii) for ii in self.table.item(i,1).text().split(':')]
+    #         etime = [int(ii) for ii in self.table.item(i,3).text().split(':')]
+    #         # 0 ~ 24시
+    #         if (self.time2int(stime) - self.time2int(ctime) <= 0) and \
+    #             (self.time2int(etime) - self.time2int(ctime) >= 0) and \
+    #                 (datetime.now().day - self.cdate) == 0:
+    #                     for j in range(5):
+    #                         self.table.item(i,j).setBackground(QtGui.QColor(125,125,125))
+    #                     break
+    #         # 24시 시작 0시 종료 타이머는 24시 
+    #         if (self.time2int(stime) - self.time2int(ctime) <= 0) and \
+    #             (self.time2int(etime) - self.time2int(ctime) <= 0) and \
+    #                 (datetime.now().day - self.cdate) == 0:
+    #                     for j in range(5):
+    #                         self.table.item(i,j).setBackground(QtGui.QColor(125,125,125))
+    #                     break
+            
+    #         # 24시 시작 0시 종료 타이머는 0시 
+    #         if (self.time2int(stime) - self.time2int(ctime) >= 0) and \
+    #             (self.time2int(etime) - self.time2int(ctime) >= 0) and \
+    #                 (datetime.now().day - self.cdate) != 0:
+    #                     for j in range(5):
+    #                         self.table.item(i,j).setBackground(QtGui.QColor(125,125,125))
+    #                     break
+                    
+            # if (stime[0] - ctime[0]) > 0  
+            
+        #     s = datetime.(int(stime[0])
+            
+        #     print(stime)
+        #     print(etime)
+            # x = time2-time1
+            # x = time2-time4
+            
+    def start(self,bc,tc,txt):
+            self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
+            self.table.setStyleSheet(stylesheet.TABLE_TH_T[tc])
+            self.title.setStyleSheet(stylesheet.TABLE_TH_T[tc])
+            self.title.setText(txt)
+            
+    # Drag Event Method
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
+
+    def study_end_time(self,starttime,studytime):
+
+        # 공부시간
+        sh = studytime.hour()
+        sm = studytime.minute()
+        ss = studytime.second()
+        k = sm + + sh*60
+        sh = starttime.hour() + sh
+        sm = starttime.minute() + sm
+        ss = starttime.second() + ss
+
+        mins,secs = divmod(ss,60)
+        
+        hours,mins = divmod(sm + mins,60)
+        hours = hours + sh
+
+        days,hours = divmod(hours,24)
+
+        return QtCore.QTime(hours,mins),k
+    def time2int(self,times):
+        
+        h = times[0] * 60
+        return h + times[1]
+        
+        
+        
+            
+            
+            
 class RankingWidget(QDialog,utils.CLASS[3]):
     def __init__(self,parent):    
         super(RankingWidget,self).__init__(parent)
@@ -1047,6 +1260,11 @@ class VersionWidget(QDialog,utils.CLASS[2]):
                 ftp.close()
         except: self.log.setText('WithDI 프로그램 오류가 발생했습니다.')
 
+class AlignDelegate(QtWidgets.QStyledItemDelegate):
+    def initStyleOption(self, option, index):
+        super(AlignDelegate, self).initStyleOption(option, index)
+        option.displayAlignment = QtCore.Qt.AlignCenter
+        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyle('Fusion')

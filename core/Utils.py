@@ -39,4 +39,5 @@ class Utils():
         WIDGET_CLASS = uic.loadUiType("./resource/style/timer.ui")[0]
         UPDATE_CLASS = uic.loadUiType("./resource/style/version.ui")[0]
         RANKING_CLASS = uic.loadUiType("./resource/style/ranking.ui")[0]
-        self.CLASS = [FROM_CLASS,WIDGET_CLASS,UPDATE_CLASS,RANKING_CLASS]
+        TABLE_CLASS = uic.loadUiType("./resource/style/table.ui")[0]
+        self.CLASS = [FROM_CLASS,WIDGET_CLASS,UPDATE_CLASS,RANKING_CLASS,TABLE_CLASS]
