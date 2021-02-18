@@ -69,8 +69,17 @@ font: 20px &quot;나눔스퀘어_ac Bold&quot;;</string>
 font: 17px &quot;나눔스퀘어_ac Bold&quot;;
 background-color: rgb(0, 0, 0);</string>
         </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::DropOnly</enum>
+        </property>
+        <property name="defaultDropAction">
+         <enum>Qt::TargetMoveAction</enum>
+        </property>
         <property name="selectionMode">
-         <enum>QAbstractItemView::NoSelection</enum>
+         <enum>QAbstractItemView::ExtendedSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectItems</enum>
         </property>
         <property name="showGrid">
          <bool>false</bool>

@@ -1,4 +1,4 @@
-# **With DI** ver - 1.0.1
+# **With DI** ver - 1.1.0
 
 ![test](https://blog.kakaocdn.net/dn/bFI2Wu/btqO3z7Sw9s/9xuFEoZQKErjEhw7KBtVA1/img.png)
 
@@ -146,6 +146,13 @@
 - 타이머 다시 시작 버튼 추가
 - 서버 연동 데이터 전송 방식 변경
 - UI 오류 수정
+
+### 2021-02-18 [1.1.0]
+- 스톱 워치 위젯 추가
+- 스톱 워치 텍스트 생성 기능 추가
+- 카운트 업 & 다운 텍스트 기능 추가
+- 텍스트 파일명 수정
+- UI 개선
 
 ## **Contact Us**
 blog : https://deep-eye.tistory.com<br/>

@@ -37,6 +37,12 @@
        <property name="styleSheet">
         <string notr="true">font: 15px &quot;나눔스퀘어_ac Bold&quot;;</string>
        </property>
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::DropOnly</enum>
+       </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>50</number>
        </attribute>

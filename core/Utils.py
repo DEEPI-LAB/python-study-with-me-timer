@@ -13,9 +13,11 @@ class Utils():
         self.bells = [dirs+"/resource/sound/bell1.mp3",
                       dirs+"/resource/sound/bell2.mp3",
                       dirs+"/resource/sound/bell3.mp3"]
-        self.texts = ['current_date','current_time',
-                      'study_time','break_time',
-                      'meal_time']
+        self.texts = ['[BASIC]_DATE','[BASIC]_TIME',
+                      '[STUDY]_TOTAL','[BREAK]_TIME',
+                      '[MEAL]_TIME',
+                      '[STUDY]_UP','[STUDY]_DOWN',
+                      '[WIDGET]_WATCH']
         self.uiUpdate()
         self.uiSetup()
 
@@ -40,4 +42,5 @@ class Utils():
         UPDATE_CLASS = uic.loadUiType("./resource/style/version.ui")[0]
         RANKING_CLASS = uic.loadUiType("./resource/style/ranking.ui")[0]
         TABLE_CLASS = uic.loadUiType("./resource/style/table.ui")[0]
-        self.CLASS = [FROM_CLASS,WIDGET_CLASS,UPDATE_CLASS,RANKING_CLASS,TABLE_CLASS]
+        WATCH_CLASS = uic.loadUiType("./resource/style/watch.ui")[0]
+        self.CLASS = [FROM_CLASS,WIDGET_CLASS,UPDATE_CLASS,RANKING_CLASS,TABLE_CLASS,WATCH_CLASS]

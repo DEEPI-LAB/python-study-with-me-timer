@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-With DI ver. 1.0.1
+With DI ver. 1.1.0
 @author: Deep.I Inc. @Jongwon Kim
-Revision date: 2021-01-26
+Revision date: 2021-02-18
 See here for more information :
     https://deep-eye.tistory.com
     https://deep-i.net
@@ -235,16 +235,18 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timer_2_lcd.setText("D-DAY 100")
         self.timer_3_lcd.setText(self.timer_3_select.text())
 
-        self.Timer = [None for i in range(5)]
         self.timeridx = 0
+        self.Timer = [None for i in range(5)]
         self.DDay = None
         self.Title = None
         self.Table = None
+        self.Watch = None
 
         self.timer_1.clicked.connect(self.openTimer) 
         self.timer_2.clicked.connect(self.openDday) 
         self.timer_3.clicked.connect(self.openTitle)
         self.timer_4.clicked.connect(self.openTable)
+        self.timer_5.clicked.connect(self.openWatch)
         
         # 반응형 위젯 #1
         self.timer_1_select.currentIndexChanged.connect(self.timer_1_changed)
@@ -257,16 +259,22 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timer_2_tc.currentIndexChanged.connect(self.timer_2_changed)
         self.timer_2_txt.textChanged.connect(self.timer_2_changed)
 
-        # 반응형 위젯 #1
+        # 반응형 위젯 #3
         self.timer_3_select.textChanged.connect(self.timer_3_changed)
         self.timer_3_bg.currentIndexChanged.connect(self.timer_3_changed)
         self.timer_3_tc.currentIndexChanged.connect(self.timer_3_changed)
         self.timer_3_txt.textChanged.connect(self.timer_3_changed)        
 
-        # 반응형 위젯 #1
+        # 반응형 위젯 #4
         self.timer_4_select.textChanged.connect(self.timer_4_changed)
         self.timer_4_bg.currentIndexChanged.connect(self.timer_4_changed)
         self.timer_4_tc.currentIndexChanged.connect(self.timer_4_changed)
+        
+        # 반응형 위젯 #5
+        self.timer_5_select.textChanged.connect(self.timer_5_changed)
+        self.timer_5_bg.currentIndexChanged.connect(self.timer_5_changed)
+        self.timer_5_tc.currentIndexChanged.connect(self.timer_5_changed)        
+        self.timer_5_timer.timeChanged.connect(self.timer_5_changed)
 
     #%% MEAL DEF
     def mealCount(self,idx):
@@ -471,7 +479,16 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                 self.timer_4_select.text())
 
         self.Table.show()
-        
+
+    def openWatch(self):
+        if self.Watch is not None : self.Watch = None
+        self.Watch = WatchWidget()
+        self.Watch.start( 
+                         self.timer_5_bg.currentIndex(),
+                         self.timer_5_tc.currentIndex(),
+                         self.timer_5_select.text(),
+                         self.timer_5_timer.time())
+        self.Watch.show()        
     
     def timer_1_changed(self):
         
@@ -507,20 +524,30 @@ class WithDI(QMainWindow,utils.CLASS[0]):
         self.timer_4_title.setStyleSheet(stylesheet.TABLE_TH_T[self.timer_4_tc.currentIndex()])
         self.timer_4_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_4_bg.currentIndex()])
         self.timer_4_table.setStyleSheet(stylesheet.TABLE_TH_T[self.timer_4_tc.currentIndex()])     
+        
+        
+    def timer_5_changed(self):
+        
+        self.timer_5_title.setText(self.timer_5_select.text())
+        self.timer_5_title.setStyleSheet(stylesheet.WIDGET_TH_T[self.timer_5_tc.currentIndex()])
+        self.timer_5_frame.setStyleSheet(stylesheet.WIDGET_BG_T[self.timer_5_bg.currentIndex()])    
+        self.timer_5_lcd.setStyleSheet(stylesheet.WIDGET_TC_T[self.timer_5_tc.currentIndex()])
+        self.timer_5_lcd.setText(self.timer_5_timer.time().toString("hh:mm:ss"))
     #%% WITH DI STARTING SETUP
 
     def refresh(self):
         # study / break / lunch time init
-        self.study_time_count = QtCore.QTime(0, 0, 0)             
-        self.study_time_count_m = self.studytime_edit.time()   
+        self.study_time_count = QtCore.QTime(0, 0, 0)           # 타이머 토탈             
+        self.study_time_count_m = self.studytime_edit.time()    # 타이머 다운
+        self.study_time_count_n = QtCore.QTime(0, 0, 0)         # 타이머 업 
         self.addtimes = self.study_time_count_m.toString()
-        self.break_time_count = self.breaktime_edit.time()  
-        self.break_time_count_m = QtCore.QTime(0, 0, 0)
+        self.break_time_count = self.breaktime_edit.time()      # 타이머 다운
+        self.break_time_count_m = QtCore.QTime(0, 0, 0)         # 타이머 업
         self.mtimes = []
         for ii,i in enumerate(self.meal_but):
             if i == 1:self.mtimes.append(ii+1)
-        self.meal_time_count = self.mealtime_edit.time()
-        self.meal_time_count_m = QtCore.QTime(0,0,0)
+        self.meal_time_count = self.mealtime_edit.time()        # 타이머 다운
+        self.meal_time_count_m = QtCore.QTime(0,0,0)            # 타이머 업
         
         self.ep = self.study_ep.time().hour()
         self.starttime = self.starttime_edit.time()
@@ -631,6 +658,7 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                 self.current_study.setStyleSheet(stylesheet.TEXT_ON)
                 self.state.setText('{}교시 진행중'.format(self.classes+1))
                 self.study_time_count = self.study_time_count.addSecs(self.gt)
+                self.study_time_count_n = self.study_time_count_n.addSecs(self.gt)
                 self.study_time_count_m = self.study_time_count_m.addSecs(-self.gt)
                 self.checkStudyTime()
 
@@ -639,8 +667,8 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                     # 교시 업
                     self.FLAG[2] = True
                     self.classes += 1
-                    self.study_time_count_m = self.studytime_edit.time() 
-                    self.bh = 0
+                    self.study_time_count_m = self.studytime_edit.time()
+                    self.study_time_count_n = QtCore.QTime(0, 0, 0) 
                     self.current_study.setStyleSheet(stylesheet.TEXT_OFF)
                     try:
                         self.song = pyglet.media.Player()
@@ -663,7 +691,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
                 except:self.mt = 0
                 if self.mt != self.classes and self.ep >= self.classes: 
                     self.state.setText('{}교시 종료'.format(self.classes))
-                    self.bh += 1
                     self.break_time_count =  self.break_time_count.addSecs(-self.gt)
                     self.break_time_count_m =  self.break_time_count_m.addSecs(self.gt)
 
@@ -728,12 +755,27 @@ class WithDI(QMainWindow,utils.CLASS[0]):
     def checkStudyTime(self):
         self.current_study.setText(self.study_time_count.toString("hh시간 mm분 ss초"))
         try:
-            t = self.study_time_count.toString(self.study_output_format.text())
-            xx = self.study_output_string.text().split('%')
+            times = self.study_time_count.toString(self.study_output_format.text())
+            texts = self.study_output_string.text().split('%')
     
             c_date = open('./log/'+ utils.texts[2] + '.txt', mode='wt', encoding='utf-8')
-            c_date.write(xx[0]+t+xx[2])
+            c_date.write(texts[0]+times+texts[2])
             c_date.close()
+
+            times = self.study_time_count_m.toString(self.study_output_format.text())
+            texts = self.study_output_string.text().split('%')
+    
+            c_date = open('./log/'+ utils.texts[6] + '.txt', mode='wt', encoding='utf-8')
+            c_date.write(texts[0]+times+texts[2])
+            c_date.close()            
+            
+            times = self.study_time_count_n.toString(self.study_output_format.text())
+            texts = self.study_output_string.text().split('%')
+    
+            c_date = open('./log/'+ utils.texts[5] + '.txt', mode='wt', encoding='utf-8')
+            c_date.write(texts[0]+times+texts[2])
+            c_date.close()             
+            
         except:pass
     def checkBreakCount(self):
         self.current_break.setText(self.break_time_count_m.toString("hh시간 mm분 ss초"))
@@ -846,7 +888,6 @@ class WithDI(QMainWindow,utils.CLASS[0]):
     def time_string_re(self):
         self.time_output_string.setText("지금은 %TIME% 입니다.")
         self.timeStringChage()
-
 
     def study_string_re(self):
         self.init_study_string_1 = "공부시간 : "
@@ -1158,7 +1199,81 @@ class TableWidget(QDialog,utils.CLASS[4]):
         h = times[0] * 60
         return h + times[1]
         
+
+class WatchWidget(QDialog,utils.CLASS[5]):
+    def __init__(self):
+        super(WatchWidget,self).__init__()
+        self.setupUi(self) 
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlags(
+                   self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)     
+
+        self.setWindowIcon(QtGui.QIcon('./resource/icon/logo.png'))
+        self.setWindowTitle('WithDI') 
+
+        self.trigger = False
+        self.retrigger = False
+        self.button.clicked.connect(self.watch)
         
+    def start(self,bc,tc,txt,ti):
+            self.frame.setStyleSheet(stylesheet.WIDGET_BG[bc])
+            self.lcd.setStyleSheet(stylesheet.WIDGET_TC[tc])
+            self.title.setStyleSheet(stylesheet.WIDGET_TH[tc])
+            self.lcd.setText(ti.toString("hh:mm:ss"))
+            self.stoptime = ti
+            self.title.setText(txt)
+
+            
+    
+    def watch(self):
+            if self.trigger == False and self.retrigger == False:
+                self.timer = QtCore.QTimer(self)
+                self.timer.timeout.connect(self.timeout)
+                self.timer.start(1000) 
+                self.trigger = True
+                self.button.setText('일시정지')
+            elif self.trigger == False and self.retrigger != False: 
+                self.trigger = True
+                self.button.setText('일시정지')
+            else: 
+                self.trigger = False
+                self.retrigger = True
+                self.button.setText('시작')
+        
+    # Drag Event Method
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.offset = event.pos()
+        else:
+            super().mousePressEvent(event)
+    def mouseMoveEvent(self, event):
+        if self.offset is not None and event.buttons() == QtCore.Qt.LeftButton:
+            self.move(self.pos() + event.pos() - self.offset)
+        else:
+            super().mouseMoveEvent(event)
+    def mouseReleaseEvent(self, event):
+        self.offset = None
+        super().mouseReleaseEvent(event)
+
+    def timeout(self):
+        try:
+            if self.trigger == True:
+                c_time = open('./log/'+ utils.texts[7] + '.txt', mode='wt', encoding='utf-8')
+    
+                self.stoptime = self.stoptime.addSecs(-1)
+                self.lcd.setText(self.stoptime.toString("hh:mm:ss"))
+                c_time.write(self.stoptime.toString('hh:mm:ss'))
+                c_time.close()
+        except:pass
+
+    # def str2time(self,x):
+    #     for ii, i in enumerate(x):
+    #         try: 
+    #             int(i)
+    #             return x[ii:]
+    #             break
+    #         except:pass        
         
             
             
